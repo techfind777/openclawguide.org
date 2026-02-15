@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenClaw Guide — Templates, Tutorials & Resources for AI Agents</title>
+<meta name="description" content="Free SOUL.md templates, deployment checklists, and step-by-step guides for building AI agents with OpenClaw. Get started in 30 minutes.">
+<meta name="keywords" content="OpenClaw, SOUL.md, AI agent, templates, guide, tutorial, deployment, security, cheat sheet">
+<link rel="canonical" href="https://openclawguide.org/">
+<meta property="og:title" content="OpenClaw Guide — Templates, Tutorials & Resources">
+<meta property="og:description" content="Free SOUL.md templates, deployment checklists, and guides for building AI agents with OpenClaw.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://openclawguide.org/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OpenClaw Guide — Templates & Resources for AI Agents">
+<meta name="twitter:description" content="Free SOUL.md templates, deployment checklists, and step-by-step guides for OpenClaw.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.7;background:#fafbfc}
+a{color:#e94560;text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#0f3460 0%,#16213e 100%);color:white;padding:80px 0 60px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,48px);margin-bottom:12px;letter-spacing:-0.5px}
+.hero p{font-size:18px;opacity:0.9;max-width:600px;margin:0 auto 30px}
+.hero-cta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;padding:14px 28px;border-radius:8px;font-weight:700;font-size:16px;transition:transform 0.2s}
+.btn:hover{transform:translateY(-2px);text-decoration:none}
+.btn-primary{background:#e94560;color:white}
+.btn-secondary{background:rgba(255,255,255,0.15);color:white;border:2px solid rgba(255,255,255,0.3)}
+
+/* Free Section */
+.free-section{padding:60px 0;background:white}
+.free-section h2{font-size:32px;text-align:center;margin-bottom:40px;color:#0f3460}
+.free-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.free-card{background:#f0f7ff;border-radius:12px;padding:28px;border:2px solid #d0e3ff;text-align:center}
+.free-card .badge{display:inline-block;background:#28a745;color:white;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:12px}
+.free-card h3{font-size:20px;margin-bottom:8px;color:#0f3460}
+.free-card p{font-size:14px;color:#555;margin-bottom:16px}
+.free-card .btn{font-size:14px;padding:10px 20px}
+
+/* Products */
+.products{padding:60px 0;background:#fafbfc}
+.products h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
+.products .subtitle{text-align:center;color:#666;margin-bottom:40px;font-size:16px}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.product-card{background:white;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid #eee;transition:transform 0.2s,box-shadow 0.2s}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.1)}
+.product-card .price{font-size:28px;font-weight:800;color:#e94560;margin-bottom:8px}
+.product-card h3{font-size:18px;margin-bottom:8px;color:#16213e}
+.product-card p{font-size:13px;color:#666;margin-bottom:16px;line-height:1.5}
+.product-card .btn{width:100%;text-align:center;font-size:14px;padding:10px}
+
+/* Articles */
+.articles{padding:60px 0;background:white}
+.articles h2{font-size:32px;text-align:center;margin-bottom:40px;color:#0f3460}
+.article-list{display:grid;gap:16px;max-width:700px;margin:0 auto}
+.article-item{display:block;padding:16px 20px;background:#f8f9fa;border-radius:8px;color:#1a1a2e;font-weight:500;transition:background 0.2s}
+.article-item:hover{background:#e8f0fe;text-decoration:none}
+.article-item .tag{font-size:11px;background:#0f3460;color:white;padding:2px 8px;border-radius:4px;margin-right:8px}
+
+/* Footer */
+.footer{background:#16213e;color:rgba(255,255,255,0.7);padding:40px 0;text-align:center;font-size:14px}
+.footer a{color:#e94560}
+
+/* SEO content */
+.seo-content{padding:60px 0;background:#fafbfc}
+.seo-content h2{font-size:28px;color:#0f3460;margin-bottom:20px}
+.seo-content h3{font-size:20px;color:#16213e;margin:24px 0 12px}
+.seo-content p{color:#444;margin-bottom:16px;max-width:700px}
+.seo-content ul{margin:0 0 16px 24px;color:#444}
+.seo-content li{margin-bottom:8px}
+.seo-content code{background:#e8f0fe;padding:2px 6px;border-radius:4px;font-size:14px}
+.seo-content pre{background:#1a1a2e;color:#e0e0e0;padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:13px}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+<div class="container">
+<h1>🦞 OpenClaw Guide</h1>
+<p>Free templates, tutorials, and resources for building powerful AI agents with OpenClaw</p>
+<div class="hero-cta">
+<a href="https://leimspire20.gumroad.com/l/kqbdva" class="btn btn-primary">Get Free Templates →</a>
+<a href="#guides" class="btn btn-secondary">Browse Guides</a>
+</div>
+</div>
+</section>
+
+<!-- Free Resources -->
+<section class="free-section">
+<div class="container">
+<h2>🆓 Free Resources</h2>
+<div class="free-grid">
+<div class="free-card">
+<span class="badge">FREE</span>
+<h3>5 SOUL.md Templates</h3>
+<p>Ready-to-use agent templates: Personal Assistant, Research Analyst, Content Creator, Code Reviewer, Monitor Agent. Just customize and deploy.</p>
+<a href="https://leimspire20.gumroad.com/l/kqbdva" class="btn btn-primary">Download Free →</a>
+</div>
+<div class="free-card">
+<span class="badge">FREE</span>
+<h3>Deployment Checklist</h3>
+<p>7-phase checklist covering identity design, security hardening, tool integration, scheduling, testing, and monitoring. Printable PDF.</p>
+<a href="https://leimspire20.gumroad.com/l/vvwlnu" class="btn btn-primary">Download Free →</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Paid Products -->
+<section class="products" id="guides">
+<div class="container">
+<h2>📚 Complete Guides & Templates</h2>
+<p class="subtitle">Everything you need to build, deploy, and secure production AI agents</p>
+<div class="product-grid">
+<div class="product-card">
+<div class="price">$39</div>
+<h3>The OpenClaw Playbook</h3>
+<p>Step-by-step from installation to production deployment. Configuration, channels, scheduling, monitoring, and advanced patterns.</p>
+<a href="https://leimspire20.gumroad.com/l/obdab" class="btn btn-primary">Get the Playbook →</a>
+</div>
+<div class="product-card">
+<div class="price">$29</div>
+<h3>AI Agent Building Guide</h3>
+<p>Architecture, design patterns, and best practices for building agents that actually work. Identity, memory, tools, and multi-agent systems.</p>
+<a href="https://leimspire20.gumroad.com/l/hyuzc" class="btn btn-primary">Get the Guide →</a>
+</div>
+<div class="product-card">
+<div class="price">$29</div>
+<h3>Security Hardening Guide</h3>
+<p>Complete security framework for AI agent deployments. Authentication, sandboxing, prompt injection defense, monitoring, and compliance.</p>
+<a href="https://leimspire20.gumroad.com/l/avdtrl" class="btn btn-primary">Secure Your Agent →</a>
+</div>
+<div class="product-card">
+<div class="price">$19</div>
+<h3>20 SOUL.md Templates</h3>
+<p>Industry-specific agent templates with advanced patterns. Multi-agent workflows, memory management, and escalation frameworks.</p>
+<a href="https://leimspire20.gumroad.com/l/cqaqpm" class="btn btn-primary">Get Templates →</a>
+</div>
+<div class="product-card">
+<div class="price">$19</div>
+<h3>Prompt Engineering for Agents</h3>
+<p>The definitive guide to writing agent instructions. Identity design, decision frameworks, output contracts, and debugging.</p>
+<a href="https://leimspire20.gumroad.com/l/zvrmie" class="btn btn-primary">Master Prompts →</a>
+</div>
+<div class="product-card">
+<div class="price">$19</div>
+<h3>100 AI PM Prompts</h3>
+<p>Advanced prompt library for AI product managers. Strategy, user research, roadmapping, stakeholder communication, and more.</p>
+<a href="https://leimspire20.gumroad.com/l/urfgl" class="btn btn-primary">Get Prompts →</a>
+</div>
+<div class="product-card">
+<div class="price">$9</div>
+<h3>OpenClaw Cheat Sheet</h3>
+<p>2-page printable quick reference. Commands, config files, SOUL.md template, cron jobs, security checklist, troubleshooting.</p>
+<a href="https://leimspire20.gumroad.com/l/pthhwp" class="btn btn-primary">Get Cheat Sheet →</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Articles -->
+<section class="articles">
+<div class="container">
+<h2>📝 Latest Tutorials</h2>
+<div class="article-list">
+<a class="article-item" href="https://dev.to/techfind777/how-to-build-a-247-ai-assistant-that-actually-remembers-you-40n"><span class="tag">Tutorial</span>How to Build a 24/7 AI Assistant That Actually Remembers You</a>
+<a class="article-item" href="https://dev.to/techfind777/soulmd-the-secret-to-ai-agents-that-dont-suck-5apo"><span class="tag">Best Practice</span>SOUL.md: The Secret to AI Agents That Don't Suck</a>
+<a class="article-item" href="https://dev.to/techfind777/5-soulmd-patterns-i-use-in-every-ai-agent-1l2e"><span class="tag">Patterns</span>5 SOUL.md Patterns I Use in Every AI Agent</a>
+<a class="article-item" href="https://dev.to/techfind777/why-your-ai-agent-keeps-failing-and-how-to-fix-it-1i95"><span class="tag">Debug</span>Why Your AI Agent Keeps Failing (And How to Fix It)</a>
+<a class="article-item" href="https://dev.to/techfind777/how-to-automate-your-workflow-with-ai-agents-no-code-required-77k"><span class="tag">No Code</span>How to Automate Your Workflow with AI Agents (No Code Required)</a>
+<a class="article-item" href="https://dev.to/techfind777/the-complete-checklist-for-securing-your-ai-agent-deployment-567n"><span class="tag">Security</span>The Complete Checklist for Securing Your AI Agent Deployment</a>
+<a class="article-item" href="https://dev.to/techfind777/ai-agent-memory-management-the-complete-guide-55h9"><span class="tag">Memory</span>AI Agent Memory Management: The Complete Guide</a>
+<a class="article-item" href="https://dev.to/techfind777/building-multi-agent-systems-when-one-ai-agent-is-not-enough-1c2e"><span class="tag">Advanced</span>Building Multi-Agent Systems: When One Agent Is Not Enough</a>
+<a class="article-item" href="https://dev.to/techfind777/openclaw-vs-langchain-vs-crewai-which-ai-agent-framework-should-you-use-4hod"><span class="tag">Compare</span>OpenClaw vs LangChain vs CrewAI: Which Should You Use?</a>
+<a class="article-item" href="https://dev.to/techfind777/7-ai-agent-use-cases-that-are-actually-making-money-in-2026-38n4"><span class="tag">Business</span>7 AI Agent Use Cases Actually Making Money in 2026</a>
+<a class="article-item" href="https://dev.to/techfind777/prompt-engineering-for-ai-agents-is-not-what-you-think-580"><span class="tag">Prompts</span>Prompt Engineering for AI Agents Is Not What You Think</a>
+<a class="article-item" href="https://dev.to/techfind777/i-built-a-247-ai-content-machine-here-is-the-exact-setup-29pj"><span class="tag">Case Study</span>I Built a 24/7 AI Content Machine (Here Is the Exact Setup)</a>
+</div>
+</div>
+</section>
+
+<!-- SEO Content -->
+<section class="seo-content">
+<div class="container">
+<h2>Getting Started with OpenClaw</h2>
+<p>OpenClaw is an open-source AI agent framework that lets you build autonomous AI assistants using simple markdown configuration files. With over 150,000 GitHub stars, it has become the most popular platform for personal AI agents.</p>
+
+<h3>What is SOUL.md?</h3>
+<p>SOUL.md is the core configuration file that defines your AI agent's identity, personality, expertise, and behavior rules. A well-written SOUL.md is the difference between a useful agent and a generic chatbot. It includes:</p>
+<ul>
+<li><strong>Identity</strong> — Role, expertise, communication style</li>
+<li><strong>Decision Frameworks</strong> — How the agent reasons through problems</li>
+<li><strong>Output Contracts</strong> — Consistent response formats</li>
+<li><strong>Memory Rules</strong> — What to remember and what to forget</li>
+<li><strong>Safety Boundaries</strong> — What the agent must never do</li>
+</ul>
+
+<h3>Quick Start</h3>
+<pre><code># Install OpenClaw
+npm install -g openclaw
+
+# Initialize your first agent
+openclaw init
+
+# Start the gateway
+openclaw gateway start</code></pre>
+<p>Your agent is now running. Customize the SOUL.md file to define its behavior, connect a messaging channel (Telegram, Discord, Slack, etc.), and set up scheduled tasks with cron jobs.</p>
+
+<h3>Why Use Templates?</h3>
+<p>Writing a SOUL.md from scratch takes time and experimentation. Templates give you battle-tested patterns that work out of the box. Our <a href="https://leimspire20.gumroad.com/l/kqbdva">free starter pack</a> includes 5 templates for the most common agent types.</p>
+
+<h3>Security Matters</h3>
+<p>AI agents with tool access (shell commands, file system, web browsing) need proper security hardening. The most common mistakes: running as root (60% of deployments), API keys in config files (45%), and no monitoring (80%). Our <a href="https://leimspire20.gumroad.com/l/vvwlnu">free deployment checklist</a> covers all 7 security phases.</p>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<p>OpenClaw Guide — Independent resource for the OpenClaw community</p>
+<p style="margin-top:8px">Built by <a href="https://leimspire20.gumroad.com">Techfind</a> · <a href="https://dev.to/techfind777">Dev.to</a> · <a href="https://github.com/openclaw/openclaw/discussions">GitHub</a></p>
+</div>
+</footer>
+
+</body>
+</html>
