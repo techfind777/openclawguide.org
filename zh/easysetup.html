@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenClaw EasySetup — One-Command AI Agent Installation</title>
+<meta name="description" content="Install OpenClaw in 10 minutes with zero technical knowledge. One command does everything: install, configure, secure, and launch your AI agent.">
+<link rel="canonical" href="https://openclawguide.org/easysetup">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.7;background:#fafbfc}
+a{color:#e94560;text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+.container{max-width:800px;margin:0 auto;padding:0 24px}
+nav{background:#0f3460;padding:12px 0}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+nav a{color:white;font-weight:700;font-size:18px}
+nav a:hover{text-decoration:none}
+nav ul{list-style:none;display:flex;gap:20px}
+nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}
+.hero{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:80px 0 60px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,44px);margin-bottom:12px}
+.hero p{font-size:18px;opacity:0.9;max-width:600px;margin:0 auto 30px}
+.hero code{background:rgba(255,255,255,0.15);padding:12px 24px;border-radius:8px;font-size:16px;display:inline-block;margin:10px 0;font-family:'SF Mono',Monaco,monospace;letter-spacing:0.5px;cursor:pointer;border:1px solid rgba(255,255,255,0.2)}
+.hero code:hover{background:rgba(255,255,255,0.25)}
+.hero .note{font-size:13px;opacity:0.7;margin-top:8px}
+section{padding:60px 0}
+section:nth-child(even){background:white}
+h2{font-size:28px;text-align:center;margin-bottom:30px;color:#0f3460}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:20px}
+.feature{background:white;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.05);border:1px solid #eee}
+.feature .icon{font-size:32px;margin-bottom:12px}
+.feature h3{font-size:18px;margin-bottom:8px;color:#0f3460}
+.feature p{font-size:14px;color:#555}
+.steps{max-width:600px;margin:0 auto;counter-reset:s}
+.step-item{padding:20px 20px 20px 70px;position:relative;margin-bottom:16px;background:white;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.step-item::before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:20px;width:36px;height:36px;background:#0f3460;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
+.step-item h3{font-size:16px;margin-bottom:4px;color:#16213e}
+.step-item p{font-size:14px;color:#555}
+.pricing{text-align:center;max-width:500px;margin:0 auto}
+.price-card{background:white;border:3px solid #e94560;border-radius:16px;padding:40px;box-shadow:0 4px 20px rgba(233,69,96,0.15)}
+.price-card .price{font-size:48px;font-weight:800;color:#e94560}
+.price-card .price span{font-size:18px;color:#888;font-weight:400}
+.price-card .orig{font-size:18px;color:#999;text-decoration:line-through;margin-bottom:4px}
+.price-card h3{font-size:22px;margin:12px 0;color:#0f3460}
+.price-card ul{list-style:none;text-align:left;margin:20px 0;font-size:15px}
+.price-card li{padding:6px 0 6px 28px;position:relative;color:#333}
+.price-card li::before{content:"✓";position:absolute;left:0;color:#28a745;font-weight:700}
+.btn{display:inline-block;padding:16px 32px;border-radius:8px;font-weight:700;font-size:18px;background:#e94560;color:white;transition:transform 0.2s}
+.btn:hover{transform:translateY(-2px);text-decoration:none}
+.faq{max-width:700px;margin:0 auto}
+.faq-item{margin-bottom:16px;background:white;border-radius:8px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.faq-item h3{font-size:16px;color:#0f3460;margin-bottom:8px}
+.faq-item p{font-size:14px;color:#555}
+.footer{background:#16213e;color:rgba(255,255,255,0.7);padding:40px 0;text-align:center;font-size:14px}
+.footer a{color:#e94560}
+.guarantee{background:#d4edda;border-radius:12px;padding:24px;text-align:center;margin:30px auto;max-width:500px}
+.guarantee h3{color:#155724;margin-bottom:8px}
+.guarantee p{color:#155724;font-size:14px}
+</style>
+</head>
+<body>
+
+<nav><div class="container"><a href="/">🦞 OpenClaw Guide</a><ul><li><a href="/best-vps-for-openclaw">Best VPS</a></li><li><a href="/#guides">Guides</a></li><li><a href="/easysetup">EasySetup</a></li></ul></div></nav>
+
+<div class="hero"><div class="container">
+<h1>🚀 OpenClaw EasySetup</h1>
+<p>Install a complete AI agent in 10 minutes. Zero technical knowledge required.</p>
+<code id="cmd" onclick="navigator.clipboard.writeText('curl -fsSL https://openclawguide.org/install.sh | bash')">curl -fsSL https://openclawguide.org/install.sh | bash</code>
+<div class="note">Click to copy · Works on any Ubuntu/Debian server</div>
+</div></div>
+
+<section><div class="container">
+<h2>What You Get</h2>
+<div class="features">
+<div class="feature"><div class="icon">🤖</div><h3>Full OpenClaw Install</h3><p>Latest version, all dependencies, properly configured. No manual steps.</p></div>
+<div class="feature"><div class="icon">💬</div><h3>Channel Connected</h3><p>Telegram, Discord, Slack, WhatsApp — pick one and it's set up for you.</p></div>
+<div class="feature"><div class="icon">🧠</div><h3>AI Model Configured</h3><p>Claude, GPT, Gemini, DeepSeek, or local Ollama — your choice, ready to go.</p></div>
+<div class="feature"><div class="icon">🎨</div><h3>Custom Personality</h3><p>Choose from 5 pre-built SOUL.md templates or create your own during setup.</p></div>
+<div class="feature"><div class="icon">🔒</div><h3>Security Hardened</h3><p>Firewall, SSH hardening, auto-updates — production-ready from day one.</p></div>
+<div class="feature"><div class="icon">🔄</div><h3>Auto-Start on Boot</h3><p>Systemd service configured. Your agent survives reboots automatically.</p></div>
+</div>
+</div></section>
+
+<section><div class="container">
+<h2>How It Works</h2>
+<div class="steps">
+<div class="step-item"><h3>Get a Server</h3><p>Buy a VPS from <a href="/best-vps-for-openclaw">any provider</a> ($5-12/mo). We recommend Hostinger for beginners.</p></div>
+<div class="step-item"><h3>SSH Into Your Server</h3><p>Open Terminal (Mac) or PuTTY (Windows) and connect to your server. Your VPS provider gives you the IP and password.</p></div>
+<div class="step-item"><h3>Run One Command</h3><p><code>curl -fsSL https://openclawguide.org/install.sh | bash</code><br>The script asks simple questions (your API key, which channel, etc.) and does everything else.</p></div>
+<div class="step-item"><h3>Start Chatting</h3><p>Open your messaging app and send a message to your new AI agent. That's it — you're done!</p></div>
+</div>
+</div></section>
+
+<section><div class="container">
+<h2>Get EasySetup</h2>
+<div class="pricing">
+<div class="price-card">
+<div class="orig">$29</div>
+<div class="price">$19<span> one-time</span></div>
+<h3>OpenClaw EasySetup Kit</h3>
+<ul>
+<li>One-command installer script</li>
+<li>5 pre-built SOUL.md templates</li>
+<li>Step-by-step video walkthrough (15 min)</li>
+<li>Security hardening included</li>
+<li>VPS buying guide (which plan to pick)</li>
+<li>Troubleshooting guide</li>
+<li>Free updates for life</li>
+</ul>
+<a href="https://leimspire20.gumroad.com/l/oztac" class="btn" style="margin-top:20px;display:block">Get EasySetup — $19 →</a>
+</div>
+<div class="guarantee">
+<h3>💯 100% Money-Back Guarantee</h3>
+<p>If EasySetup doesn't work on your server, we'll refund you. No questions asked.</p>
+</div>
+</div>
+</div></section>
+
+<section><div class="container">
+<h2>FAQ</h2>
+<div class="faq">
+<div class="faq-item"><h3>Do I need any technical knowledge?</h3><p>No. If you can copy-paste a command, you can use EasySetup. The script asks simple questions and handles everything else.</p></div>
+<div class="faq-item"><h3>Which servers does it work on?</h3><p>Any VPS running Ubuntu 22.04+, Debian 12+, or similar Linux. Tested on Hostinger, DigitalOcean, Vultr, Hetzner, and Oracle Cloud.</p></div>
+<div class="faq-item"><h3>What AI models are supported?</h3><p>Claude (Anthropic), GPT-4o (OpenAI), Gemini (Google), DeepSeek, local models via Ollama, and OpenRouter (all models).</p></div>
+<div class="faq-item"><h3>What messaging apps are supported?</h3><p>Telegram, Discord, Slack, WhatsApp, Signal, and more. You choose during setup.</p></div>
+<div class="faq-item"><h3>Is the installer script open source?</h3><p>Yes! You can read the full source code before running it. We believe in transparency.</p></div>
+<div class="faq-item"><h3>What if I already have OpenClaw installed?</h3><p>The script detects existing installations and offers to update/reconfigure instead of reinstalling.</p></div>
+<div class="faq-item"><h3>Do I still need to pay for AI API access?</h3><p>Yes, the AI model is a separate cost ($0-50/month depending on usage). See our <a href="/openclaw-cost-guide">cost guide</a>.</p></div>
+</div>
+</div></section>
+
+<footer class="footer"><div class="container">
+<p>© 2026 <a href="/">OpenClaw Guide</a> · Not affiliated with the OpenClaw project</p>
+<p style="margin-top:8px"><a href="/">Home</a> · <a href="/best-vps-for-openclaw">Best VPS</a> · <a href="/openclaw-cost-guide">Cost Guide</a></p>
+</div></footer>
+
+</body>
+</html>
