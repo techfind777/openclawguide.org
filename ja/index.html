@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenClaw ガイド — AIエージェントのテンプレート・チュートリアル・リソース (2026)</title>
+<meta name="description" content="OpenClaw 日本語ガイド。無料SOUL.mdテンプレート、VPSホスティング比較、ワンクリックインストール、セキュリティ強化ガイド。10分でAIエージェントを構築。">
+<link rel="canonical" href="https://openclawguide.org/ja/">
+<link rel="alternate" hreflang="en" href="https://openclawguide.org/en/">
+<link rel="alternate" hreflang="zh" href="https://openclawguide.org/zh/">
+<link rel="alternate" hreflang="ja" href="https://openclawguide.org/ja/">
+<meta property="og:locale" content="ja_JP">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Hiragino Kaku Gothic ProN','Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.8;background:#fafbfc}
+a{color:#e94560;text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+.container{max-width:960px;margin:0 auto;padding:0 24px}
+nav{background:#0f3460;padding:12px 0;position:sticky;top:0;z-index:100}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+nav a{color:white;font-weight:700;font-size:18px}
+nav a:hover{text-decoration:none}
+nav ul{list-style:none;display:flex;gap:16px;align-items:center}
+nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}
+.lang-switch{background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:6px;font-size:13px;color:white}
+.hero{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:80px 0 60px;text-align:center}
+.hero h1{font-size:clamp(26px,5vw,44px);margin-bottom:12px}
+.hero .sub{font-size:18px;opacity:0.9;max-width:640px;margin:0 auto 30px}
+.hero-cta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;padding:14px 28px;border-radius:8px;font-weight:700;font-size:16px;transition:transform 0.2s}
+.btn:hover{transform:translateY(-2px);text-decoration:none}
+.btn-primary{background:#e94560;color:white}
+.btn-secondary{background:rgba(255,255,255,0.15);color:white;border:2px solid rgba(255,255,255,0.3)}
+section{padding:60px 0}
+section:nth-child(even){background:white}
+h2{font-size:30px;text-align:center;margin-bottom:12px;color:#0f3460}
+.subtitle{text-align:center;color:#666;margin-bottom:40px;font-size:16px}
+.hosting-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.hosting-card{background:white;border-radius:12px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:2px solid #eee;transition:transform 0.2s;position:relative}
+.hosting-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.1)}
+.hosting-card.featured{border-color:#e94560}
+.hosting-card .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#e94560;color:white;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700}
+.hosting-card .provider{font-size:22px;font-weight:800;color:#0f3460;margin-bottom:4px}
+.hosting-card .price{font-size:28px;font-weight:800;color:#e94560;margin:8px 0}
+.hosting-card .price span{font-size:14px;color:#888;font-weight:400}
+.hosting-card ul{list-style:none;margin:16px 0;font-size:14px;color:#444}
+.hosting-card li{padding:4px 0 4px 20px;position:relative}
+.hosting-card li::before{content:"✓";position:absolute;left:0;color:#28a745;font-weight:700}
+.hosting-card .btn{width:100%;text-align:center;margin-top:12px;font-size:14px;padding:10px}
+.free-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.free-card{background:#f0f7ff;border-radius:12px;padding:28px;border:2px solid #d0e3ff;text-align:center}
+.free-card .fbadge{display:inline-block;background:#28a745;color:white;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:12px}
+.free-card h3{font-size:20px;margin-bottom:8px;color:#0f3460}
+.free-card p{font-size:14px;color:#555;margin-bottom:16px}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.product-card{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.05);border:1px solid #eee;transition:transform 0.2s}
+.product-card:hover{transform:translateY(-3px)}
+.product-card .pprice{font-size:24px;font-weight:800;color:#e94560;margin-bottom:6px}
+.product-card h3{font-size:16px;margin-bottom:6px;color:#16213e}
+.product-card p{font-size:12px;color:#666;margin-bottom:12px}
+.product-card .btn{width:100%;text-align:center;font-size:13px;padding:8px}
+.footer{background:#16213e;color:rgba(255,255,255,0.7);padding:40px 0;text-align:center;font-size:14px}
+.footer a{color:#e94560}
+</style>
+</head>
+<body>
+
+<nav><div class="container">
+<a href="/ja/">🦞 OpenClaw ガイド</a>
+<ul>
+<li><a href="/ja/#hosting">VPS比較</a></li>
+<li><a href="/ja/#guides">ガイド</a></li>
+<li><a href="/ja/#products">リソース</a></li>
+<li><a href="/" class="lang-switch">🌐 EN</a></li>
+</ul>
+</div></nav>
+
+<section class="hero"><div class="container">
+<h1>🦞 OpenClaw ガイド</h1>
+<p class="sub">無料テンプレート、チュートリアル、リソースで強力なAIエージェントを構築</p>
+<div class="hero-cta">
+<a href="https://leimspire20.gumroad.com/l/kqbdva" class="btn btn-primary">無料テンプレート →</a>
+<a href="#guides" class="btn btn-secondary">ガイドを見る</a>
+</div>
+</div></section>
+
+<!-- VPS比較 -->
+<section id="hosting"><div class="container">
+<h2>🖥️ おすすめVPSホスティング</h2>
+<p class="subtitle">OpenClawの実行にはサーバーが必要です。テスト済みのベストな選択肢をご紹介</p>
+<div class="hosting-grid">
+<div class="hosting-card featured">
+<span class="badge">⭐ おすすめ</span>
+<div class="provider">Hostinger</div>
+<div class="price">$4.99<span>/月〜</span></div>
+<ul>
+<li>4GB RAM、1 vCPU、50GB SSD</li>
+<li>ワンクリックDockerテンプレート</li>
+<li>グローバルデータセンター</li>
+<li>24時間サポート</li>
+</ul>
+<a href="https://openclawguide.org/best-vps-for-openclaw" class="btn btn-primary btn-sm">詳細を見る →</a>
+</div>
+<div class="hosting-card">
+<div class="provider">DigitalOcean</div>
+<div class="price">$6<span>/月〜</span></div>
+<ul>
+<li>1GB RAM、1 vCPU、25GB SSD</li>
+<li>新規ユーザーに$200クレジット</li>
+<li>優れたドキュメント</li>
+<li>時間単位の課金</li>
+</ul>
+<a href="https://openclawguide.org/best-vps-for-openclaw" class="btn btn-primary btn-sm">詳細を見る →</a>
+</div>
+<div class="hosting-card">
+<div class="provider">Hetzner</div>
+<div class="price">€4.51<span>/月〜</span></div>
+<ul>
+<li>4GB RAM、2 vCPU、40GB SSD</li>
+<li>コスパ最強</li>
+<li>ローカルモデルに最適</li>
+<li>欧州データセンター</li>
+</ul>
+<a href="https://openclawguide.org/best-vps-for-openclaw" class="btn btn-primary btn-sm">詳細を見る →</a>
+</div>
+</div>
+</div></section>
+
+<!-- 無料リソース -->
+<section id="free"><div class="container">
+<h2>🆓 無料リソース</h2>
+<div class="free-grid">
+<div class="free-card">
+<span class="fbadge">無料</span>
+<h3>SOUL.md テンプレート 5種</h3>
+<p>すぐに使えるAIエージェントテンプレート：パーソナルアシスタント、リサーチアナリスト、コンテンツクリエイター、コードレビュアー、モニターエージェント。</p>
+<a href="https://leimspire20.gumroad.com/l/kqbdva" class="btn btn-primary btn-sm">無料ダウンロード →</a>
+</div>
+<div class="free-card">
+<span class="fbadge">無料</span>
+<h3>デプロイチェックリスト</h3>
+<p>ID設計からセキュリティ強化まで、7フェーズのチェックリスト。印刷対応PDF。</p>
+<a href="https://leimspire20.gumroad.com/l/vvwlnu" class="btn btn-primary btn-sm">無料ダウンロード →</a>
+</div>
+</div>
+</div></section>
+
+<!-- 有料プロダクト -->
+<section id="products"><div class="container">
+<h2>📚 プレミアムリソース</h2>
+<p class="subtitle">AIエージェント開発を加速するプロフェッショナルガイド</p>
+<div class="product-grid">
+<div class="product-card">
+<div class="pprice">$9</div>
+<h3>OpenClaw チートシート</h3>
+<p>2ページのクイックリファレンス。全コマンド、設定オプション、ベストプラクティス。</p>
+<a href="https://leimspire20.gumroad.com/l/pthhwp" class="btn btn-primary btn-sm">購入する →</a>
+</div>
+<div class="product-card">
+<div class="pprice">$19</div>
+<h3>SOUL.md テンプレート 20種</h3>
+<p>20種類のプロフェッショナルテンプレート。あらゆるユースケースに対応。</p>
+<a href="https://leimspire20.gumroad.com/l/cqaqpm" class="btn btn-primary btn-sm">購入する →</a>
+</div>
+<div class="product-card">
+<div class="pprice">$29</div>
+<h3>AIエージェント構築ガイド</h3>
+<p>ゼロからプロダクションまで。設計、開発、デプロイの完全ガイド。</p>
+<a href="https://leimspire20.gumroad.com/l/hyuzc" class="btn btn-primary btn-sm">購入する →</a>
+</div>
+<div class="product-card">
+<div class="pprice">$39</div>
+<h3>OpenClaw プレイブック</h3>
+<p>上級者向け完全ガイド。マルチエージェント、自動化、セキュリティ。</p>
+<a href="https://leimspire20.gumroad.com/l/obdab" class="btn btn-primary btn-sm">購入する →</a>
+</div>
+</div>
+</div></section>
+
+<!-- ガイド -->
+<section id="guides"><div class="container">
+<h2>📖 ガイド＆チュートリアル</h2>
+<p class="subtitle">OpenClawを最大限に活用するためのステップバイステップガイド</p>
+<div style="max-width:600px;margin:0 auto;display:grid;gap:12px">
+<a href="/en/best-vps-for-openclaw" style="display:block;padding:16px;background:#f8f9fa;border-radius:8px;color:#1a1a2e;font-weight:500">🖥️ OpenClawに最適なVPS比較 (2026)</a>
+<a href="/en/openclaw-cost-guide" style="display:block;padding:16px;background:#f8f9fa;border-radius:8px;color:#1a1a2e;font-weight:500">💰 OpenClawの実際のコスト</a>
+<a href="/en/easysetup" style="display:block;padding:16px;background:#f8f9fa;border-radius:8px;color:#1a1a2e;font-weight:500">🚀 EasySetup — ワンコマンドインストール</a>
+</div>
+</div></section>
+
+<footer class="footer"><div class="container">
+<p>© 2026 OpenClaw Guide · <a href="/">🌐 言語を変更</a> · <a href="https://openclawguide.org">openclawguide.org</a></p>
+</div></footer>
+
+</body>
+</html>
