@@ -34,7 +34,7 @@ nav a:hover{text-decoration:none;opacity:0.9}
 nav ul{list-style:none;display:flex;gap:16px;align-items:center}
 nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}
 .lang-switch{background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:6px;font-size:13px;color:white}
-.hero{background:linear-gradient(135deg,#0f3460 0%,#16213e 100%);color:white;padding:80px 0 60px;text-align:center}
+.hero{background:linear-gradient(135deg,#0f3460 0%,#16213e 100%) !important;color:white !important;padding:80px 0 60px;text-align:center}
 .hero h1{font-size:clamp(28px,5vw,48px);margin-bottom:12px;letter-spacing:-0.5px}
 .hero .sub{font-size:18px;opacity:0.9;max-width:640px;margin:0 auto 30px}
 .hero-cta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center}
@@ -79,7 +79,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 
 <nav><div class="container">
 <a href="/zh/">🦞 OpenClaw 指南</a>
-<ul>
+<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
 <li><a href="/zh/best-vps-for-openclaw.html">VPS 推荐</a></li>
 <li><a href="/zh/#guides">教程</a></li>
 <li><a href="/zh/#products">资源</a></li>
@@ -88,7 +88,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 </div></nav>
 
 <!-- Hero -->
-<section class="hero"><div class="container">
+<section class="hero" style="background:linear-gradient(135deg,#0f3460 0%,#16213e 100%);color:white"><div class="container">
 <h1>🦞 OpenClaw 中文指南</h1>
 <p class="sub">免费模板、教程和资源，帮你快速搭建强大的 AI 智能体</p>
 <div class="hero-cta">
@@ -107,7 +107,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <span class="badge">⭐ 国内首选</span>
 <div class="provider">腾讯云</div>
 <div class="price">¥45<span>/月起</span></div>
-<ul>
+<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
 <li>轻量应用服务器 2核 2G</li>
 <li>国内访问速度快，延迟低</li>
 <li>新用户首购优惠低至1折</li>
@@ -120,7 +120,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <div class="hosting-card">
 <div class="provider">阿里云</div>
 <div class="price">¥39<span>/月起</span></div>
-<ul>
+<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
 <li>ECS 云服务器 2核 2G</li>
 <li>全球节点（含香港、新加坡）</li>
 <li>新用户首购低至0.8折</li>
@@ -133,7 +133,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <div class="hosting-card">
 <div class="provider">Vultr</div>
 <div class="price">$6<span>/月起（约¥43）</span></div>
-<ul>
+<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
 <li>1核 2G 内存，全球32个机房</li>
 <li>东京/新加坡节点延迟低</li>
 <li>新用户 $300 免费额度</li>

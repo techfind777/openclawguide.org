@@ -39,7 +39,7 @@ nav a{color:white;font-weight:700;font-size:18px}
 nav a:hover{text-decoration:none;opacity:0.9}
 nav ul{list-style:none;display:flex;gap:20px}
 nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}
-.hero{background:linear-gradient(135deg,#0f3460 0%,#16213e 100%);color:white;padding:80px 0 60px;text-align:center}
+.hero{background:linear-gradient(135deg,#0f3460 0%,#16213e 100%) !important;color:white !important;padding:80px 0 60px;text-align:center}
 .hero h1{font-size:clamp(28px,5vw,48px);margin-bottom:12px;letter-spacing:-0.5px}
 .hero .sub{font-size:18px;opacity:0.9;max-width:640px;margin:0 auto 30px}
 .hero-cta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center}
@@ -109,7 +109,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 /* Footer */
 .footer{background:#16213e;color:rgba(255,255,255,0.7);padding:40px 0;text-align:center;font-size:14px}
 .footer a{color:#e94560}
-@media(max-width:600px){nav ul{display:none}.hosting-grid,.free-grid,.product-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.mobile-menu{display:block !important}nav ul{display:none}nav ul.show{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#0f3460;padding:12px 24px;gap:8px;z-index:200}.hosting-grid,.free-grid,.product-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -117,19 +117,19 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <nav>
 <div class="container">
 <a href="/en/">🦞 OpenClaw Guide</a>
-<ul>
+<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
 <li><a href="#hosting">Best Hosting</a></li>
 <li><a href="#tutorial">Quick Start</a></li>
 <li><a href="#free">Free Resources</a></li>
 <li><a href="#guides">Guides</a></li>
 <li><a href="/en/easysetup">EasySetup</a></li>
-<li><a href="/" style="background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:6px;font-size:13px">🌐 Lang</a></li>
+<li class="lang-dropdown" style="position:relative"><a href="#" onclick="document.getElementById('langMenu').style.display=document.getElementById('langMenu').style.display==='block'?'none':'block';return false" style="background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:6px;font-size:13px;cursor:pointer">🌐 Lang</a><div id="langMenu" style="display:none;position:absolute;right:0;top:100%;background:#0f3460;border-radius:8px;padding:8px 0;min-width:140px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:200;margin-top:8px"><a href="/en/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇺🇸 English</a><a href="/zh/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇨🇳 中文</a><a href="/ja/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇯🇵 日本語</a><a href="/ko/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇰🇷 한국어</a><a href="/es/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇪🇸 Español</a><a href="/de/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇩🇪 Deutsch</a></div></li>
 </ul>
 </div>
 </nav>
 
 <!-- Hero -->
-<section class="hero">
+<section class="hero" style="background:linear-gradient(135deg,#0f3460 0%,#16213e 100%);color:white">
 <div class="container">
 <h1>🦞 The Ultimate OpenClaw Resource Hub</h1>
 <p class="sub">Compare the best hosting, get free templates, and deploy your AI agent in 30 minutes. Built on OpenClaw — 150K+ GitHub Stars.</p>
@@ -152,7 +152,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <span class="badge">⭐ BEST VALUE</span>
 <div class="provider">Hostinger VPS</div>
 <div class="price">$5.99<span>/mo</span></div>
-<ul>
+<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
 <li>4 vCPU, 8GB RAM, 100GB NVMe</li>
 <li>One-click OpenClaw Docker template</li>
 <li>Snapshots & weekly backups</li>
@@ -165,7 +165,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <div class="hosting-card">
 <div class="provider">DigitalOcean</div>
 <div class="price">$24<span>/mo</span></div>
-<ul>
+<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
 <li>4 vCPU, 8GB RAM, 160GB SSD</li>
 <li>Docker pre-installed droplets</li>
 <li>$200 free credit for new users</li>
@@ -178,7 +178,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <div class="hosting-card">
 <div class="provider">Vultr</div>
 <div class="price">$24<span>/mo</span></div>
-<ul>
+<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
 <li>4 vCPU, 8GB RAM, 200GB SSD</li>
 <li>32 global locations</li>
 <li>$300 free credit for new users</li>
@@ -363,7 +363,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 
 <h3>Why Do You Need a VPS for OpenClaw?</h3>
 <p>OpenClaw runs as a background service (the "Gateway") that needs to be online 24/7 to respond to messages. While you can run it on a Raspberry Pi or old laptop, a VPS (Virtual Private Server) gives you:</p>
-<ul>
+<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
 <li>99.9% uptime — your agent never sleeps</li>
 <li>Fast global connectivity — low latency to messaging APIs</li>
 <li>Easy scaling — upgrade CPU/RAM as your agent grows</li>
@@ -373,7 +373,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 
 <h3>How Much Does OpenClaw Cost to Run?</h3>
 <p>OpenClaw itself is free and open source. Your costs are:</p>
-<ul>
+<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
 <li><strong>VPS hosting:</strong> $5-25/month (see our <a href="#hosting">comparison above</a>)</li>
 <li><strong>AI model API:</strong> $5-30/month for most users (Claude, GPT-4, Gemini)</li>
 <li><strong>Free option:</strong> Use Ollama with local models on Oracle Cloud's free tier ($0/month)</li>
