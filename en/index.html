@@ -6,14 +6,24 @@
 <title>OpenClaw Guide — Best Hosting, Tutorials & Resources for AI Agents (2026)</title>
 <meta name="description" content="The ultimate OpenClaw resource hub. Compare the best VPS hosting, get free SOUL.md templates, step-by-step deployment tutorials, and security guides. Start building AI agents today.">
 <meta name="keywords" content="OpenClaw, best VPS for OpenClaw, OpenClaw hosting, SOUL.md templates, AI agent tutorial, OpenClaw setup guide, OpenClaw deployment, OpenClaw security">
-<link rel="canonical" href="https://openclawguide.org/">
+<link rel="canonical" href="https://openclawguide.org/en/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate" hreflang="en" href="https://openclawguide.org/en/">
+<link rel="alternate" hreflang="zh" href="https://openclawguide.org/zh/">
+<link rel="alternate" hreflang="ja" href="https://openclawguide.org/ja/">
+<link rel="alternate" hreflang="ko" href="https://openclawguide.org/ko/">
+<link rel="alternate" hreflang="es" href="https://openclawguide.org/es/">
+<link rel="alternate" hreflang="de" href="https://openclawguide.org/de/">
+<link rel="alternate" hreflang="x-default" href="https://openclawguide.org/en/">
 <meta property="og:title" content="OpenClaw Guide — Best Hosting, Tutorials & Resources (2026)">
 <meta property="og:description" content="Compare the best VPS hosting for OpenClaw, get free templates, and follow step-by-step deployment guides.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://openclawguide.org/">
+<meta property="og:url" content="https://openclawguide.org/en/">
+<meta property="og:image" content="https://openclawguide.org/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="OpenClaw Guide — Best Hosting & Tutorials for AI Agents">
 <meta name="twitter:description" content="Compare VPS hosting, get free SOUL.md templates, and deploy OpenClaw in 30 minutes.">
+<meta name="twitter:image" content="https://openclawguide.org/og-image.png">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"OpenClaw Guide","url":"https://openclawguide.org","description":"The ultimate OpenClaw resource hub with hosting comparisons, tutorials, and free templates.","potentialAction":{"@type":"SearchAction","target":"https://openclawguide.org/?q={search_term_string}","query-input":"required name=search_term_string"}}
 </script>
@@ -106,13 +116,14 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 
 <nav>
 <div class="container">
-<a href="/">🦞 OpenClaw Guide</a>
+<a href="/en/">🦞 OpenClaw Guide</a>
 <ul>
 <li><a href="#hosting">Best Hosting</a></li>
 <li><a href="#tutorial">Quick Start</a></li>
 <li><a href="#free">Free Resources</a></li>
 <li><a href="#guides">Guides</a></li>
-<li><a href="/easysetup">EasySetup</a></li>
+<li><a href="/en/easysetup">EasySetup</a></li>
+<li><a href="/" style="background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:6px;font-size:13px">🌐 Lang</a></li>
 </ul>
 </div>
 </nav>
@@ -121,7 +132,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <section class="hero">
 <div class="container">
 <h1>🦞 The Ultimate OpenClaw Resource Hub</h1>
-<p class="sub">Compare the best hosting, get free templates, and deploy your AI agent in 30 minutes. Trusted by 150K+ developers.</p>
+<p class="sub">Compare the best hosting, get free templates, and deploy your AI agent in 30 minutes. Built on OpenClaw — 150K+ GitHub Stars.</p>
 <div class="hero-cta">
 <a href="#hosting" class="btn btn-primary">Compare Hosting →</a>
 <a href="#free" class="btn btn-secondary">Get Free Templates</a>
@@ -212,7 +223,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 </div>
 <div class="step">
 <h3>Install OpenClaw</h3>
-<p>SSH into your server and run:<br><code>curl -fsSL https://get.openclaw.ai | bash</code></p>
+<p>SSH into your server and run:<br><code>npx openclaw</code></p>
 </div>
 <div class="step">
 <h3>Configure Your Agent</h3>
@@ -283,13 +294,13 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <a href="https://leimspire20.gumroad.com/l/zvrmie" class="btn btn-primary btn-sm">Get It →</a>
 </div>
 <div class="product-card">
-<div class="pprice">$29</div>
+<div class="pprice">$19</div>
 <h3>AI Agent Building Guide</h3>
 <p>From zero to production. Architecture, memory, tools, multi-agent systems.</p>
 <a href="https://leimspire20.gumroad.com/l/hyuzc" class="btn btn-primary btn-sm">Get It →</a>
 </div>
 <div class="product-card">
-<div class="pprice">$29</div>
+<div class="pprice">$19</div>
 <h3>Security Hardening Guide</h3>
 <p>Lock down your agent. Firewall, auth, sandboxing, audit logging.</p>
 <a href="https://leimspire20.gumroad.com/l/avdtrl" class="btn btn-primary btn-sm">Get It →</a>
@@ -372,7 +383,10 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <h3>OpenClaw Quick Start</h3>
 <pre>
 # Install OpenClaw (one command)
-curl -fsSL https://get.openclaw.ai | bash
+npx openclaw
+
+# Or advanced install via script:
+# curl -fsSL https://get.openclaw.ai | bash
 
 # Start the setup wizard
 openclaw setup
@@ -387,9 +401,10 @@ openclaw gateway start
 <!-- Footer -->
 <footer class="footer">
 <div class="container">
-<p>🦞 OpenClaw Guide — The #1 independent resource for OpenClaw users</p>
+<p>🦞 OpenClaw Guide · <a href="/en/">English</a> · <a href="/zh/">中文</a> · <a href="/ja/">日本語</a> · <a href="/ko/">한국어</a> · <a href="/es/">Español</a> · <a href="/de/">Deutsch</a></p>
 <p style="margin-top:8px">Built by an AI product architect. Not affiliated with the OpenClaw project.</p>
 <p style="margin-top:8px"><a href="https://dev.to/techfind777">Dev.to</a> · <a href="https://techfind777.hashnode.dev">Hashnode</a> · <a href="https://github.com/techfind777">GitHub</a> · <a href="https://leimspire20.gumroad.com">Gumroad Store</a></p>
+<p style="margin-top:8px"><a href="/privacy.html">Privacy Policy</a> · <a href="/terms.html">Terms of Use</a></p>
 <p style="margin-top:16px;font-size:12px;opacity:0.6">Some links on this site are affiliate links. We may earn a commission if you make a purchase, at no extra cost to you. This helps us keep creating free content.</p>
 </div>
 </footer>

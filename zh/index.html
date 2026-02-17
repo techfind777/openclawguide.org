@@ -7,12 +7,20 @@
 <meta name="description" content="OpenClaw 中文指南。免费 SOUL.md 模板、VPS 主机对比、一键安装脚本、安全加固教程。10分钟搭建你的 AI 智能体。">
 <meta name="keywords" content="OpenClaw, OpenClaw 中文, AI 智能体, SOUL.md 模板, OpenClaw 安装, OpenClaw 教程, VPS 推荐, AI Agent">
 <link rel="canonical" href="https://openclawguide.org/zh/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="alternate" hreflang="en" href="https://openclawguide.org/en/">
 <link rel="alternate" hreflang="zh" href="https://openclawguide.org/zh/">
+<link rel="alternate" hreflang="ja" href="https://openclawguide.org/ja/">
+<link rel="alternate" hreflang="ko" href="https://openclawguide.org/ko/">
+<link rel="alternate" hreflang="es" href="https://openclawguide.org/es/">
+<link rel="alternate" hreflang="de" href="https://openclawguide.org/de/">
 <link rel="alternate" hreflang="x-default" href="https://openclawguide.org/en/">
 <meta property="og:title" content="OpenClaw 指南 — AI 智能体模板与教程">
 <meta property="og:description" content="免费 SOUL.md 模板、VPS 对比、一键安装。10分钟搭建 AI 智能体。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://openclawguide.org/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://openclawguide.org/og-image.png">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei','Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.8;background:#fafbfc}
@@ -72,7 +80,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <nav><div class="container">
 <a href="/zh/">🦞 OpenClaw 指南</a>
 <ul>
-<li><a href="/en/best-vps-for-openclaw">VPS 推荐</a></li>
+<li><a href="/zh/best-vps-for-openclaw.html">VPS 推荐</a></li>
 <li><a href="/zh/#guides">教程</a></li>
 <li><a href="/zh/#products">资源</a></li>
 <li><a href="/" class="lang-switch">🌐 EN</a></li>
@@ -162,11 +170,11 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <section><div class="container">
 <h2 id="guides">🚀 10 分钟快速安装</h2>
 <p class="subtitle">一行命令，从零到运行</p>
-<div style="background:#1a1a2e;color:#e0e0e0;padding:20px;border-radius:12px;text-align:center;font-family:monospace;font-size:16px;margin:20px 0;cursor:pointer" onclick="navigator.clipboard.writeText('curl -fsSL https://openclawguide.org/install.sh | bash')">
-curl -fsSL https://openclawguide.org/install.sh | bash
-<div style="font-size:12px;color:#888;margin-top:8px">点击复制 · 支持 Ubuntu/Debian 服务器</div>
+<div style="background:#1a1a2e;color:#e0e0e0;padding:20px;border-radius:12px;text-align:center;font-family:monospace;font-size:16px;margin:20px 0;cursor:pointer" onclick="navigator.clipboard.writeText('npx openclaw')">
+npx openclaw
+<div style="font-size:12px;color:#888;margin-top:8px">点击复制 · 高级安装: curl -fsSL https://openclawguide.org/install.sh | bash</div>
 </div>
-<p style="text-align:center;color:#666">脚本会自动：安装 OpenClaw → 配置 AI 模型 → 连接聊天渠道 → 安全加固 → 启动运行</p>
+<p style="text-align:center;color:#666">一条命令自动完成：安装 OpenClaw → 配置 AI 模型 → 连接聊天渠道 → 安全加固 → 启动运行</p>
 <p style="text-align:center;margin-top:16px"><a href="/zh/easysetup" class="btn btn-primary btn-sm">了解 EasySetup Pro（$19）→</a></p>
 </div></section>
 
@@ -205,14 +213,14 @@ curl -fsSL https://openclawguide.org/install.sh | bash
 </div>
 
 <div class="product-card">
-<div class="pprice">$29</div>
+<div class="pprice">$19</div>
 <h3>AI Agent 搭建手册</h3>
 <p>从零开始搭建 AI 智能体的完整指南。架构设计、开发、部署、运维全覆盖。</p>
 <a href="https://leimspire20.gumroad.com/l/hyuzc" class="btn btn-primary btn-sm">获取 →</a>
 </div>
 
 <div class="product-card">
-<div class="pprice">$29</div>
+<div class="pprice">$19</div>
 <h3>安全加固指南</h3>
 <p>OpenClaw 安全最佳实践。防注入、沙箱、权限控制、审计日志全方位加固。</p>
 <a href="https://leimspire20.gumroad.com/l/avdtrl" class="btn btn-primary btn-sm">获取 →</a>
@@ -230,9 +238,9 @@ curl -fsSL https://openclawguide.org/install.sh | bash
 
 <!-- Footer -->
 <footer class="footer"><div class="container">
-<p>🦞 OpenClaw Guide · <a href="/en/">English</a> · <a href="/zh/">中文</a> · <a href="/ja/">日本語</a> · <a href="/ko/">한국어</a></p>
+<p>🦞 OpenClaw Guide · <a href="/en/">English</a> · <a href="/zh/">中文</a> · <a href="/ja/">日本語</a> · <a href="/ko/">한국어</a> · <a href="/es/">Español</a> · <a href="/de/">Deutsch</a></p>
 <p style="margin-top:8px">OpenClaw 是开源项目。本站为独立社区资源站，非官方。</p>
-<p style="margin-top:8px"><a href="https://github.com/techfind777/openclawguide.org">GitHub</a> · <a href="https://leimspire20.gumroad.com">Gumroad 商店</a></p>
+<p style="margin-top:8px"><a href="https://github.com/techfind777/openclawguide.org">GitHub</a> · <a href="https://leimspire20.gumroad.com">Gumroad 商店</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
 </div></footer>
 
 </body>
