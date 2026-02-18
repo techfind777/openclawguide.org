@@ -25,7 +25,7 @@
 <meta name="twitter:description" content="Compare VPS hosting, get free SOUL.md templates, and deploy OpenClaw in 30 minutes.">
 <meta name="twitter:image" content="https://openclawguide.org/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"OpenClaw Guide","url":"https://openclawguide.org","description":"The ultimate OpenClaw resource hub with hosting comparisons, tutorials, and free templates.","potentialAction":{"@type":"SearchAction","target":"https://openclawguide.org/?q={search_term_string}","query-input":"required name=search_term_string"}}
+{"@context":"https://schema.org","@type":"WebSite","name":"OpenClaw Guide","url":"https://openclawguide.org","description":"The ultimate OpenClaw resource hub with hosting comparisons, tutorials, and free templates."}
 </script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -109,7 +109,8 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 /* Footer */
 .footer{background:#16213e;color:rgba(255,255,255,0.7);padding:40px 0;text-align:center;font-size:14px}
 .footer a{color:#e94560}
-@media(max-width:600px){.mobile-menu{display:block !important}nav ul{display:none}nav ul.show{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#0f3460;padding:12px 24px;gap:8px;z-index:200}.hosting-grid,.free-grid,.product-grid{grid-template-columns:1fr}}
+.nav-toggle{display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer;padding:4px 8px}
+@media(max-width:768px){.nav-toggle{display:block}nav ul{display:none;position:absolute;top:56px;left:0;right:0;background:#0f3460;flex-direction:column;padding:16px 24px;gap:12px;box-shadow:0 4px 12px rgba(0,0,0,0.3)}nav ul.open{display:flex}.lang-dropdown div{position:static!important;box-shadow:none!important;margin-top:8px}.hosting-grid,.free-grid,.product-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -117,7 +118,8 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <nav>
 <div class="container">
 <a href="/en/">🦞 OpenClaw Guide</a>
-<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
+<button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
+<ul>
 <li><a href="#hosting">Best Hosting</a></li>
 <li><a href="#tutorial">Quick Start</a></li>
 <li><a href="#free">Free Resources</a></li>
@@ -152,7 +154,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <span class="badge">⭐ BEST VALUE</span>
 <div class="provider">Hostinger VPS</div>
 <div class="price">$5.99<span>/mo</span></div>
-<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
+<ul>
 <li>4 vCPU, 8GB RAM, 100GB NVMe</li>
 <li>One-click OpenClaw Docker template</li>
 <li>Snapshots & weekly backups</li>
@@ -165,7 +167,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <div class="hosting-card">
 <div class="provider">DigitalOcean</div>
 <div class="price">$24<span>/mo</span></div>
-<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
+<ul>
 <li>4 vCPU, 8GB RAM, 160GB SSD</li>
 <li>Docker pre-installed droplets</li>
 <li>$200 free credit for new users</li>
@@ -178,7 +180,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 <div class="hosting-card">
 <div class="provider">Vultr</div>
 <div class="price">$24<span>/mo</span></div>
-<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
+<ul>
 <li>4 vCPU, 8GB RAM, 200GB SSD</li>
 <li>32 global locations</li>
 <li>$300 free credit for new users</li>
@@ -206,7 +208,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 </tbody>
 </table>
 
-<p style="text-align:center;margin-top:16px;font-size:13px;color:#888">* Prices as of Feb 2026. Links may contain affiliate referrals that support this site at no extra cost to you.</p>
+<p style="text-align:center;margin-top:16px;font-size:13px;color:#888">* Prices as of Feb 2026.</p>
 </div>
 </section>
 
@@ -370,7 +372,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 
 <h3>Why Do You Need a VPS for OpenClaw?</h3>
 <p>OpenClaw runs as a background service (the "Gateway") that needs to be online 24/7 to respond to messages. While you can run it on a Raspberry Pi or old laptop, a VPS (Virtual Private Server) gives you:</p>
-<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
+<ul>
 <li>99.9% uptime — your agent never sleeps</li>
 <li>Fast global connectivity — low latency to messaging APIs</li>
 <li>Easy scaling — upgrade CPU/RAM as your agent grows</li>
@@ -380,7 +382,7 @@ h2{font-size:32px;text-align:center;margin-bottom:12px;color:#0f3460}
 
 <h3>How Much Does OpenClaw Cost to Run?</h3>
 <p>OpenClaw itself is free and open source. Your costs are:</p>
-<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
+<ul>
 <li><strong>VPS hosting:</strong> $5-25/month (see our <a href="#hosting">comparison above</a>)</li>
 <li><strong>AI model API:</strong> $5-30/month for most users (Claude, GPT-4, Gemini)</li>
 <li><strong>Free option:</strong> Use Ollama with local models on Oracle Cloud's free tier ($0/month)</li>
@@ -412,7 +414,7 @@ openclaw gateway start
 <p style="margin-top:8px">Built by an AI product architect. Not affiliated with the OpenClaw project.</p>
 <p style="margin-top:8px"><a href="https://dev.to/techfind777">Dev.to</a> · <a href="https://techfind777.hashnode.dev">Hashnode</a> · <a href="https://github.com/techfind777">GitHub</a> · <a href="https://leimspire20.gumroad.com">Gumroad Store</a></p>
 <p style="margin-top:8px"><a href="/privacy.html">Privacy Policy</a> · <a href="/terms.html">Terms of Use</a></p>
-<p style="margin-top:16px;font-size:12px;opacity:0.6">Some links on this site are affiliate links. We may earn a commission if you make a purchase, at no extra cost to you. This helps us keep creating free content.</p>
+<p style="margin-top:16px;font-size:12px;color:#999">OpenClaw is open source. This is an independent community resource, not affiliated with the project. Some links may support this site.</p>
 </div>
 </footer>
 

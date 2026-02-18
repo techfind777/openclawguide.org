@@ -69,13 +69,16 @@ h2{font-size:30px;text-align:center;margin-bottom:12px;color:#0f3460}
 .product-card .btn{width:100%;text-align:center;font-size:13px;padding:8px}
 .footer{background:#16213e;color:rgba(255,255,255,0.7);padding:40px 0;text-align:center;font-size:14px}
 .footer a{color:#e94560}
+.nav-toggle{display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer;padding:4px 8px}
+@media(max-width:768px){.nav-toggle{display:block}nav ul{display:none;position:absolute;top:56px;left:0;right:0;background:#0f3460;flex-direction:column;padding:16px 24px;gap:12px;box-shadow:0 4px 12px rgba(0,0,0,0.3)}nav ul.open{display:flex}.lang-dropdown div{position:static!important;box-shadow:none!important;margin-top:8px}}
 </style>
 </head>
 <body>
 
 <nav><div class="container">
 <a href="/ja/">🦞 OpenClaw ガイド</a>
-<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
+<button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
+<ul>
 <li><a href="/ja/#hosting">VPS比較</a></li>
 <li><a href="/ja/#guides">ガイド</a></li>
 <li><a href="/ja/#products">リソース</a></li>
@@ -101,7 +104,7 @@ h2{font-size:30px;text-align:center;margin-bottom:12px;color:#0f3460}
 <span class="badge">⭐ おすすめ</span>
 <div class="provider">Hostinger</div>
 <div class="price">$4.99<span>/月〜</span></div>
-<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
+<ul>
 <li>4GB RAM、1 vCPU、50GB SSD</li>
 <li>ワンクリックDockerテンプレート</li>
 <li>グローバルデータセンター</li>
@@ -112,7 +115,7 @@ h2{font-size:30px;text-align:center;margin-bottom:12px;color:#0f3460}
 <div class="hosting-card">
 <div class="provider">DigitalOcean</div>
 <div class="price">$6<span>/月〜</span></div>
-<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
+<ul>
 <li>1GB RAM、1 vCPU、25GB SSD</li>
 <li>新規ユーザーに$200クレジット</li>
 <li>優れたドキュメント</li>
@@ -123,7 +126,7 @@ h2{font-size:30px;text-align:center;margin-bottom:12px;color:#0f3460}
 <div class="hosting-card">
 <div class="provider">Hetzner</div>
 <div class="price">€4.51<span>/月〜</span></div>
-<button onclick="document.querySelector('nav ul').classList.toggle('show')" style="display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer" class="mobile-menu">☰</button><ul>
+<ul>
 <li>4GB RAM、2 vCPU、40GB SSD</li>
 <li>コスパ最強</li>
 <li>ローカルモデルに最適</li>
@@ -198,6 +201,7 @@ h2{font-size:30px;text-align:center;margin-bottom:12px;color:#0f3460}
 
 <footer class="footer"><div class="container">
 <p>© 2026 OpenClaw Guide · <a href="/">🌐 言語を変更</a> · <a href="https://openclawguide.org">openclawguide.org</a></p>
+<p style="margin-top:16px;font-size:12px;color:#999">OpenClaw はオープンソースです。本サイトは独立したコミュニティリソースであり、公式ではありません。一部リンクにはアフィリエイトが含まれます。</p>
 </div></footer>
 
 </body>
