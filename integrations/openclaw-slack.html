@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenClaw + Slack Integration Guide — Connect Your AI Agent</title>
+<meta name="description" content="Learn how to integrate OpenClaw with Slack for team communication and notifications. Step-by-step setup guide with examples.">
+<meta name="keywords" content="OpenClaw Slack, Slack AI agent, Slack automation, OpenClaw integration">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://openclawguide.org/integrations/openclaw-slack.html">
+<meta property="og:title" content="OpenClaw + Slack Integration Guide — Connect Your AI Agent">
+<meta property="og:description" content="Learn how to integrate OpenClaw with Slack for team communication and notifications. Step-by-step setup guide with examples.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://openclawguide.org/integrations/openclaw-slack.html">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"OpenClaw + Slack Integration Guide — Connect Your AI Agent","description":"Learn how to integrate OpenClaw with Slack for team communication and notifications. Step-by-step setup guide with examples.","datePublished":"2026-02-18","author":{"@type":"Organization","name":"OpenClaw Guide"},"publisher":{"@type":"Organization","name":"OpenClaw Guide","url":"https://openclawguide.org"}}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.8;background:#fafbfc}a{color:#e94560;text-decoration:none;font-weight:600}a:hover{text-decoration:underline}.container{max-width:800px;margin:0 auto;padding:0 24px}nav{background:#0f3460;padding:12px 0}nav .container{display:flex;justify-content:space-between;align-items:center}nav a{color:white;font-weight:700;font-size:18px}nav a:hover{text-decoration:none}nav ul{list-style:none;display:flex;gap:20px}nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}.hero-sm{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:50px 0 40px;text-align:center}.hero-sm h1{font-size:clamp(24px,4vw,36px);margin-bottom:8px}.hero-sm p{opacity:0.85;font-size:16px}article{padding:40px 0 60px}article h2{font-size:24px;color:#0f3460;margin:36px 0 14px;padding-top:16px;border-top:1px solid #eee}article h3{font-size:19px;color:#16213e;margin:20px 0 10px}article p{margin-bottom:16px;color:#333}article ul,article ol{margin:0 0 16px 24px;color:#333}article li{margin-bottom:8px}article code{background:#e8f0fe;padding:2px 6px;border-radius:4px;font-size:14px}article pre{background:#1a1a2e;color:#e0e0e0;padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:13px}.callout{background:#f0f7ff;border-left:4px solid #0f3460;padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0}.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;font-size:15px;transition:transform 0.2s}.btn:hover{transform:translateY(-2px);text-decoration:none}.btn-primary{background:#e94560;color:white}.cta-box{background:linear-gradient(135deg,#fff3cd,#ffeeba);border:2px solid #ffc107;border-radius:12px;padding:24px;margin:30px 0;text-align:center}.cta-box h3{color:#856404;margin-bottom:8px}.related{background:#f8f9fa;padding:30px 0;margin-top:40px}.related h3{margin-bottom:16px;color:#0f3460}.related ul{list-style:none;padding:0}.related li{margin-bottom:8px}.related li a{font-weight:500}footer{background:#0f3460;color:rgba(255,255,255,0.7);padding:30px 0;text-align:center;font-size:13px}footer a{color:#e94560}
+</style>
+</head>
+<body>
+<nav><div class="container"><a href="/">OpenClaw Guide</a><ul><li><a href="/en/">Home</a></li><li><a href="/en/best-vps-for-openclaw.html">VPS Guide</a></li><li><a href="/easysetup.html">EasySetup</a></li></ul></div></nav>
+<div class="hero-sm"><div class="container"><h1>OpenClaw + Slack Integration Guide — Connect Your AI Agent</h1><p>Learn how to integrate OpenClaw with Slack for team communication and notifications. Step-by-step setup guide with examples.</p></div></div>
+<article><div class="container">
+
+<h2>Why Connect OpenClaw with Slack?</h2>
+<p>Slack is one of the most popular tools for team communication and notifications. By integrating OpenClaw with Slack, your AI agent can automatically interact with your Slack workspace — reading data, sending messages, and triggering actions without manual intervention.</p>
+
+<h2>What You Can Build</h2>
+<ul>
+<li><strong>Automated responses</strong> — Your AI agent monitors Slack and responds to messages, questions, or events automatically</li>
+<li><strong>Data sync</strong> — Pull data from Slack into your agent's context for smarter decisions</li>
+<li><strong>Notifications</strong> — Get AI-generated summaries and alerts in Slack</li>
+<li><strong>Workflow triggers</strong> — Use Slack events to trigger complex AI workflows</li>
+</ul>
+
+<h2>Setup Guide</h2>
+<h3>Prerequisites</h3>
+<ul>
+<li>OpenClaw installed on your server (<a href="/easysetup.html">Quick install guide</a>)</li>
+<li>A Slack account with API access or webhook permissions</li>
+<li>Basic familiarity with OpenClaw configuration</li>
+</ul>
+
+<h3>Step 1: Configure OpenClaw Channel</h3>
+<p>OpenClaw supports Slack as a native channel. Add the Slack configuration to your OpenClaw config file:</p>
+<pre>channels:
+  slack:
+    enabled: true
+    # Add your Slack credentials here</pre>
+
+<h3>Step 2: Set Up Your Agent's Personality</h3>
+<p>Create a SOUL.md file that defines how your agent behaves in Slack. The personality should match the context — professional for work tools, friendly for community platforms.</p>
+<div class="callout">
+<strong>💡 Need templates?</strong> The <a href="https://leimspire20.gumroad.com/l/jryauv">SOUL.md Mega Pack</a> includes 100 personality templates for every use case. Find the perfect starting point for your Slack integration.
+</div>
+
+<h3>Step 3: Test the Integration</h3>
+<p>Send a test message in Slack and verify your OpenClaw agent responds correctly. Check the OpenClaw logs for any connection issues.</p>
+
+<h2>Common Use Cases</h2>
+<ol>
+<li><strong>Help desk</strong> — Answer team questions automatically in Slack</li>
+<li><strong>Daily summaries</strong> — AI-generated reports posted to Slack every morning</li>
+<li><strong>Onboarding</strong> — Guide new users through setup via Slack messages</li>
+<li><strong>Monitoring</strong> — Alert your team in Slack when something needs attention</li>
+</ol>
+
+<h2>Next Steps</h2>
+<p>Once your OpenClaw + Slack integration is running, consider adding more channels and automations. The <a href="https://leimspire20.gumroad.com/l/riwdzt">Complete Bundle ($29)</a> includes guides for all supported integrations.</p>
+<div class="cta-box">
+<h3>🔥 Ready to Build Your AI Agent?</h3>
+<p>Get 100 ready-to-use SOUL.md templates for any industry — <strong>only $5</strong></p>
+<a href="https://leimspire20.gumroad.com/l/jryauv" class="btn btn-primary">Get SOUL.md Mega Pack →</a>
+<p style="margin-top:12px;font-size:14px">Or start free: <a href="https://leimspire20.gumroad.com/l/kqbdva">Download 5 Free Templates</a></p>
+</div>
+</div></article>
+<div class="related"><div class="container">
+<h3>Related Guides</h3>
+<ul>
+<li><a href="/en/">← Back to Home</a></li>
+<li><a href="/en/best-vps-for-openclaw.html">Best VPS for OpenClaw</a></li>
+<li><a href="/easysetup.html">EasySetup — Install in 5 Minutes</a></li>
+</ul>
+</div></div>
+<footer><div class="container"><p>&copy; 2026 OpenClaw Guide. <a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div></footer>
+</body></html>
