@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>如何用 OpenClaw 搭建会计 AI 智能体（2026指南）</title>
+<meta name="description" content="手把手教你用 OpenClaw 搭建会计 AI 智能体。自动化会计财务工作流，提升效率，节省时间。">
+<meta name="keywords" content="会计AI智能体, OpenClaw 会计, AI自动化, 会计财务AI, 记账、报税、发票管理、财务分析">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://openclawguide.org/zh/guides/accounting-ai-agent">
+<link rel="alternate" hreflang="en" href="https://openclawguide.org/guides/accounting-ai-agent">
+<link rel="alternate" hreflang="zh" href="https://openclawguide.org/zh/guides/accounting-ai-agent">
+<link rel="alternate" hreflang="x-default" href="https://openclawguide.org/guides/accounting-ai-agent">
+<meta property="og:title" content="如何用 OpenClaw 搭建会计 AI 智能体（2026指南）">
+<meta property="og:description" content="手把手教你用 OpenClaw 搭建会计 AI 智能体。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://openclawguide.org/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"如何用 OpenClaw 搭建会计 AI 智能体","description":"手把手教你用 OpenClaw 搭建会计 AI 智能体。自动化会计财务工作流。","datePublished":"2026-02-19","inLanguage":"zh-CN","author":{"@type":"Organization","name":"OpenClaw Guide"},"publisher":{"@type":"Organization","name":"OpenClaw Guide","url":"https://openclawguide.org"}}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.8;background:#fafbfc}a{color:#e94560;text-decoration:none;font-weight:600}a:hover{text-decoration:underline}.container{max-width:800px;margin:0 auto;padding:0 24px}nav{background:#0f3460;padding:12px 0}nav .container{display:flex;justify-content:space-between;align-items:center}nav a{color:white;font-weight:700;font-size:18px}nav a:hover{text-decoration:none}nav ul{list-style:none;display:flex;gap:20px}nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}.hero-sm{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:50px 0 40px;text-align:center}.hero-sm h1{font-size:clamp(24px,4vw,36px);margin-bottom:8px}.hero-sm p{opacity:0.85;font-size:16px}article{padding:40px 0 60px}article h2{font-size:24px;color:#0f3460;margin:36px 0 14px;padding-top:16px;border-top:1px solid #eee}article h3{font-size:19px;color:#16213e;margin:20px 0 10px}article p{margin-bottom:16px;color:#333}article ul,article ol{margin:0 0 16px 24px;color:#333}article li{margin-bottom:8px}article code{background:#e8f0fe;padding:2px 6px;border-radius:4px;font-size:14px}article pre{background:#1a1a2e;color:#e0e0e0;padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:13px}.callout{background:#f0f7ff;border-left:4px solid #0f3460;padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0}.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;font-size:15px;transition:transform 0.2s}.btn:hover{transform:translateY(-2px);text-decoration:none}.btn-primary{background:#e94560;color:white}.cta-box{background:linear-gradient(135deg,#fff3cd,#ffeeba);border:2px solid #ffc107;border-radius:12px;padding:24px;margin:30px 0;text-align:center}.cta-box h3{color:#856404;margin-bottom:8px}.related{background:#f8f9fa;padding:30px 0;margin-top:40px}.related h3{margin-bottom:16px;color:#0f3460}.related ul{list-style:none;padding:0}.related li{margin-bottom:8px}.related li a{font-weight:500}footer{background:#0f3460;color:rgba(255,255,255,0.7);padding:30px 0;text-align:center;font-size:13px}footer a{color:#e94560}.comparison-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}.comparison-table th{background:#0f3460;color:white;padding:12px;text-align:left}.comparison-table td{padding:10px 12px;border-bottom:1px solid #eee}.comparison-table tr:hover{background:#f8f9fa}.nav-toggle{display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer;padding:4px 8px}@media(max-width:768px){.nav-toggle{display:block}nav ul{display:none;position:absolute;top:56px;left:0;right:0;background:#0f3460;flex-direction:column;padding:16px 24px;gap:12px;box-shadow:0 4px 12px rgba(0,0,0,0.3)}nav ul.open{display:flex}}
+</style>
+</head>
+<body>
+<nav><div class="container"><a href="/zh/">🦞 OpenClaw 指南</a><button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button><ul><li><a href="/zh/#hosting">VPS 推荐</a></li><li><a href="/zh/#guides">教程</a></li><li><a href="/zh/#products">资源</a></li><li class="lang-dropdown" style="position:relative"><a href="#" onclick="document.getElementById('langMenu-zh').style.display=document.getElementById('langMenu-zh').style.display==='block'?'none':'block';return false" style="background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:6px;font-size:13px;cursor:pointer">🌐 语言</a><div id="langMenu-zh" style="display:none;position:absolute;right:0;top:100%;background:#0f3460;border-radius:8px;padding:8px 0;min-width:140px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:200;margin-top:8px"><a href="/en/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇺🇸 English</a><a href="/zh/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇨🇳 中文</a><a href="/ja/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇯🇵 日本語</a><a href="/ko/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇰🇷 한국어</a><a href="/es/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇪🇸 Español</a><a href="/de/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇩🇪 Deutsch</a></div></li></ul></div></nav>
+<div class="hero-sm"><div class="container"><h1>🧮 如何用 OpenClaw 搭建会计 AI 智能体</h1><p>手把手教你用 OpenClaw 搭建会计 AI 智能体。自动化会计财务工作流，提升效率。</p></div></div>
+<article><div class="container">
+
+<h2>为什么要搭建会计 AI 智能体？</h2>
+<p>会计财务行业非常适合 AI 自动化。重复性任务、数据处理和客户沟通都可以交给 AI 智能体处理，每天节省数小时的人工操作。</p>
+<p>使用 OpenClaw，你可以在 30 分钟内在自己的服务器上部署一个专业的会计 AI 智能体。无需编程——只需配置 SOUL.md 人格文件并连接你的工具。</p>
+
+<h2>你的会计智能体能做什么</h2>
+<ul>
+<li><strong>自动化记账和分类</strong></li>
+<li><strong>税务计算和申报辅助</strong></li>
+<li><strong>发票管理和对账</strong></li>
+<li><strong>财务报表自动生成</strong></li>
+<li><strong>现金流分析和预测</strong></li>
+</ul>
+
+<h2>搭建步骤</h2>
+<h3>第一步：安装 OpenClaw</h3>
+<p>在任意 VPS 上用我们的<a href="/zh/easysetup">一键安装脚本</a>部署 OpenClaw。推荐：<a href="https://www.vultr.com/?ref=9738617-8H">Vultr</a>（$6/月）或任何 Ubuntu 22.04+ 服务器（2GB 内存以上）。</p>
+<pre>curl -fsSL https://openclawguide.org/install.sh | bash</pre>
+
+<h3>第二步：配置 SOUL.md 文件</h3>
+<p>SOUL.md 文件定义了你的智能体的人格、专业知识和行为方式。对于会计智能体，你需要指定：</p>
+<ul>
+<li>行业专业知识和术语</li>
+<li>适合会计财务专业人士的沟通风格</li>
+<li>工作流程和决策框架</li>
+<li>边界和合规要求</li>
+</ul>
+<div class="callout">
+<strong>💡 提示：</strong>不要从零开始写 SOUL.md。<a href="https://leimspire20.gumroad.com/l/jryauv">SOUL.md 超级模板包</a>包含现成的会计模板——直接根据你的需求定制即可。
+</div>
+
+<h3>第三步：连接沟通渠道</h3>
+<p>OpenClaw 原生支持多种沟通渠道：Slack、Discord、Telegram、WhatsApp、邮件等。连接你的会计财务团队已经在使用的渠道。</p>
+
+<h3>第四步：测试和部署</h3>
+<p>在正式上线前，用真实的会计财务场景测试你的智能体。OpenClaw 内置的监控功能让你可以审查每次对话并优化回复。</p>
+
+<h2>会计 AI 智能体最佳实践</h2>
+<ol>
+<li><strong>从小处着手</strong>——先专注一个具体任务，再逐步扩展能力</li>
+<li><strong>设定清晰边界</strong>——明确智能体应该做什么和不应该做什么</li>
+<li><strong>持续监控和迭代</strong>——每周审查对话记录，更新 SOUL.md</li>
+<li><strong>确保合规</strong>——确保智能体遵守会计财务行业法规</li>
+<li><strong>收集反馈</strong>——让用户评价智能体的回复，持续改进</li>
+</ol>
+
+<h2>立即开始</h2>
+<p>搭建会计 AI 智能体不需要工程师团队。使用 OpenClaw 和合适的 SOUL.md 模板，你可以在一小时内拥有一个可用的智能体。</p>
+<p>需要完整工具包？<a href="https://leimspire20.gumroad.com/l/riwdzt">OpenClaw 完整套装（$29）</a>包含所有内容：100 个 SOUL.md 模板、安装指南、安全加固和自动化工作流。</p>
+<div class="cta-box">
+<h3>🔥 准备好搭建你的 AI 智能体了吗？</h3>
+<p>获取 100 个即用型 SOUL.md 模板，覆盖所有行业——<strong>仅 $5</strong></p>
+<a href="https://leimspire20.gumroad.com/l/jryauv" class="btn btn-primary">获取 SOUL.md 超级模板包 →</a>
+<p style="margin-top:12px;font-size:14px">或免费开始：<a href="https://leimspire20.gumroad.com/l/kqbdva">下载 5 个免费模板</a></p>
+</div>
+
+</div></article>
+<div class="related"><div class="container">
+<h3>相关指南</h3>
+<ul>
+<li><a href="/zh/guides/healthcare-ai-agent">🏥 医疗 AI 智能体指南</a></li>
+<li><a href="/zh/guides/real-estate-ai-agent">🏠 房地产 AI 智能体指南</a></li>
+<li><a href="/zh/guides/education-ai-agent">📚 教育 AI 智能体指南</a></li>
+<li><a href="/zh/integrations/openclaw-slack">OpenClaw + Slack 集成</a></li>
+<li><a href="/zh/compare/openclaw-vs-chatgpt">OpenClaw vs ChatGPT 对比</a></li>
+<li><a href="/zh/">← 返回首页</a></li>
+</ul>
+</div></div>
+<footer><div class="container"><p>© 2026 OpenClaw Guide · <a href="/zh/">中文</a> · <a href="/en/">English</a> · <a href="/privacy">隐私政策</a> · <a href="/terms">使用条款</a></p></div></footer>
+</body></html>

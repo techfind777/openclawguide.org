@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenClaw + n8n 集成指南 — 连接你的 AI 智能体</title>
+<meta name="description" content="OpenClaw 与 n8n 集成教程。学习如何将 AI 智能体连接到 n8n，实现可视化工作流编排的自动化。">
+<meta name="keywords" content="OpenClaw n8n, OpenClaw n8n 集成, AI智能体 n8n, n8n 自动化, OpenClaw 教程">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://openclawguide.org/zh/integrations/openclaw-n8n">
+<link rel="alternate" hreflang="en" href="https://openclawguide.org/integrations/openclaw-n8n">
+<link rel="alternate" hreflang="zh" href="https://openclawguide.org/zh/integrations/openclaw-n8n">
+<link rel="alternate" hreflang="x-default" href="https://openclawguide.org/integrations/openclaw-n8n">
+<meta property="og:title" content="OpenClaw + n8n 集成指南">
+<meta property="og:description" content="将 AI 智能体连接到 n8n，实现可视化工作流编排的自动化。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://openclawguide.org/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"OpenClaw + n8n 集成指南","description":"将 AI 智能体连接到 n8n，实现可视化工作流编排的自动化。","datePublished":"2026-02-19","inLanguage":"zh-CN","author":{"@type":"Organization","name":"OpenClaw Guide"}}
+</script>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.8;background:#fafbfc}a{color:#e94560;text-decoration:none;font-weight:600}a:hover{text-decoration:underline}.container{max-width:800px;margin:0 auto;padding:0 24px}nav{background:#0f3460;padding:12px 0}nav .container{display:flex;justify-content:space-between;align-items:center}nav a{color:white;font-weight:700;font-size:18px}nav a:hover{text-decoration:none}nav ul{list-style:none;display:flex;gap:20px}nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}.hero-sm{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:50px 0 40px;text-align:center}.hero-sm h1{font-size:clamp(24px,4vw,36px);margin-bottom:8px}.hero-sm p{opacity:0.85;font-size:16px}article{padding:40px 0 60px}article h2{font-size:24px;color:#0f3460;margin:36px 0 14px;padding-top:16px;border-top:1px solid #eee}article h3{font-size:19px;color:#16213e;margin:20px 0 10px}article p{margin-bottom:16px;color:#333}article ul,article ol{margin:0 0 16px 24px;color:#333}article li{margin-bottom:8px}article code{background:#e8f0fe;padding:2px 6px;border-radius:4px;font-size:14px}article pre{background:#1a1a2e;color:#e0e0e0;padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:13px}.callout{background:#f0f7ff;border-left:4px solid #0f3460;padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0}.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;font-size:15px;transition:transform 0.2s}.btn:hover{transform:translateY(-2px);text-decoration:none}.btn-primary{background:#e94560;color:white}.cta-box{background:linear-gradient(135deg,#fff3cd,#ffeeba);border:2px solid #ffc107;border-radius:12px;padding:24px;margin:30px 0;text-align:center}.cta-box h3{color:#856404;margin-bottom:8px}.related{background:#f8f9fa;padding:30px 0;margin-top:40px}.related h3{margin-bottom:16px;color:#0f3460}.related ul{list-style:none;padding:0}.related li{margin-bottom:8px}.related li a{font-weight:500}footer{background:#0f3460;color:rgba(255,255,255,0.7);padding:30px 0;text-align:center;font-size:13px}footer a{color:#e94560}.comparison-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}.comparison-table th{background:#0f3460;color:white;padding:12px;text-align:left}.comparison-table td{padding:10px 12px;border-bottom:1px solid #eee}.comparison-table tr:hover{background:#f8f9fa}.nav-toggle{display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer;padding:4px 8px}@media(max-width:768px){.nav-toggle{display:block}nav ul{display:none;position:absolute;top:56px;left:0;right:0;background:#0f3460;flex-direction:column;padding:16px 24px;gap:12px;box-shadow:0 4px 12px rgba(0,0,0,0.3)}nav ul.open{display:flex}}</style>
+</head>
+<body>
+<nav><div class="container"><a href="/zh/">🦞 OpenClaw 指南</a><button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button><ul><li><a href="/zh/#hosting">VPS 推荐</a></li><li><a href="/zh/#guides">教程</a></li><li><a href="/zh/#products">资源</a></li><li class="lang-dropdown" style="position:relative"><a href="#" onclick="document.getElementById('langMenu-zh').style.display=document.getElementById('langMenu-zh').style.display==='block'?'none':'block';return false" style="background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:6px;font-size:13px;cursor:pointer">🌐 语言</a><div id="langMenu-zh" style="display:none;position:absolute;right:0;top:100%;background:#0f3460;border-radius:8px;padding:8px 0;min-width:140px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:200;margin-top:8px"><a href="/en/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇺🇸 English</a><a href="/zh/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇨🇳 中文</a><a href="/ja/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇯🇵 日本語</a><a href="/ko/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇰🇷 한국어</a><a href="/es/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇪🇸 Español</a><a href="/de/" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇩🇪 Deutsch</a></div></li></ul></div></nav>
+<div class="hero-sm"><div class="container"><h1>OpenClaw + n8n 集成指南</h1><p>将你的 AI 智能体连接到 n8n，实现可视化工作流编排的自动化</p></div></div>
+<article><div class="container">
+
+<h2>为什么要将 OpenClaw 与 n8n 集成？</h2>
+<p>n8n 是工作流自动化领域最受欢迎的工具之一。通过将 OpenClaw 与 n8n 集成，你的 AI 智能体可以自动与 n8n 交互 — 读取数据、发送消息、触发操作，无需人工干预。</p>
+
+<h2>你可以实现什么</h2>
+<ul>
+<li><strong>自动化响应</strong> — 创建复杂的多步骤自动化工作流</li>
+<li><strong>数据同步</strong> — 连接数百个第三方服务和 API</li>
+<li><strong>智能通知</strong> — 用 AI 节点增强工作流智能</li>
+<li><strong>工作流触发</strong> — 定时触发和条件分支处理</li>
+</ul>
+
+<h2>配置步骤</h2>
+<h3>前置条件</h3>
+<ul>
+<li>已安装并运行 OpenClaw（<a href="/zh/easysetup">安装教程</a>）</li>
+<li>n8n 账号和 API 访问权限</li>
+<li>基本的命令行操作能力</li>
+</ul>
+
+<h3>第一步：安装 OpenClaw</h3>
+<p>如果还没安装，用我们的一键安装脚本：</p>
+<pre>npx openclaw</pre>
+
+<h3>第二步：配置 n8n 连接</h3>
+<p>在 OpenClaw 配置中添加 n8n 集成。具体配置取决于你的使用场景，参考 <a href="https://docs.openclaw.ai">OpenClaw 官方文档</a>获取详细的 API 配置说明。</p>
+
+<h3>第三步：配置 SOUL.md</h3>
+<p>在 SOUL.md 中定义你的智能体如何与 n8n 交互。包括响应规则、数据处理逻辑和自动化触发条件。</p>
+<div class="callout">
+<strong>💡 提示：</strong>不要从零开始写 SOUL.md。<a href="https://leimspire20.gumroad.com/l/jryauv">SOUL.md 超级模板包</a>包含 100 个即用模板，可以快速定制。
+</div>
+
+<h3>第四步：测试和部署</h3>
+<p>在正式使用前，先用测试数据验证集成是否正常工作。OpenClaw 内置的监控功能可以帮你追踪每次交互。</p>
+
+<h2>最佳实践</h2>
+<ol>
+<li><strong>从简单开始</strong> — 先实现一个核心功能，验证后再扩展</li>
+<li><strong>设置错误处理</strong> — 确保 API 调用失败时有合理的降级方案</li>
+<li><strong>监控和日志</strong> — 定期检查集成运行状态</li>
+<li><strong>安全第一</strong> — 妥善保管 API 密钥，使用最小权限原则</li>
+</ol>
+
+<h2>立即开始</h2>
+<p>5 分钟安装 OpenClaw：<a href="/zh/easysetup">EasySetup 一键安装</a>。或者获取 <a href="https://leimspire20.gumroad.com/l/kqbdva">免费模板包</a> 体验 AI 智能体的强大功能。</p>
+<div class="cta-box">
+<h3>🔥 开始构建你的 AI 智能体</h3>
+<p>100 个即用 SOUL.md 模板，覆盖所有行业 — <strong>仅 $5</strong></p>
+<a href="https://leimspire20.gumroad.com/l/jryauv" class="btn btn-primary">获取 SOUL.md 超级模板包 →</a>
+<p style="margin-top:12px;font-size:14px">或免费开始：<a href="https://leimspire20.gumroad.com/l/kqbdva">下载 5 个免费模板</a></p>
+</div>
+
+</div></article>
+<div class="related"><div class="container">
+<h3>相关指南</h3>
+<ul>
+<li><a href="/zh/integrations/openclaw-zapier">OpenClaw + Zapier</a></li>
+<li><a href="/zh/integrations/openclaw-whatsapp">OpenClaw + WhatsApp</a></li>
+<li><a href="/zh/integrations/openclaw-hubspot">OpenClaw + HubSpot</a></li>
+<li><a href="/zh/guides/devops-ai-agent">DevOps AI 智能体指南</a></li>
+<li><a href="/zh/">← 返回首页</a></li>
+</ul>
+</div></div>
+<footer><div class="container"><p>© 2026 OpenClaw Guide · <a href="/zh/">中文</a> · <a href="/en/">English</a> · <a href="/privacy">隐私政策</a> · <a href="/terms">使用条款</a></p></div></footer>
+</body></html>
