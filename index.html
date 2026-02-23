@@ -16,8 +16,10 @@
 <link rel="alternate" hreflang="de" href="https://openclawguide.org/de/">
 <link rel="alternate" hreflang="x-default" href="https://openclawguide.org/en/">
 <script>
-// Auto-detect language and redirect
+// Auto-detect language and redirect (skip for bots to avoid SEO redirect issues)
 (function() {
+  var ua = navigator.userAgent || '';
+  if (/bot|crawl|spider|slurp|googlebot|bingbot|yandex|baidu/i.test(ua)) return;
   var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
   var supported = {
     'zh': '/zh/', 'zh-cn': '/zh/', 'zh-tw': '/zh/', 'zh-hk': '/zh/',
@@ -25,22 +27,19 @@
     'es': '/es/', 'es-es': '/es/', 'es-mx': '/es/',
     'de': '/de/', 'de-de': '/de/', 'de-at': '/de/',
   };
-  // Check if user has a language preference saved
   var saved = localStorage.getItem('oc_lang');
   if (saved && document.querySelector('a[href="/' + saved + '/"]')) {
     window.location.replace('/' + saved + '/');
     return;
   }
-  // Try exact match, then prefix
   if (supported[lang]) {
     window.location.replace(supported[lang]);
   } else {
     var prefix = lang.split('-')[0];
     if (supported[prefix]) {
       window.location.replace(supported[prefix]);
-    } else {
-      window.location.replace('/en/');
     }
+    // Don't redirect English users — let them see the language picker
   }
 })();
 </script>
