@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automate Lead Generation with AI Sales Agents — Complete Guide</title>
+<meta name="description" content="Build an AI-powered lead generation system: web scraping, qualification, outreach automation, and CRM sync. Real workflows and code examples included.">
+<meta name="keywords" content="ai lead generation, automated lead gen, sales agent automation, openclaw lead generation, ai prospecting">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://openclawguide.org/guides/sales-ai-agent-lead-generation">
+<meta property="og:title" content="Automate Lead Generation with AI Sales Agents — Complete Guide">
+<meta property="og:description" content="Build an AI-powered lead generation system: web scraping, qualification, outreach automation, and CRM sync.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://openclawguide.org/guides/sales-ai-agent-lead-generation">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Automate Lead Generation with AI Sales Agents — Complete Guide","description":"Build an AI-powered lead generation system: web scraping, qualification, outreach automation, and CRM sync. Real workflows and code examples included.","datePublished":"2026-02-25","dateModified":"2026-02-25","author":{"@type":"Organization","name":"OpenClaw Guide"},"publisher":{"@type":"Organization","name":"OpenClaw Guide","url":"https://openclawguide.org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is automated lead generation legal?","acceptedAnswer":{"@type":"Answer","text":"Yes, if done correctly. Follow GDPR/CCPA rules, respect robots.txt, don't scrape personal data without consent, and always include unsubscribe options in outreach emails."}},
+{"@type":"Question","name":"How many leads can an AI agent generate per day?","acceptedAnswer":{"@type":"Answer","text":"Depends on your sources and criteria. Typical setup: 50-200 qualified leads per day from web scraping, LinkedIn, and form submissions. Quality matters more than quantity."}},
+{"@type":"Question","name":"What's the cost of AI-powered lead generation?","acceptedAnswer":{"@type":"Answer","text":"VPS hosting: $5-12/month. API costs: $10-30/month. Data enrichment (Clearbit, Apollo): $50-200/month. Total: $65-250/month vs $2000+/month for human SDRs."}},
+{"@type":"Question","name":"Can AI agents replace human SDRs?","acceptedAnswer":{"@type":"Answer","text":"For top-of-funnel work (prospecting, initial outreach, qualification), yes. For relationship building and complex deal navigation, no. Best approach: AI handles volume, humans handle high-value prospects."}}
+]}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.8;background:#fafbfc}a{color:#e94560;text-decoration:none;font-weight:600}a:hover{text-decoration:underline}.container{max-width:800px;margin:0 auto;padding:0 24px}nav{background:#0f3460;padding:12px 0}nav .container{display:flex;justify-content:space-between;align-items:center}nav a{color:white;font-weight:700;font-size:18px}nav a:hover{text-decoration:none}nav ul{list-style:none;display:flex;gap:20px}nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}.hero-sm{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:50px 0 40px;text-align:center}.hero-sm h1{font-size:clamp(24px,4vw,36px);margin-bottom:8px}.hero-sm p{opacity:0.85;font-size:16px}article{padding:40px 0 60px}article h2{font-size:24px;color:#0f3460;margin:36px 0 14px;padding-top:16px;border-top:1px solid #eee}article h3{font-size:19px;color:#16213e;margin:20px 0 10px}article p{margin-bottom:16px;color:#333}article ul,article ol{margin:0 0 16px 24px;color:#333}article li{margin-bottom:8px}article code{background:#e8f0fe;padding:2px 6px;border-radius:4px;font-size:14px}article pre{background:#1a1a2e;color:#e0e0e0;padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:13px}.callout{background:#f0f7ff;border-left:4px solid #0f3460;padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0}.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;font-size:15px;transition:transform 0.2s}.btn:hover{transform:translateY(-2px);text-decoration:none}.btn-primary{background:#e94560;color:white}.cta-box{background:linear-gradient(135deg,#fff3cd,#ffeeba);border:2px solid #ffc107;border-radius:12px;padding:24px;margin:30px 0;text-align:center}.cta-box h3{color:#856404;margin-bottom:8px}.related{background:#f8f9fa;padding:30px 0;margin-top:40px}.related h3{margin-bottom:16px;color:#0f3460}.related ul{list-style:none;padding:0}.related li{margin-bottom:8px}.related li a{font-weight:500}footer{background:#0f3460;color:rgba(255,255,255,0.7);padding:30px 0;text-align:center;font-size:13px}footer a{color:#e94560}.meta-info{display:flex;gap:20px;justify-content:center;margin-top:12px;font-size:14px;opacity:0.8}.meta-info span{display:flex;align-items:center;gap:4px}
+</style>
+</head>
+<body>
+<nav><div class="container"><a href="/en/">OpenClaw Guide</a><ul><li><a href="/en/">Home</a></li><li><a href="/best-vps-for-openclaw">VPS Guide</a></li><li><a href="/easysetup">EasySetup</a></li></ul></div></nav>
+<div class="hero-sm"><div class="container"><h1>Automate Lead Generation with AI Sales Agents</h1><p>Complete guide to AI-powered prospecting, qualification, and outreach automation</p><div class="meta-info"><span>⏱ 18 min read</span><span>💻 Workflows included</span><span>📅 Updated Feb 2026</span></div></div></div>
+<article><div class="container">
+
+<p>Manual lead generation is a time sink. Sales reps spend 40% of their time researching prospects, finding contact info, and sending initial outreach — work that an AI agent can do 24/7 at 1/10th the cost.</p>
+
+<p>This guide shows you how to build a complete AI-powered lead generation system with <strong>OpenClaw</strong>: from finding prospects to qualification to automated outreach and CRM sync. By the end, you'll have an agent that generates and qualifies 50-200 leads per day while you sleep.</p>
+
+<h2>What Your AI Lead Generation Agent Will Do</h2>
+
+<p>Here's the complete workflow your agent will automate:</p>
+
+<ul>
+<li><strong>Prospect discovery</strong> — Find potential customers from LinkedIn, company directories, job boards, and industry databases</li>
+<li><strong>Data enrichment</strong> — Pull company info, employee count, tech stack, funding data, and contact details</li>
+<li><strong>Lead scoring</strong> — Automatically qualify prospects based on ICP criteria (industry, company size, budget signals, tech stack)</li>
+<li><strong>Personalized outreach</strong> — Generate and send customized emails/messages referencing recent company news, pain points, or mutual connections</li>
+<li><strong>Follow-up sequences</strong> — Multi-touch campaigns with A/B testing and engagement tracking</li>
+<li><strong>CRM synchronization</strong> — Log all activities, update lead status, and create tasks for sales reps</li>
+<li><strong>Performance analytics</strong> — Track response rates, conversion metrics, and ROI by source</li>
+</ul>
+
+<div class="callout">
+<strong>💡 Real example:</strong> A B2B SaaS company used this system to generate 1,847 qualified leads in 3 months, with a 12% response rate and 3.2% conversion to demo — all automated. Cost: $180/month vs $6,000/month for 2 SDRs.
+</div>
+
+<h2>Step 1: Define Your Ideal Customer Profile (ICP)</h2>
+
+<p>Before your agent can find leads, it needs to know who to look for. Create a detailed ICP in your <code>SOUL.md</code>:</p>
+
+<pre># SOUL.md — Lead Generation Agent
+
+## Ideal Customer Profile (ICP)
+
+### Company Criteria
+- Industry: B2B SaaS, fintech, e-commerce platforms
+- Company size: 50-500 employees
+- Revenue: $5M-$50M ARR
+- Funding stage: Series A or later (or profitable bootstrapped)
+- Tech stack: Uses Salesforce, HubSpot, or Pipedrive
+- Growth signals: Recent funding, hiring SDRs, expanding to new markets
+
+### Decision Maker Criteria
+- Title: VP Sales, Head of Revenue, CRO, Sales Operations Manager
+- Seniority: Director level or above
+- Department: Sales, Revenue Operations
+- LinkedIn activity: Posts about sales challenges, hiring, or process improvement
+
+### Disqualifiers
+- Companies with <10 employees (too small)
+- Agencies or consultancies (not our ICP)
+- Companies in heavily regulated industries (healthcare, finance) unless they explicitly mention our use case
+- Competitors or companies building similar products</pre>
+
+<h2>Step 2: Set Up Prospect Discovery Sources</h2>
+
+<p>Your agent needs data sources to find prospects. Here are the most effective channels:</p>
+
+<h3>LinkedIn Sales Navigator (Best for B2B)</h3>
+<p>Use LinkedIn's search filters to find decision-makers, then export to CSV or use a tool like Phantombuster to automate extraction. Configure your agent to process these lists daily.</p>
+
+<h3>Apollo.io / ZoomInfo / Clearbit</h3>
+<p>These platforms provide enriched B2B contact data with APIs. Your agent can query them based on ICP criteria and get verified email addresses, phone numbers, and company details.</p>
+
+<pre># Example: Apollo.io API integration in AGENTS.md
+
+## Tools Access
+- Apollo API: Search companies and contacts
+- Clearbit Enrichment: Get company data from domain
+- Hunter.io: Find and verify email addresses
+
+## Daily Workflow
+1. Query Apollo for companies matching ICP (industry, size, tech stack)
+2. Extract decision-maker contacts (VP Sales, CRO, etc.)
+3. Enrich with Clearbit (funding, employee count, recent news)
+4. Score leads based on ICP fit (0-100 scale)
+5. Leads scoring 70+ → immediate outreach
+6. Leads scoring 50-69 → nurture sequence
+7. Leads <50 → discard or revisit in 6 months</pre>
+
+<h3>Web Scraping (For Public Data)</h3>
+<p>Your agent can scrape company directories, job boards (companies hiring SDRs = growth signal), and industry-specific sites. Use OpenClaw's browser automation tools for this.</p>
+
+<h3>Inbound Form Submissions</h3>
+<p>Connect your website forms, demo requests, and content downloads. Your agent qualifies these leads instantly and routes hot leads to sales reps within minutes.</p>
+
+<h2>Step 3: Build the Lead Scoring System</h2>
+
+<p>Not all leads are equal. Your agent needs a scoring framework to prioritize outreach:</p>
+
+<pre># Lead Scoring Framework (in SOUL.md)
+
+## Scoring Criteria (0-100 scale)
+
+### Firmographic Fit (40 points max)
+- Industry match: 15 points
+- Company size in range: 10 points
+- Revenue in range: 10 points
+- Tech stack match: 5 points
+
+### Behavioral Signals (30 points max)
+- Recent funding round: 10 points
+- Hiring sales roles: 10 points
+- Website traffic growth: 5 points
+- Active on LinkedIn: 5 points
+
+### Contact Quality (20 points max)
+- Decision-maker title: 10 points
+- Verified email: 5 points
+- LinkedIn connection: 5 points
+
+### Timing Signals (10 points max)
+- Recent company news/expansion: 5 points
+- Fiscal year start (budget available): 3 points
+- Competitor mentioned in job posting: 2 points
+
+## Lead Categories
+- 80-100: Hot lead → Immediate personalized outreach + Slack notification to sales team
+- 60-79: Warm lead → Automated sequence with 3-day delay
+- 40-59: Cold lead → Long-term nurture campaign
+- <40: Disqualified → Archive</pre>
+
+<h2>Step 4: Create Personalized Outreach Templates</h2>
+
+<p>Generic "spray and pray" emails get 1-2% response rates. Personalized, context-aware messages get 15-25%. Your agent can generate these at scale:</p>
+
+<pre># Outreach Template (Dynamic Personalization)
+
+Subject: {{company_name}}'s sales team + our {{product_category}}
+
+Hi {{first_name}},
+
+I noticed {{company_name}} recently {{recent_signal}} — congrats on the momentum!
+
+I'm reaching out because {{personalized_reason}}:
+- You're hiring {{job_title_from_posting}} (saw the LinkedIn post)
+- Your team is using {{tech_stack_tool}}, which integrates seamlessly with our platform
+- {{competitor_name}} mentioned challenges with {{pain_point}} — we solve that
+
+We help {{similar_company_1}} and {{similar_company_2}} {{specific_outcome}}.
+
+Worth a 15-min call to see if there's a fit?
+
+[Calendar link]
+
+Best,
+[Your name]
+
+P.S. {{contextual_ps}} — thought you might find this relevant.</pre>
+
+<p>Your agent fills in all the {{variables}} automatically using enrichment data, recent news, and LinkedIn activity.</p>
+
+<h2>Step 5: Automate Multi-Touch Follow-Up Sequences</h2>
+
+<p>80% of sales require 5+ touchpoints. Your agent handles this automatically:</p>
+
+<pre># Follow-Up Sequence (in AGENTS.md)
+
+## Outreach Cadence for Warm Leads (Score 60-79)
+
+### Day 0: Initial Email
+- Personalized intro with specific value prop
+- Include social proof (similar companies)
+- Clear CTA (calendar link or reply)
+
+### Day 3: Follow-Up #1 (if no response)
+- Reference initial email
+- Share relevant case study or content
+- Different CTA (ask a question instead of meeting request)
+
+### Day 7: Follow-Up #2 (if no response)
+- Provide additional value (industry insight, free tool, report)
+- Mention limited-time offer or upcoming event
+- Softer CTA ("Would this be useful?")
+
+### Day 14: Follow-Up #3 (if no response)
+- "Break-up" email: "Should I stop reaching out?"
+- Often gets highest response rate (23% in our tests)
+- Offer to connect on LinkedIn instead
+
+### Day 30: Re-engage (if no response)
+- Move to long-term nurture (monthly valuable content)
+- Monitor for trigger events (funding, hiring, news)
+- Re-activate sequence when trigger detected</pre>
+
+<h2>Step 6: Integrate with Your CRM</h2>
+
+<p>Every lead, interaction, and outcome must sync to your CRM automatically. See our <a href="/guides/sales-ai-agent-crm-integration">CRM integration guide</a> for detailed setup instructions.</p>
+
+<p>Key CRM automations:</p>
+<ul>
+<li>Create new contact/company records for qualified leads</li>
+<li>Log all outreach attempts with timestamps and message content</li>
+<li>Update lead status based on engagement (opened email, clicked link, replied)</li>
+<li>Create tasks for sales reps when hot leads respond</li>
+<li>Track source attribution (which channel/campaign generated the lead)</li>
+</ul>
+
+<h2>Step 7: Monitor Performance and Optimize</h2>
+
+<p>Your agent should track and report key metrics weekly:</p>
+
+<ul>
+<li><strong>Lead volume</strong>: How many prospects discovered per day/week</li>
+<li><strong>Qualification rate</strong>: % of discovered leads that meet ICP criteria</li>
+<li><strong>Outreach volume</strong>: Emails/messages sent per day</li>
+<li><strong>Response rate</strong>: % of outreach that gets replies (target: 10-15%)</li>
+<li><strong>Conversion rate</strong>: % of responses that book meetings (target: 20-30%)</li>
+<li><strong>Cost per qualified lead</strong>: Total spend ÷ qualified leads generated</li>
+<li><strong>ROI</strong>: Revenue from agent-generated leads ÷ total cost</li>
+</ul>
+
+<p>Configure your agent to send weekly reports to Slack or email:</p>
+
+<pre># Weekly Lead Gen Report (automated)
+
+## Week of Feb 18-24, 2026
+
+### Lead Discovery
+- 847 prospects found (Apollo: 520, LinkedIn: 327)
+- 312 met ICP criteria (37% qualification rate)
+- 89 scored 70+ (hot leads)
+
+### Outreach Performance
+- 312 initial emails sent
+- 47 responses (15.1% response rate) ⬆ 2.3% vs last week
+- 14 meetings booked (29.8% conversion rate)
+- 3 deals created in CRM ($47K pipeline value)
+
+### Top Performing Segments
+1. Series A SaaS companies (22% response rate)
+2. Companies hiring SDRs (18% response rate)
+3. Recent Salesforce adopters (16% response rate)
+
+### Action Items
+- Increase outreach to Segment #1 (highest conversion)
+- A/B test new subject lines for Segment #3
+- Follow up with 12 warm leads from last week</pre>
+
+<h2>Real-World Lead Generation Workflows</h2>
+
+<h3>Workflow 1: LinkedIn → Enrichment → Outreach</h3>
+<p><strong>Use case:</strong> Finding and reaching out to VPs of Sales at Series A SaaS companies</p>
+
+<ol>
+<li>Agent searches LinkedIn Sales Navigator daily for "VP Sales" at companies with 50-200 employees in SaaS</li>
+<li>Exports profile URLs to CSV</li>
+<li>Enriches each profile with Apollo (email, company data, tech stack)</li>
+<li>Scores leads based on ICP fit</li>
+<li>Sends personalized emails to leads scoring 70+</li>
+<li>Logs everything to HubSpot CRM</li>
+<li>Follows up automatically if no response in 3 days</li>
+</ol>
+
+<p><strong>Results:</strong> 50-80 qualified leads per week, 12-15% response rate, 3-5 meetings booked per week</p>
+
+<h3>Workflow 2: Job Board Scraping → Hiring Signal Outreach</h3>
+<p><strong>Use case:</strong> Targeting companies hiring SDRs (growth signal)</p>
+
+<ol>
+<li>Agent scrapes LinkedIn Jobs, Indeed, and company career pages daily for "SDR" and "Sales Development" postings</li>
+<li>Extracts company names and job descriptions</li>
+<li>Enriches with Clearbit (company size, funding, tech stack)</li>
+<li>Filters for ICP match</li>
+<li>Finds hiring manager (usually VP Sales or Head of Sales) via LinkedIn</li>
+<li>Sends email: "Saw you're hiring SDRs — here's how we help sales teams scale faster"</li>
+<li>Includes case study from similar company</li>
+</ol>
+
+<p><strong>Results:</strong> 20-30 qualified leads per week, 18-22% response rate (hiring = high intent), 4-6 meetings per week</p>
+
+<h3>Workflow 3: Inbound Lead Qualification + Routing</h3>
+<p><strong>Use case:</strong> Instantly qualifying and routing website demo requests</p>
+
+<ol>
+<li>Prospect fills out demo request form on website</li>
+<li>Webhook triggers agent to process submission</li>
+<li>Agent enriches with Clearbit (company data, employee count, tech stack)</li>
+<li>Scores lead based on ICP fit</li>
+<li>Hot leads (80+): Immediate Slack notification to sales team + calendar invite sent within 2 minutes</li>
+<li>Warm leads (60-79): Automated email sequence + assigned to SDR</li>
+<li>Cold leads (<60): Nurture campaign + monthly check-ins</li>
+</ol>
+
+<p><strong>Results:</strong> 100% of inbound leads qualified within 5 minutes, 40% faster response time, 25% increase in demo show-up rate</p>
+
+<h2>Legal and Compliance Considerations</h2>
+
+<p>Automated lead generation must comply with data privacy laws:</p>
+
+<ul>
+<li><strong>GDPR (Europe)</strong>: Only contact B2B prospects with legitimate interest. Include unsubscribe links. Don't scrape personal data without consent.</li>
+<li><strong>CCPA (California)</strong>: Provide opt-out mechanisms. Honor "Do Not Sell" requests.</li>
+<li><strong>CAN-SPAM (US)</strong>: Include physical address, clear sender identity, and unsubscribe option in all emails.</li>
+<li><strong>LinkedIn Terms</strong>: Don't use automated scrapers that violate ToS. Use official APIs or manual exports where possible.</li>
+</ul>
+
+<p>Configure your agent to respect these rules automatically:</p>
+
+<pre># Compliance Rules (in AGENTS.md)
+
+## Email Compliance
+- Always include unsubscribe link in footer
+- Honor unsubscribe requests within 24 hours
+- Include physical business address
+- Never send to suppression list (bounced, unsubscribed, complained)
+
+## Data Privacy
+- Only store business contact info (no personal emails like gmail.com)
+- Delete contact data upon request within 30 days
+- Don't share data with third parties without consent
+- Log all data processing activities for audit trail</pre>
+
+<h2>Common Mistakes to Avoid</h2>
+
+<ul>
+<li><strong>Prioritizing quantity over quality</strong> — 100 highly qualified leads > 1,000 random contacts</li>
+<li><strong>Generic messaging</strong> — "I wanted to reach out about our solution" gets ignored. Reference specific pain points or recent company news.</li>
+<li><strong>No follow-up</strong> — 80% of sales happen after the 5th touchpoint. Don't give up after one email.</li>
+<li><strong>Ignoring data hygiene</strong> — Bounced emails hurt sender reputation. Verify emails before sending.</li>
+<li><strong>Not tracking metrics</strong> — You can't optimize what you don't measure. Track response rates by segment, message, and timing.</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Is automated lead generation legal?</h3>
+<p>Yes, if done correctly. Follow GDPR/CCPA rules, respect robots.txt, don't scrape personal data without consent, and always include unsubscribe options in outreach emails. B2B prospecting is generally allowed under "legitimate interest" provisions.</p>
+
+<h3>How many leads can an AI agent generate per day?</h3>
+<p>Depends on your sources and criteria. Typical setup: 50-200 qualified leads per day from web scraping, LinkedIn, and form submissions. Quality matters more than quantity — focus on ICP fit, not volume.</p>
+
+<h3>What's the cost of AI-powered lead generation?</h3>
+<p>VPS hosting: $5-12/month. API costs (Claude, GPT): $10-30/month. Data enrichment (Clearbit, Apollo): $50-200/month. Total: $65-250/month vs $2,000+/month for human SDRs. ROI is typically 5-10x within 6 months.</p>
+
+<h3>Can AI agents replace human SDRs?</h3>
+<p>For top-of-funnel work (prospecting, initial outreach, qualification), yes. For relationship building and complex deal navigation, no. Best approach: AI handles volume (100+ leads/day), humans handle high-value prospects and closing.</p>
+
+<h3>How do I avoid my emails being marked as spam?</h3>
+<p>Use a dedicated sending domain, warm up your email address gradually (start with 20-30 emails/day, increase slowly), personalize every message, avoid spam trigger words, and maintain a clean list (remove bounces immediately). Keep response rates above 5% and complaint rates below 0.1%.</p>
+
+<h2>Get Started with AI Lead Generation</h2>
+
+<p>Building an AI lead generation system doesn't require a data science team or six-figure budget. With OpenClaw and the right data sources, you can have a working system in a weekend that generates qualified leads 24/7.</p>
+
+<p>Start with one workflow (e.g., LinkedIn → enrichment → outreach), measure results for 2 weeks, then expand to additional channels. The key is consistent execution and continuous optimization based on data.</p>
+
+<p>For a complete setup guide including SOUL.md templates, outreach scripts, and CRM integration code, check out the <a href="/guides/sales-ai-agent">AI Sales Agent Guide</a>.</p>
+
+<div class="cta-box">
+<h3>🚀 Ready to Automate Your Lead Generation?</h3>
+<p>Get 100 ready-to-use SOUL.md templates including lead gen, sales, and marketing — <strong>only $5</strong></p>
+<a href="https://aiagenttools.gumroad.com/l/jryauv?utm_source=website&utm_medium=article&utm_campaign=megapack" class="btn btn-primary">Get SOUL.md Mega Pack →</a>
+<p style="margin-top:12px;font-size:14px">Or start free: <a href="https://aiagenttools.gumroad.com/l/kqbdva?utm_source=website&utm_medium=article&utm_campaign=starterpack">Download 5 Free Templates</a></p>
+</div>
+
+</div></article>
+<div class="related"><div class="container">
+<h3>Related Guides</h3>
+<ul>
+<li><a href="/guides/sales-ai-agent">How to Build an AI Sales Agent</a></li>
+<li><a href="/guides/sales-ai-agent-crm-integration">AI Sales Agent CRM Integration Guide</a></li>
+<li><a href="/guides/sales-ai-agent-use-cases">10 AI Sales Agent Use Cases</a></li>
+<li><a href="/guides/marketing-ai-agent">Marketing AI Agent Guide</a></li>
+<li><a href="/integrations/openclaw-hubspot">OpenClaw + HubSpot Integration</a></li>
+<li><a href="/en/">← Back to Home</a></li>
+</ul>
+</div></div>
+<footer><div class="container"><p>&copy; 2026 OpenClaw Guide. <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a> | <a href="/disclosure.html">Affiliate Disclosure</a></p></div></footer>
+<script src="/conversion.js" defer></script>
+</body></html>

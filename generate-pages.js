@@ -32,8 +32,8 @@ ${content}
 <div class="cta-box">
 <h3>🔥 Ready to Build Your AI Agent?</h3>
 <p>Get 100 ready-to-use SOUL.md templates for any industry — <strong>only $5</strong></p>
-<a href="https://leimspire20.gumroad.com/l/jryauv" class="btn btn-primary">Get SOUL.md Mega Pack →</a>
-<p style="margin-top:12px;font-size:14px">Or start free: <a href="https://leimspire20.gumroad.com/l/kqbdva">Download 5 Free Templates</a></p>
+<a href="https://aiagenttools.gumroad.com/l/jryauv" class="btn btn-primary">Get SOUL.md Mega Pack →</a>
+<p style="margin-top:12px;font-size:14px">Or start free: <a href="https://aiagenttools.gumroad.com/l/kqbdva">Download 5 Free Templates</a></p>
 </div>
 </div></article>
 <div class="related"><div class="container">
@@ -102,7 +102,7 @@ guides.forEach(g => {
 <li>Boundaries and compliance requirements</li>
 </ul>
 <div class="callout">
-<strong>💡 Pro tip:</strong> Don't write your SOUL.md from scratch. The <a href="https://leimspire20.gumroad.com/l/jryauv">SOUL.md Mega Pack</a> includes a ready-to-use ${g.name.toLowerCase()} template — just customize it for your specific needs.
+<strong>💡 Pro tip:</strong> Don't write your SOUL.md from scratch. The <a href="https://aiagenttools.gumroad.com/l/jryauv">SOUL.md Mega Pack</a> includes a ready-to-use ${g.name.toLowerCase()} template — just customize it for your specific needs.
 </div>
 
 <h3>Step 3: Connect Your Channels</h3>
@@ -122,7 +122,7 @@ guides.forEach(g => {
 
 <h2>Get Started Today</h2>
 <p>Building a ${g.name.toLowerCase()} AI agent doesn't require a team of engineers. With OpenClaw and the right SOUL.md template, you can have a working agent in under an hour.</p>
-<p>Need the complete toolkit? The <a href="https://leimspire20.gumroad.com/l/riwdzt">OpenClaw Complete Bundle ($29)</a> includes everything: 100 SOUL.md templates, setup guides, security hardening, and automation workflows.</p>`;
+<p>Need the complete toolkit? The <a href="https://aiagenttools.gumroad.com/l/riwdzt">OpenClaw Complete Bundle ($29)</a> includes everything: 100 SOUL.md templates, setup guides, security hardening, and automation workflows.</p>`;
 
   const html = template(
     `How to Build a ${g.name} AI Agent with OpenClaw (2026 Guide)`,
@@ -184,7 +184,7 @@ integrations.forEach(i => {
 <h3>Step 2: Set Up Your Agent's Personality</h3>
 <p>Create a SOUL.md file that defines how your agent behaves in ${i.name}. The personality should match the context — professional for work tools, friendly for community platforms.</p>
 <div class="callout">
-<strong>💡 Need templates?</strong> The <a href="https://leimspire20.gumroad.com/l/jryauv">SOUL.md Mega Pack</a> includes 100 personality templates for every use case. Find the perfect starting point for your ${i.name} integration.
+<strong>💡 Need templates?</strong> The <a href="https://aiagenttools.gumroad.com/l/jryauv">SOUL.md Mega Pack</a> includes 100 personality templates for every use case. Find the perfect starting point for your ${i.name} integration.
 </div>
 
 <h3>Step 3: Test the Integration</h3>
@@ -199,7 +199,7 @@ integrations.forEach(i => {
 </ol>
 
 <h2>Next Steps</h2>
-<p>Once your OpenClaw + ${i.name} integration is running, consider adding more channels and automations. The <a href="https://leimspire20.gumroad.com/l/riwdzt">Complete Bundle ($29)</a> includes guides for all supported integrations.</p>`;
+<p>Once your OpenClaw + ${i.name} integration is running, consider adding more channels and automations. The <a href="https://aiagenttools.gumroad.com/l/riwdzt">Complete Bundle ($29)</a> includes guides for all supported integrations.</p>`;
 
   const html = template(
     `OpenClaw + ${i.name} Integration Guide — Connect Your AI Agent`,
@@ -280,7 +280,7 @@ comparisons.forEach(c => {
 </ul>
 
 <h2>Get Started with OpenClaw</h2>
-<p>Try OpenClaw in 5 minutes with our <a href="/easysetup.html">EasySetup installer</a>. Or grab the <a href="https://leimspire20.gumroad.com/l/kqbdva">Free Starter Pack</a> with 5 SOUL.md templates to see what's possible.</p>`;
+<p>Try OpenClaw in 5 minutes with our <a href="/easysetup.html">EasySetup installer</a>. Or grab the <a href="https://aiagenttools.gumroad.com/l/kqbdva">Free Starter Pack</a> with 5 SOUL.md templates to see what's possible.</p>`;
 
   const html = template(
     `OpenClaw vs ${c.name}: Which AI Agent Platform is Better in 2026?`,

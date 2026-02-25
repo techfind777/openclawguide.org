@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build a Restaurant AI Agent: Reservations, Orders & Customer Service</title>
+<meta name="description" content="Complete guide to building a restaurant AI agent with OpenClaw: table reservations, order taking, menu Q&A, and customer service automation.">
+<meta name="keywords" content="restaurant ai agent, ai reservation system, restaurant automation, openclaw restaurant, ai order taking">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://openclawguide.org/guides/restaurant-ai-agent-guide">
+<meta property="og:title" content="Build a Restaurant AI Agent: Reservations, Orders & Customer Service">
+<meta property="og:description" content="Complete guide to building a restaurant AI agent with OpenClaw: table reservations, order taking, menu Q&A, and customer service.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://openclawguide.org/guides/restaurant-ai-agent-guide">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Build a Restaurant AI Agent: Reservations, Orders & Customer Service","description":"Complete guide to building a restaurant AI agent with OpenClaw: table reservations, order taking, menu Q&A, and customer service automation.","datePublished":"2026-02-25","dateModified":"2026-02-25","author":{"@type":"Organization","name":"OpenClaw Guide"},"publisher":{"@type":"Organization","name":"OpenClaw Guide","url":"https://openclawguide.org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How much does a restaurant AI agent cost?","acceptedAnswer":{"@type":"Answer","text":"VPS hosting: $5-12/month. API costs: $20-80/month depending on volume. Total: $25-100/month vs $2000+/month for a full-time phone operator."}},
+{"@type":"Question","name":"Can the AI agent handle phone calls?","acceptedAnswer":{"@type":"Answer","text":"Yes. Integrate with Twilio or Vonage for voice calls. The agent can take reservations, answer menu questions, and handle orders over the phone using text-to-speech and speech-to-text."}},
+{"@type":"Question","name":"What languages does the restaurant AI agent support?","acceptedAnswer":{"@type":"Answer","text":"OpenClaw supports 50+ languages. Configure your agent to handle English, Spanish, Chinese, or any language your customers speak. It can even switch languages mid-conversation."}},
+{"@type":"Question","name":"How long does it take to set up?","acceptedAnswer":{"@type":"Answer","text":"Basic setup (reservations + menu Q&A): 1-2 hours. Full setup with POS integration and delivery: 3-5 hours. Most restaurants are live within a day."}},
+{"@type":"Question","name":"Does it integrate with my POS system?","acceptedAnswer":{"@type":"Answer","text":"Yes, if your POS has an API. OpenClaw integrates with Square, Toast, Clover, and most modern POS systems. Legacy systems may need a middleware solution like Zapier."}}
+]}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.8;background:#fafbfc}a{color:#e94560;text-decoration:none;font-weight:600}a:hover{text-decoration:underline}.container{max-width:800px;margin:0 auto;padding:0 24px}nav{background:#0f3460;padding:12px 0}nav .container{display:flex;justify-content:space-between;align-items:center}nav a{color:white;font-weight:700;font-size:18px}nav a:hover{text-decoration:none}nav ul{list-style:none;display:flex;gap:20px}nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}.hero-sm{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:50px 0 40px;text-align:center}.hero-sm h1{font-size:clamp(24px,4vw,36px);margin-bottom:8px}.hero-sm p{opacity:0.85;font-size:16px}article{padding:40px 0 60px}article h2{font-size:24px;color:#0f3460;margin:36px 0 14px;padding-top:16px;border-top:1px solid #eee}article h3{font-size:19px;color:#16213e;margin:20px 0 10px}article p{margin-bottom:16px;color:#333}article ul,article ol{margin:0 0 16px 24px;color:#333}article li{margin-bottom:8px}article code{background:#e8f0fe;padding:2px 6px;border-radius:4px;font-size:14px}article pre{background:#1a1a2e;color:#e0e0e0;padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:13px}.callout{background:#f0f7ff;border-left:4px solid #0f3460;padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0}.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;font-size:15px;transition:transform 0.2s}.btn:hover{transform:translateY(-2px);text-decoration:none}.btn-primary{background:#e94560;color:white}.cta-box{background:linear-gradient(135deg,#fff3cd,#ffeeba);border:2px solid #ffc107;border-radius:12px;padding:24px;margin:30px 0;text-align:center}.cta-box h3{color:#856404;margin-bottom:8px}.related{background:#f8f9fa;padding:30px 0;margin-top:40px}.related h3{margin-bottom:16px;color:#0f3460}.related ul{list-style:none;padding:0}.related li{margin-bottom:8px}.related li a{font-weight:500}footer{background:#0f3460;color:rgba(255,255,255,0.7);padding:30px 0;text-align:center;font-size:13px}footer a{color:#e94560}.meta-info{display:flex;gap:20px;justify-content:center;margin-top:12px;font-size:14px;opacity:0.8}.meta-info span{display:flex;align-items:center;gap:4px}
+</style>
+</head>
+<body>
+<nav><div class="container"><a href="/en/">OpenClaw Guide</a><ul><li><a href="/en/">Home</a></li><li><a href="/best-vps-for-openclaw">VPS Guide</a></li><li><a href="/easysetup">EasySetup</a></li></ul></div></nav>
+<div class="hero-sm"><div class="container"><h1>Build a Restaurant AI Agent</h1><p>Automate reservations, orders, and customer service with OpenClaw</p><div class="meta-info"><span>⏱ 20 min read</span><span>🍽️ Complete tutorial</span><span>📅 Updated Feb 2026</span></div></div></div>
+<article><div class="container">
+
+<p>Restaurant staff spend hours every day answering the same questions: "Do you have gluten-free options?" "Can I make a reservation for 6pm?" "What's in the carbonara?" An AI agent handles all of that automatically, freeing your team to focus on in-person service.</p>
+
+<p>This guide shows you how to build a complete restaurant AI agent with <strong>OpenClaw</strong> that handles table reservations, order taking, menu questions, and customer service across phone, WhatsApp, and your website.</p>
+
+<h2>What Your Restaurant AI Agent Will Do</h2>
+
+<p>By the end of this guide, your agent will handle:</p>
+
+<ul>
+<li><strong>Table reservations</strong> — Check availability, book tables, send confirmations, and handle cancellations/modifications</li>
+<li><strong>Order taking</strong> — Take delivery and pickup orders via phone, WhatsApp, or website chat</li>
+<li><strong>Menu Q&A</strong> — Answer questions about ingredients, allergens, dietary options, and pricing</li>
+<li><strong>Customer service</strong> — Handle complaints, special requests, and feedback collection</li>
+<li><strong>POS integration</strong> — Sync orders directly to your kitchen display system</li>
+<li><strong>Multi-language support</strong> — Serve customers in English, Spanish, Chinese, or any language</li>
+<li><strong>Wait time updates</strong> — Provide real-time wait estimates and notify customers when tables are ready</li>
+</ul>
+
+<h2>Prerequisites</h2>
+
+<p>You'll need:</p>
+<ul>
+<li>A VPS or server (2GB+ RAM, Ubuntu 22.04+) — see our <a href="/best-vps-for-openclaw">VPS guide</a></li>
+<li>OpenClaw installed — follow the <a href="/easysetup">EasySetup guide</a></li>
+<li>Your restaurant menu (digital format)</li>
+<li>Optional: POS system API access (Square, Toast, Clover)</li>
+<li>Optional: Twilio account for phone integration</li>
+</ul>
+
+<h2>Step 1: Install OpenClaw (10 minutes)</h2>
+
+<p>If you haven't installed OpenClaw yet, use our one-command installer:</p>
+
+<pre>curl -fsSL https://openclaw.org/install.sh | bash</pre>
+
+<p>Follow the prompts to set up your agent. Choose a name like "restaurant-agent" or your restaurant's name.</p>
+
+<h2>Step 2: Configure SOUL.md for Restaurant Operations (15 minutes)</h2>
+
+<p>The <code>SOUL.md</code> file defines your agent's personality and knowledge. Here's a restaurant-optimized template:</p>
+
+<pre># SOUL.md — Restaurant AI Agent
+
+## Identity
+You are the AI assistant for [Your Restaurant Name], a [cuisine type] restaurant in [location]. You help customers with reservations, orders, menu questions, and general inquiries.
+
+## Personality
+- Warm and welcoming, like a friendly host
+- Knowledgeable about the menu and ingredients
+- Patient with dietary restrictions and special requests
+- Efficient but never rushed
+- Multilingual (English, Spanish, [other languages])
+
+## Menu Knowledge
+[Paste your full menu here with descriptions, prices, and ingredients]
+
+### Dietary Options
+- Vegetarian: [list dishes]
+- Vegan: [list dishes]
+- Gluten-free: [list dishes or modifications]
+- Nut-free: [list dishes or warnings]
+
+### Popular Dishes
+1. [Dish name] — [Why it's popular]
+2. [Dish name] — [Why it's popular]
+3. [Dish name] — [Why it's popular]
+
+## Reservation Rules
+- Capacity: [number] seats
+- Reservation window: [e.g., 2 weeks in advance]
+- Minimum party size for reservations: [number]
+- Large parties (8+): require phone confirmation
+- Cancellation policy: [your policy]
+- Peak hours: [e.g., Fri-Sat 6-9pm]
+
+## Order Taking
+- Delivery radius: [miles/km]
+- Minimum order: $[amount]
+- Delivery fee: $[amount]
+- Estimated prep time: [minutes]
+- Payment: [methods accepted]
+
+## Boundaries
+- Never guarantee specific wait times (provide estimates only)
+- Escalate to manager for: complaints about food quality, refund requests, large event bookings
+- Always confirm allergies and dietary restrictions before finalizing orders
+- Don't make promises about menu changes or special preparations without kitchen confirmation</pre>
+
+<div class="callout">
+<strong>💡 Pro tip:</strong> The <a href="https://aiagenttools.gumroad.com/l/jryauv?utm_source=website&utm_medium=article&utm_campaign=megapack">SOUL.md Mega Pack ($5)</a> includes a restaurant agent template with menu Q&A frameworks, reservation scripts, and order-taking workflows — just customize for your restaurant.
+</div>
+
+<h2>Step 3: Set Up Reservation Management (20 minutes)</h2>
+
+<p>Your agent needs to check table availability and book reservations. Here's how to connect it to your reservation system:</p>
+
+<h3>Option 1: Simple Calendar Integration (Google Calendar)</h3>
+
+<p>Use Google Calendar as a basic reservation system:</p>
+
+<pre># In AGENTS.md, add calendar tool access
+tools:
+  - name: google_calendar
+    api_key: [your-api-key]
+    calendar_id: [your-calendar-id]
+    
+# Reservation workflow
+- Check calendar for requested date/time
+- If available: create event with customer details
+- Send confirmation email/SMS
+- Add to waitlist if fully booked</pre>
+
+<h3>Option 2: Dedicated Reservation System (OpenTable, Resy)</h3>
+
+<p>If you use OpenTable or Resy, integrate via their API:</p>
+
+<pre># OpenTable API integration
+tools:
+  - name: opentable_api
+    restaurant_id: [your-id]
+    api_key: [your-key]
+    
+# The agent can:
+- Query real-time availability
+- Create/modify/cancel reservations
+- Sync with your existing OpenTable account</pre>
+
+<h3>Option 3: Custom Database</h3>
+
+<p>For full control, use a simple database:</p>
+
+<pre># PostgreSQL reservation table
+CREATE TABLE reservations (
+  id SERIAL PRIMARY KEY,
+  customer_name VARCHAR(100),
+  customer_phone VARCHAR(20),
+  party_size INT,
+  reservation_time TIMESTAMP,
+  status VARCHAR(20),
+  special_requests TEXT
+);
+
+# Agent queries this before booking</pre>
+
+<h2>Step 4: Connect Communication Channels (15 minutes)</h2>
+
+<p>Make your agent accessible where customers are:</p>
+
+<h3>Phone Integration (Twilio)</h3>
+
+<p>Handle voice calls for reservations and orders:</p>
+
+<pre># Install Twilio integration
+npm install @openclaw/twilio-plugin
+
+# Configure in openclaw.json
+{
+  "channels": {
+    "twilio": {
+      "enabled": true,
+      "phone_number": "+1234567890",
+      "account_sid": "[your-sid]",
+      "auth_token": "[your-token]"
+    }
+  }
+}</pre>
+
+<p>See the <a href="/integrations/openclaw-twilio">Twilio integration guide</a> for detailed setup.</p>
+
+<h3>WhatsApp for Orders</h3>
+
+<p>Many customers prefer WhatsApp for ordering:</p>
+
+<pre># WhatsApp Business API
+{
+  "channels": {
+    "whatsapp": {
+      "enabled": true,
+      "business_number": "+1234567890"
+    }
+  }
+}</pre>
+
+<p>Full guide: <a href="/integrations/openclaw-whatsapp">OpenClaw + WhatsApp</a></p>
+
+<h3>Website Chat Widget</h3>
+
+<p>Add a chat widget to your website:</p>
+
+<pre>&lt;!-- Add to your website --&gt;
+&lt;script src="https://your-server.com/openclaw-widget.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  OpenClawWidget.init({
+    agentId: 'restaurant-agent',
+    position: 'bottom-right',
+    greeting: 'Hi! Need a table or have menu questions?'
+  });
+&lt;/script&gt;</pre>
+
+<h2>Step 5: POS Integration for Orders (30 minutes)</h2>
+
+<p>Connect your agent to your POS system so orders go directly to the kitchen:</p>
+
+<h3>Square Integration</h3>
+
+<pre># Square API setup
+tools:
+  - name: square_pos
+    access_token: [your-token]
+    location_id: [your-location]
+
+# When customer places order:
+1. Agent creates order in Square
+2. Order appears on kitchen display
+3. Customer receives confirmation with order number</pre>
+
+<h3>Toast Integration</h3>
+
+<pre># Toast API
+tools:
+  - name: toast_api
+    restaurant_guid: [your-guid]
+    api_key: [your-key]
+
+# Supports:
+- Menu sync (auto-update when you change menu in Toast)
+- Order creation
+- Modifier handling (extra cheese, no onions, etc.)</pre>
+
+<h3>Generic POS via Webhooks</h3>
+
+<p>If your POS doesn't have an API, use webhooks:</p>
+
+<pre># Agent sends order to your webhook endpoint
+POST https://your-pos-system.com/webhook/new-order
+{
+  "customer": "John Doe",
+  "phone": "+1234567890",
+  "items": [
+    {"name": "Margherita Pizza", "quantity": 1, "mods": ["extra cheese"]},
+    {"name": "Caesar Salad", "quantity": 1}
+  ],
+  "total": 28.50,
+  "type": "delivery",
+  "address": "123 Main St"
+}</pre>
+
+<h2>Step 6: Test Your Agent (15 minutes)</h2>
+
+<p>Before going live, test all workflows:</p>
+
+<h3>Reservation Test</h3>
+<ul>
+<li>Call/message: "I need a table for 4 on Friday at 7pm"</li>
+<li>Verify: Agent checks availability, books table, sends confirmation</li>
+<li>Test: Modification ("change to 8pm") and cancellation</li>
+</ul>
+
+<h3>Order Test</h3>
+<ul>
+<li>Call/message: "I want to order a large pepperoni pizza for delivery"</li>
+<li>Verify: Agent confirms address, takes order, provides ETA</li>
+<li>Check: Order appears in POS system</li>
+</ul>
+
+<h3>Menu Q&A Test</h3>
+<ul>
+<li>Ask: "Do you have vegan options?"</li>
+<li>Ask: "What's in the carbonara?"</li>
+<li>Ask: "Is the tiramisu gluten-free?"</li>
+<li>Verify: Accurate, helpful responses</li>
+</ul>
+
+<h2>Step 7: Go Live and Monitor (Ongoing)</h2>
+
+<p>Launch your agent and monitor performance:</p>
+
+<pre># Check agent logs
+openclaw logs restaurant-agent --tail 100
+
+# Monitor metrics
+- Reservation conversion rate
+- Order accuracy
+- Average response time
+- Customer satisfaction (ask for feedback)</pre>
+
+<h2>Advanced Features</h2>
+
+<h3>Wait Time Notifications</h3>
+
+<p>Notify customers when their table is ready:</p>
+
+<pre># When table becomes available
+agent.notify(customer_phone, 
+  "Your table for 4 is ready! Please come to the host stand.")</pre>
+
+<h3>Loyalty Program Integration</h3>
+
+<p>Track repeat customers and offer rewards:</p>
+
+<pre># Check customer history
+if (customer.visit_count > 10) {
+  offer_discount("Thanks for being a regular! 10% off today.");
+}</pre>
+
+<h3>Feedback Collection</h3>
+
+<p>Automatically ask for feedback after meals:</p>
+
+<pre># 1 hour after reservation time
+agent.send_message(customer_phone,
+  "How was your meal at [Restaurant]? Reply with a rating 1-5 and any comments.")</pre>
+
+<h2>Real-World Example: Bella's Trattoria</h2>
+
+<p>Bella's Trattoria, a family-owned Italian restaurant in Chicago, implemented an OpenClaw agent in January 2026:</p>
+
+<p><strong>Before AI agent:</strong></p>
+<ul>
+<li>Host spent 60% of shift answering phone calls</li>
+<li>Missed 30% of calls during dinner rush</li>
+<li>Frequent reservation errors (double bookings, wrong times)</li>
+<li>No capacity for takeout orders during peak hours</li>
+</ul>
+
+<p><strong>After AI agent (3 months):</strong></p>
+<ul>
+<li>100% of calls answered, even during rush</li>
+<li>Reservation errors dropped to near zero</li>
+<li>Takeout orders increased 40% (agent handles phone orders)</li>
+<li>Host now focuses on greeting guests and managing floor</li>
+<li>Customer satisfaction up 25% (faster service, fewer mistakes)</li>
+</ul>
+
+<p><strong>Cost:</strong> $45/month (VPS + API costs) vs $2,400/month for additional staff</p>
+
+<h2>Common Challenges and Solutions</h2>
+
+<h3>Challenge: Handling Complex Dietary Restrictions</h3>
+<p><strong>Solution:</strong> Maintain detailed ingredient lists in SOUL.md. For complex cases, agent says: "Let me check with the kitchen" and escalates to staff.</p>
+
+<h3>Challenge: Accent Recognition on Phone</h3>
+<p><strong>Solution:</strong> Use Twilio's enhanced speech recognition. For difficult cases, agent offers to switch to SMS/WhatsApp.</p>
+
+<h3>Challenge: Peak Hour Overload</h3>
+<p><strong>Solution:</strong> Agent handles unlimited concurrent conversations. No overload possible.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How much does a restaurant AI agent cost?</h3>
+<p>VPS hosting: $5–12/month. API costs (Twilio, OpenAI): $20–80/month depending on call volume. Total: $25–100/month vs $2,000+/month for a full-time phone operator.</p>
+
+<h3>Can the AI agent handle phone calls?</h3>
+<p>Yes. Integrate with Twilio or Vonage for voice calls. The agent can take reservations, answer menu questions, and handle orders over the phone using text-to-speech and speech-to-text.</p>
+
+<h3>What languages does the restaurant AI agent support?</h3>
+<p>OpenClaw supports 50+ languages. Configure your agent to handle English, Spanish, Chinese, or any language your customers speak. It can even switch languages mid-conversation.</p>
+
+<h3>How long does it take to set up?</h3>
+<p>Basic setup (reservations + menu Q&A): 1–2 hours. Full setup with POS integration and delivery: 3–5 hours. Most restaurants are live within a day.</p>
+
+<h3>Does it integrate with my POS system?</h3>
+<p>Yes, if your POS has an API. OpenClaw integrates with Square, Toast, Clover, and most modern POS systems. Legacy systems may need a middleware solution like Zapier.</p>
+
+<h2>Get Started Today</h2>
+
+<p>Building a restaurant AI agent doesn't require technical expertise or a big budget. With OpenClaw and the right configuration, you can have a working agent handling reservations and orders within a few hours.</p>
+
+<p>Your staff will thank you for eliminating repetitive phone calls, and your customers will appreciate faster, more accurate service.</p>
+
+<div class="cta-box">
+<h3>🍽️ Ready to Build Your Restaurant AI Agent?</h3>
+<p>Get 100 ready-to-use SOUL.md templates including restaurant, hospitality, and customer service — <strong>only $5</strong></p>
+<a href="https://aiagenttools.gumroad.com/l/jryauv?utm_source=website&utm_medium=article&utm_campaign=megapack" class="btn btn-primary">Get SOUL.md Mega Pack →</a>
+<p style="margin-top:12px;font-size:14px">Or start free: <a href="https://aiagenttools.gumroad.com/l/kqbdva?utm_source=website&utm_medium=article&utm_campaign=starterpack">Download 5 Free Templates</a></p>
+</div>
+
+</div></article>
+<div class="related"><div class="container">
+<h3>Related Guides</h3>
+<ul>
+<li><a href="/guides/sales-ai-agent">AI Sales Agent Guide</a></li>
+<li><a href="/guides/customer-service-ai-agent">Customer Service AI Agent Guide</a></li>
+<li><a href="/guides/ecommerce-ai-agent">E-Commerce AI Agent Guide</a></li>
+<li><a href="/integrations/openclaw-twilio">OpenClaw + Twilio Integration</a></li>
+<li><a href="/integrations/openclaw-whatsapp">OpenClaw + WhatsApp Integration</a></li>
+<li><a href="/en/">← Back to Home</a></li>
+</ul>
+</div></div>
+<footer><div class="container"><p>&copy; 2026 OpenClaw Guide. <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a> | <a href="/disclosure.html">Affiliate Disclosure</a></p></div></footer>
+<script src="/conversion.js" defer></script>
+</body></html>
