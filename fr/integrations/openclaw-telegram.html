@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bot Telegram IA Gratuit en 5 Étapes — Configuration OpenClaw (2026)</title>
+<meta name="description" content="Créez votre propre bot Telegram IA en 15 minutes. Gratuit, auto-hébergé, avec support de chat de groupe. Guide étape par étape avec exemples de code. Commencez maintenant !">
+<link rel="canonical" href="https://openclawguide.org/fr/integrations/openclaw-telegram">
+<link rel="alternate" hreflang="en" href="https://openclawguide.org/integrations/openclaw-telegram">
+<link rel="alternate" hreflang="zh" href="https://openclawguide.org/zh/integrations/openclaw-telegram">
+<link rel="alternate" hreflang="ja" href="https://openclawguide.org/ja/integrations/openclaw-telegram">
+<link rel="alternate" hreflang="ko" href="https://openclawguide.org/ko/integrations/openclaw-telegram">
+<link rel="alternate" hreflang="es" href="https://openclawguide.org/es/integrations/openclaw-telegram">
+<link rel="alternate" hreflang="de" href="https://openclawguide.org/de/integrations/openclaw-telegram">
+<link rel="alternate" hreflang="fr" href="https://openclawguide.org/fr/integrations/openclaw-telegram">
+<link rel="alternate" hreflang="x-default" href="https://openclawguide.org/integrations/openclaw-telegram">
+<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.8;background:#fafbfc}a{color:#e94560;text-decoration:none;font-weight:600}a:hover{text-decoration:underline}.container{max-width:800px;margin:0 auto;padding:0 24px}nav{background:#0f3460;padding:12px 0}nav .container{display:flex;justify-content:space-between;align-items:center}nav a{color:white;font-weight:700;font-size:18px}nav a:hover{text-decoration:none}nav ul{list-style:none;display:flex;gap:20px}nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}.hero-sm{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:50px 0 40px;text-align:center}.hero-sm h1{font-size:clamp(24px,4vw,36px);margin-bottom:8px}.hero-sm p{opacity:0.85;font-size:16px}article{padding:40px 0 60px}article h2{font-size:24px;color:#0f3460;margin:36px 0 14px;padding-top:16px;border-top:1px solid #eee}article h3{font-size:19px;color:#16213e;margin:20px 0 10px}article p{margin-bottom:16px;color:#333}article ul,article ol{margin:0 0 16px 24px;color:#333}article li{margin-bottom:8px}article code{background:#e8f0fe;padding:2px 6px;border-radius:4px;font-size:14px}article pre{background:#1a1a2e;color:#e0e0e0;padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:13px}.callout{background:#f0f7ff;border-left:4px solid #0f3460;padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0}.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;font-size:15px;transition:transform 0.2s}.btn:hover{transform:translateY(-2px);text-decoration:none}.btn-primary{background:#e94560;color:white}.cta-box{background:linear-gradient(135deg,#fff3cd,#ffeeba);border:2px solid #ffc107;border-radius:12px;padding:24px;margin:30px 0;text-align:center}.cta-box h3{color:#856404;margin-bottom:8px}.related{background:#f8f9fa;padding:30px 0;margin-top:40px}.related h3{margin-bottom:16px;color:#0f3460}.related ul{list-style:none;padding:0}.related li{margin-bottom:8px}.related li a{font-weight:500}footer{background:#0f3460;color:rgba(255,255,255,0.7);padding:30px 0;text-align:center;font-size:13px}footer a{color:#e94560}.meta-info{display:flex;gap:20px;justify-content:center;margin-top:12px;font-size:14px;opacity:0.8}.meta-info span{display:flex;align-items:center;gap:4px}</style>
+</head>
+<body>
+<nav><div class="container"><a href="/fr/">Guide OpenClaw</a><ul><li><a href="/fr/">Accueil</a></li><li><a href="/fr/best-vps-for-openclaw">Guide VPS</a></li><li><a href="/easysetup">EasySetup</a></li></ul></div></nav>
+<div class="hero-sm"><div class="container"><h1>Bot Telegram IA Gratuit en 5 Étapes</h1><p>Créez un bot IA puissant sur Telegram en 15 minutes — avec des exemples de configuration réels</p><div class="meta-info"><span>⏱ 15 minutes</span><span>📊 Débutant</span><span>📅 Mis à jour Fév 2026</span></div></div></div>
+<article><div class="container">
+
+<h2>Pourquoi Telegram + OpenClaw ?</h2>
+<p>Telegram est l'une des meilleures plateformes pour les agents IA. Contrairement à WhatsApp ou iMessage, Telegram a une API Bot entièrement ouverte sans processus d'approbation, sans limites de messages, et avec support pour le formatage riche, claviers inline et chats de groupe. Combiné avec l'architecture multi-agent d'OpenClaw, vous pouvez construire de tout — d'un assistant personnel à un bot de support client servant des milliers d'utilisateurs.</p>
+
+<p>Voici ce qui rend cette combinaison puissante :</p>
+<ul>
+<li><strong>Configuration instantanée</strong> — Créer un bot avec BotFather, ajouter un bloc config, terminé</li>
+<li><strong>Multi-canal</strong> — Le même agent peut servir Telegram, Slack, Discord et WhatsApp simultanément</li>
+<li><strong>Mémoire persistante</strong> — OpenClaw se souvient du contexte de conversation entre les sessions</li>
+<li><strong>Accès aux outils</strong> — Votre bot peut rechercher le web, lire des fichiers, exécuter du code et appeler des APIs</li>
+<li><strong>Support de chat de groupe</strong> — Fonctionne à la fois en messages privés et conversations de groupe</li>
+</ul>
+
+<h2>Prérequis</h2>
+<ul>
+<li>OpenClaw installé sur un VPS (<a href="/easysetup">installateur un clic</a>) ou machine locale</li>
+<li>Un compte Telegram</li>
+<li>5 minutes de temps libre</li>
+</ul>
+<p>Vous n'avez pas encore de serveur ? Consultez notre <a href="/fr/best-vps-for-openclaw">guide comparatif VPS</a> — une instance Vultr à 6€/mois est largement suffisante.</p>
+
+<h2>Étape 1 : Créer un Bot Telegram avec BotFather</h2>
+<p>Ouvrez Telegram et cherchez <code>@BotFather</code>. C'est le bot officiel de Telegram pour créer et gérer des bots.</p>
+<ol>
+<li>Envoyez <code>/newbot</code> à BotFather</li>
+<li>Choisissez un nom d'affichage (ex: "Mon Assistant IA")</li>
+<li>Choisissez un nom d'utilisateur finissant par "bot" (ex: <code>mon_assistant_ia_bot</code>)</li>
+<li>BotFather vous donnera un token API comme : <code>7123456789:AAH...</code></li>
+</ol>
+<div class="callout">
+<strong>⚠️ Gardez votre token de bot secret.</strong> Quiconque avec ce token peut contrôler votre bot. S'il est jamais divulgué, utilisez <code>/revoke</code> dans BotFather pour en générer un nouveau.
+</div>
+
+<h2>Étape 2 : Configurer OpenClaw</h2>
+<p>Ajoutez le canal Telegram à votre configuration OpenClaw. Exécutez :</p>
+<pre>openclaw config.patch channels.telegram.token "VOTRE_TOKEN_BOT_ICI"
+openclaw config.patch channels.telegram.enabled true</pre>
+
+<p>C'est la config minimale. Votre bot est maintenant connecté. Mais rendons-le plus intelligent avec quelques paramètres supplémentaires :</p>
+
+<pre># Permettre au bot de fonctionner dans les chats de groupe (optionnel)
+openclaw config.patch channels.telegram.chatTypes '["direct","group"]'
+
+# Définir quel agent gère les messages Telegram
+openclaw config.patch channels.telegram.agent "main"</pre>
+
+<h2>Étape 3 : Définir la Personnalité de votre Agent</h2>
+<p>La magie d'OpenClaw réside dans le fichier SOUL.md. Ce fichier markdown définit qui est votre agent, comment il se comporte et ce qu'il sait. Voici un exemple réel pour un assistant Telegram :</p>
+
+<pre># SOUL.md — Assistant IA Telegram
+
+Vous êtes Alex, un assistant IA utile sur Telegram.
+
+## Personnalité
+- Amical et concis — les messages Telegram doivent être courts
+- Utilisez les emojis avec parcimonie mais naturellement 👋
+- Divisez les longues réponses en plusieurs paragraphes courts
+- Utilisez le formatage markdown Telegram (gras, blocs de code)
+
+## Capacités
+- Répondre aux questions sur notre produit/service
+- Aider avec le dépannage technique
+- Programmer des rappels et suivis
+- Rechercher le web pour des informations actuelles
+
+## Règles
+- Ne jamais partager de données internes de l'entreprise
+- Escalader les problèmes de facturation au support humain
+- Garder les réponses sous 500 mots sauf si le détail est demandé
+- Toujours répondre dans la langue de l'utilisateur</pre>
+
+<div class="callout">
+<strong>💡 Conseil pro :</strong> Les utilisateurs Telegram s'attendent à des réponses rapides et courtes. Gardez votre SOUL.md axé sur la communication concise. Le <a href="https://aiagenttools.gumroad.com/l/jryauv?utm_source=website&utm_medium=article&utm_campaign=megapack&ref=site">Mega Pack SOUL.md (5€)</a> inclut des templates optimisés Telegram pour support client, ventes, gestion communauté et plus.
+</div>
+
+<h2>Étape 4 : Tester votre Bot</h2>
+<p>Redémarrez OpenClaw pour prendre en compte la nouvelle config :</p>
+<pre>openclaw gateway restart</pre>
+
+<p>Maintenant ouvrez Telegram, trouvez votre bot par son nom d'utilisateur, et envoyez un message. Vous devriez recevoir une réponse en quelques secondes.</p>
+
+<h2>Cas d'Usage du Monde Réel</h2>
+
+<h3>1. Bot de Support Client</h3>
+<p>Configurez un bot Telegram qui répond aux questions produits 24/7. Connectez-le à votre base de connaissances et laissez-le gérer la première ligne de support. Escaladez automatiquement les problèmes complexes aux agents humains.</p>
+
+<h3>2. Assistant d'Équipe dans les Chats de Groupe</h3>
+<p>Ajoutez votre bot au groupe Telegram de votre équipe. Il peut résumer les longs fils, répondre aux questions techniques, définir des rappels et extraire des données d'outils connectés comme Jira ou Notion.</p>
+
+<h2>Prochaines Étapes</h2>
+<p>Votre bot Telegram fonctionne. Voici ce qu'il faut faire ensuite :</p>
+<ul>
+<li><strong>Ajouter plus de canaux</strong> — Connecter Slack ou Discord pour atteindre votre équipe partout</li>
+<li><strong>Personnaliser la personnalité</strong> — Affiner votre SOUL.md basé sur de vraies conversations</li>
+<li><strong>Ajouter des outils</strong> — Donner à votre agent accès à la recherche web, lecture de fichiers et appels d'API</li>
+<li><strong>Configurer le monitoring</strong> — Réviser les conversations et améliorer les réponses au fil du temps</li>
+</ul>
+
+<div class="cta-box">
+<h3>🔥 Prêt à Créer Votre Agent IA ?</h3>
+<p>Obtenez 100 templates SOUL.md prêts à l'emploi pour toute industrie — <strong>seulement 5€</strong></p>
+<a href="https://aiagenttools.gumroad.com/l/jryauv?utm_source=website&utm_medium=article&utm_campaign=megapack&ref=site" class="btn btn-primary">Obtenir le Mega Pack SOUL.md →</a>
+<p style="margin-top:12px;font-size:14px">Ou commencez gratuitement : <a href="https://aiagenttools.gumroad.com/l/kqbdva?utm_source=website&utm_medium=article&utm_campaign=starterpack&ref=site">Télécharger 5 Templates Gratuits</a></p>
+</div>
+</div></article>
+<div class="related"><div class="container">
+<h3>Guides Liés</h3>
+<ul>
+<li><a href="/fr/integrations/openclaw-slack">Intégration OpenClaw + Slack</a></li>
+<li><a href="/fr/integrations/openclaw-discord">Intégration OpenClaw + Discord</a></li>
+<li><a href="/fr/guides/customer-service-ai-agent">Guide Agent IA Service Client</a></li>
+<li><a href="/fr/guides/sales-ai-agent">Guide Agent IA Ventes</a></li>
+<li><a href="/fr/">← Retour à l'Accueil</a></li>
+</ul>
+</div></div>
+<footer><div class="container"><p>&copy; 2026 OpenClaw Guide. <a href="/privacy">Confidentialité</a> | <a href="/terms">Conditions</a> | <a href="/disclosure.html">Divulgation Affiliés</a></p></div></footer>
+<script src="/conversion.js" defer></script>
+</body></html>
