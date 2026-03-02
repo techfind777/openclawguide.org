@@ -120,3 +120,7 @@
 # Cloud (Tencent/Aliyun)
 /go/r/tencent  https://curl.qcloud.com/b90065c816c6128e2aa3a4df49b3c259  301
 /go/r/aliyun   https://www.aliyun.com/minisite/goods?userCode=lyj25i7z  301
+
+# NordPass
+/go/r/nordpass https://go.nordpass.io/aff_c?offer_id=488&aff_id=141319&url_id=9356  301
+/go/t/nordpass https://go.nordpass.io/aff_c?offer_id=488&aff_id=141319&url_id=9356  301
