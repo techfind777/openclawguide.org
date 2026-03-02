@@ -1,0 +1,122 @@
+# === Short Links — Tracking + Clean URLs ===
+# Format: /go/{channel}/{product} → Gumroad URL
+# Channels: r=Reddit, t=Twitter, d=Dev.to, h=Hashnode, m=Medium, g=GitHub, e=Email, j=Juejin, c=CSDN
+# All 301 redirects — Cloudflare Analytics logs every click
+
+# --- Bundle ($29) ---
+/go/r/bundle   https://aiagenttools.gumroad.com/l/riwdzt  301
+/go/t/bundle   https://aiagenttools.gumroad.com/l/riwdzt  301
+/go/d/bundle   https://aiagenttools.gumroad.com/l/riwdzt  301
+/go/h/bundle   https://aiagenttools.gumroad.com/l/riwdzt  301
+/go/m/bundle   https://aiagenttools.gumroad.com/l/riwdzt  301
+/go/g/bundle   https://aiagenttools.gumroad.com/l/riwdzt  301
+/go/e/bundle   https://aiagenttools.gumroad.com/l/riwdzt  301
+
+# --- Free Starter Pack ---
+/go/r/free     https://aiagenttools.gumroad.com/l/kqbdva  301
+/go/t/free     https://aiagenttools.gumroad.com/l/kqbdva  301
+/go/d/free     https://aiagenttools.gumroad.com/l/kqbdva  301
+/go/h/free     https://aiagenttools.gumroad.com/l/kqbdva  301
+/go/m/free     https://aiagenttools.gumroad.com/l/kqbdva  301
+/go/g/free     https://aiagenttools.gumroad.com/l/kqbdva  301
+/go/e/free     https://aiagenttools.gumroad.com/l/kqbdva  301
+
+# --- SOUL.md Mega Pack (100 templates, $9.90) ---
+/go/r/mega     https://aiagenttools.gumroad.com/l/jryauv  301
+/go/t/mega     https://aiagenttools.gumroad.com/l/jryauv  301
+/go/d/mega     https://aiagenttools.gumroad.com/l/jryauv  301
+/go/h/mega     https://aiagenttools.gumroad.com/l/jryauv  301
+/go/m/mega     https://aiagenttools.gumroad.com/l/jryauv  301
+/go/g/mega     https://aiagenttools.gumroad.com/l/jryauv  301
+
+# --- SOUL.md 20 Templates ($5) ---
+/go/r/soul20   https://aiagenttools.gumroad.com/l/cqaqpm  301
+/go/t/soul20   https://aiagenttools.gumroad.com/l/cqaqpm  301
+/go/d/soul20   https://aiagenttools.gumroad.com/l/cqaqpm  301
+/go/h/soul20   https://aiagenttools.gumroad.com/l/cqaqpm  301
+
+# --- AI Agent Guide ($9) ---
+/go/r/guide    https://aiagenttools.gumroad.com/l/hyuzc   301
+/go/t/guide    https://aiagenttools.gumroad.com/l/hyuzc   301
+/go/d/guide    https://aiagenttools.gumroad.com/l/hyuzc   301
+/go/h/guide    https://aiagenttools.gumroad.com/l/hyuzc   301
+
+# --- PM Prompts ($5) ---
+/go/r/prompts  https://aiagenttools.gumroad.com/l/urfgl   301
+/go/t/prompts  https://aiagenttools.gumroad.com/l/urfgl   301
+/go/d/prompts  https://aiagenttools.gumroad.com/l/urfgl   301
+
+# --- Prompt Engineering ($7) ---
+/go/r/pe       https://aiagenttools.gumroad.com/l/zvrmie  301
+/go/t/pe       https://aiagenttools.gumroad.com/l/zvrmie  301
+/go/d/pe       https://aiagenttools.gumroad.com/l/zvrmie  301
+
+# --- OpenClaw Playbook ($19) ---
+/go/r/playbook https://aiagenttools.gumroad.com/l/obdab   301
+/go/t/playbook https://aiagenttools.gumroad.com/l/obdab   301
+/go/d/playbook https://aiagenttools.gumroad.com/l/obdab   301
+
+# --- EasySetup Pro ($9) ---
+/go/r/setup    https://aiagenttools.gumroad.com/l/oztac   301
+/go/t/setup    https://aiagenttools.gumroad.com/l/oztac   301
+/go/d/setup    https://aiagenttools.gumroad.com/l/oztac   301
+
+# --- Security Guide ($12) ---
+/go/r/security https://aiagenttools.gumroad.com/l/avdtrl  301
+/go/t/security https://aiagenttools.gumroad.com/l/avdtrl  301
+
+# --- n8n Templates ($9) ---
+/go/r/n8n      https://aiagenttools.gumroad.com/l/gbfnfp  301
+/go/t/n8n      https://aiagenttools.gumroad.com/l/gbfnfp  301
+/go/d/n8n      https://aiagenttools.gumroad.com/l/gbfnfp  301
+
+# --- Cheat Sheet ($5) ---
+/go/r/cheat    https://aiagenttools.gumroad.com/l/pthhwp  301
+/go/t/cheat    https://aiagenttools.gumroad.com/l/pthhwp  301
+
+# --- AI Starter Kit (free) ---
+/go/r/kit      https://aiagenttools.gumroad.com/l/xydvde  301
+/go/t/kit      https://aiagenttools.gumroad.com/l/xydvde  301
+/go/d/kit      https://aiagenttools.gumroad.com/l/xydvde  301
+
+# --- Deploy Checklist (free) ---
+/go/r/checklist https://aiagenttools.gumroad.com/l/vvwlnu 301
+/go/t/checklist https://aiagenttools.gumroad.com/l/vvwlnu 301
+
+# --- Gumroad Store ---
+/go/r/store    https://aiagenttools.gumroad.com            301
+/go/t/store    https://aiagenttools.gumroad.com            301
+/go/d/store    https://aiagenttools.gumroad.com            301
+
+# --- Affiliate Links ---
+# NordVPN
+/go/r/nordvpn  https://go.nordvpn.net/aff_c?offer_id=612&aff_id=141319&url_id=14830  301
+/go/t/nordvpn  https://go.nordvpn.net/aff_c?offer_id=612&aff_id=141319&url_id=14830  301
+
+# Surfshark
+/go/r/surfshark https://get.surfshark.net/aff_c?offer_id=926&aff_id=31288  301
+/go/t/surfshark https://get.surfshark.net/aff_c?offer_id=926&aff_id=31288  301
+
+# Typeless
+/go/r/typeless https://www.typeless.com/?via=rae  301
+/go/t/typeless https://www.typeless.com/?via=rae  301
+
+# Fireflies
+/go/r/fireflies https://fireflies.ai/?fpr=rae51  301
+/go/t/fireflies https://fireflies.ai/?fpr=rae51  301
+
+# ElevenLabs
+/go/r/elevenlabs https://elevenlabs.io/?from=partnerrae  301
+/go/t/elevenlabs https://elevenlabs.io/?from=partnerrae  301
+
+# HeyGen
+/go/r/heygen   https://heygen.com/?sid=rewardful&via=rae  301
+/go/t/heygen   https://heygen.com/?sid=rewardful&via=rae  301
+
+# Vultr
+/go/r/vultr    https://www.vultr.com/?ref=9738617-8H  301
+/go/t/vultr    https://www.vultr.com/?ref=9738617-8H  301
+
+# Cloud (Tencent/Aliyun)
+/go/r/tencent  https://curl.qcloud.com/b90065c816c6128e2aa3a4df49b3c259  301
+/go/r/aliyun   https://www.aliyun.com/minisite/goods?userCode=lyj25i7z  301
