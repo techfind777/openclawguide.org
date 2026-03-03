@@ -3,122 +3,136 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cómo Crear un Agente IA de Ventas en 2026 — Guía Paso a Paso OpenClaw</title>
-<meta name="description" content="Crea un agente IA de ventas con OpenClaw en 30 minutos. Automatiza generación de leads, integración CRM, seguimientos y reportes de ventas. Guía con ejemplos de código reales.">
+<title>Agente de IA para Ventas con OpenClaw: Calificación de Leads y Automatización CRM (2026)</title>
+<meta name="description" content="Crea un agente de IA para ventas con OpenClaw. Calificación automática de leads, integración CRM y seguimiento 24/7. Self-hosted y gratuito. Guía completa.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://openclawguide.org/es/guides/sales-ai-agent">
 <link rel="alternate" hreflang="en" href="https://openclawguide.org/guides/sales-ai-agent">
-<link rel="alternate" hreflang="zh" href="https://openclawguide.org/zh/guides/sales-ai-agent">
-<link rel="alternate" hreflang="ja" href="https://openclawguide.org/ja/guides/sales-ai-agent">
-<link rel="alternate" hreflang="ko" href="https://openclawguide.org/ko/guides/sales-ai-agent">
-<link rel="alternate" hreflang="es" href="https://openclawguide.org/es/guides/sales-ai-agent">
 <link rel="alternate" hreflang="de" href="https://openclawguide.org/de/guides/sales-ai-agent">
 <link rel="alternate" hreflang="fr" href="https://openclawguide.org/fr/guides/sales-ai-agent">
-<link rel="alternate" hreflang="x-default" href="https://openclawguide.org/guides/sales-ai-agent">
-<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.8;background:#fafbfc}a{color:#e94560;text-decoration:none;font-weight:600}a:hover{text-decoration:underline}.container{max-width:800px;margin:0 auto;padding:0 24px}nav{background:#0f3460;padding:12px 0}nav .container{display:flex;justify-content:space-between;align-items:center}nav a{color:white;font-weight:700;font-size:18px}nav a:hover{text-decoration:none}nav ul{list-style:none;display:flex;gap:20px}nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}.hero-sm{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:50px 0 40px;text-align:center}.hero-sm h1{font-size:clamp(24px,4vw,36px);margin-bottom:8px}.hero-sm p{opacity:0.85;font-size:16px}article{padding:40px 0 60px}article h2{font-size:24px;color:#0f3460;margin:36px 0 14px;padding-top:16px;border-top:1px solid #eee}article h3{font-size:19px;color:#16213e;margin:20px 0 10px}article p{margin-bottom:16px;color:#333}article ul,article ol{margin:0 0 16px 24px;color:#333}article li{margin-bottom:8px}article code{background:#e8f0fe;padding:2px 6px;border-radius:4px;font-size:14px}article pre{background:#1a1a2e;color:#e0e0e0;padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:13px}.callout{background:#f0f7ff;border-left:4px solid #0f3460;padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0}.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;font-size:15px;transition:transform 0.2s}.btn:hover{transform:translateY(-2px);text-decoration:none}.btn-primary{background:#e94560;color:white}.cta-box{background:linear-gradient(135deg,#fff3cd,#ffeeba);border:2px solid #ffc107;border-radius:12px;padding:24px;margin:30px 0;text-align:center}.cta-box h3{color:#856404;margin-bottom:8px}.related{background:#f8f9fa;padding:30px 0;margin-top:40px}.related h3{margin-bottom:16px;color:#0f3460}.related ul{list-style:none;padding:0}.related li{margin-bottom:8px}.related li a{font-weight:500}footer{background:#0f3460;color:rgba(255,255,255,0.7);padding:30px 0;text-align:center;font-size:13px}footer a{color:#e94560}.meta-info{display:flex;gap:20px;justify-content:center;margin-top:12px;font-size:14px;opacity:0.8}.meta-info span{display:flex;align-items:center;gap:4px}</style>
+<link rel="alternate" hreflang="es" href="https://openclawguide.org/es/guides/sales-ai-agent">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Agente de IA para Ventas con OpenClaw (2026)","description":"Guía completa para crear un agente de IA para ventas con OpenClaw. Calificación de leads, automatización CRM y seguimiento.","datePublished":"2026-03-03","author":{"@type":"Organization","name":"OpenClaw Guide"},"publisher":{"@type":"Organization","name":"OpenClaw Guide","url":"https://openclawguide.org"},"inLanguage":"es"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"¿Qué es un agente de IA para ventas?","acceptedAnswer":{"@type":"Answer","text":"Un agente de IA para ventas es una inteligencia artificial que automatiza tareas de ventas: calificación de leads, emails de seguimiento, actualizaciones de CRM y gestión de pipeline. Con OpenClaw, el agente funciona 24/7 en tu propio servidor."}},
+{"@type":"Question","name":"¿Cuánto cuesta un agente de IA para ventas con OpenClaw?","acceptedAnswer":{"@type":"Answer","text":"OpenClaw es gratuito y de código abierto. Solo pagas por hosting VPS ($5-15/mes) y costos de API de IA. Sin suscripciones ni tarifas ocultas."}},
+{"@type":"Question","name":"¿Puede el agente conectarse con mi CRM?","acceptedAnswer":{"@type":"Answer","text":"Sí. OpenClaw soporta integraciones con Salesforce, HubSpot, Airtable, Notion y muchos otros sistemas CRM. El agente puede calificar leads automáticamente y actualizar registros del CRM."}}
+]}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.8;background:#fafbfc}a{color:#e94560;text-decoration:none;font-weight:600}a:hover{text-decoration:underline}.container{max-width:800px;margin:0 auto;padding:0 24px}nav{background:#0f3460;padding:12px 0}nav .container{display:flex;justify-content:space-between;align-items:center}nav a{color:white;font-weight:700;font-size:18px}nav a:hover{text-decoration:none}nav ul{list-style:none;display:flex;gap:20px}nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}.hero-sm{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:50px 0 40px;text-align:center}.hero-sm h1{font-size:clamp(24px,4vw,36px);margin-bottom:8px}.hero-sm p{opacity:0.85;font-size:16px}article{padding:40px 0 60px}article h2{font-size:24px;color:#0f3460;margin:36px 0 14px;padding-top:16px;border-top:1px solid #eee}article h3{font-size:19px;color:#16213e;margin:20px 0 10px}article p{margin-bottom:16px;color:#333}article ul,article ol{margin:0 0 16px 24px;color:#333}article li{margin-bottom:8px}.callout{background:#f0f7ff;border-left:4px solid #0f3460;padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0}.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;font-size:15px;transition:transform 0.2s}.btn:hover{transform:translateY(-2px);text-decoration:none}.btn-primary{background:#e94560;color:white}.cta-box{background:linear-gradient(135deg,#fff3cd,#ffeeba);border:2px solid #ffc107;border-radius:12px;padding:24px;margin:30px 0;text-align:center}.cta-box h3{color:#856404;margin-bottom:8px}.related{background:#f8f9fa;padding:30px 0;margin-top:40px}.related h3{margin-bottom:16px;color:#0f3460}.related ul{list-style:none;padding:0}.related li{margin-bottom:8px}footer{background:#0f3460;color:rgba(255,255,255,0.7);padding:30px 0;text-align:center;font-size:13px}footer a{color:#e94560}table{width:100%;border-collapse:collapse;margin:16px 0}th,td{padding:10px 14px;text-align:left;border-bottom:1px solid #eee}th{background:#f8f9fa;font-weight:600;color:#0f3460}.takeaway{background:#fff8e1;border:1px solid #ffecb3;border-radius:8px;padding:16px 20px;margin:20px 0}.takeaway h4{color:#f57f17;margin-bottom:8px;font-size:16px}
+</style>
 </head>
 <body>
-<nav><div class="container"><a href="/es/">Guía OpenClaw</a><ul><li><a href="/es/">Inicio</a></li><li><a href="/es/best-vps-for-openclaw">Guía VPS</a></li><li><a href="/easysetup">EasySetup</a></li></ul></div></nav>
-<div class="hero-sm"><div class="container"><h1>Cómo Crear un Agente IA de Ventas en 2026</h1><p>Automatiza calificación de leads, seguimientos y actualizaciones CRM con OpenClaw — sin codificación</p><div class="meta-info"><span>⏱ 30 minutos</span><span>📊 Principiante</span><span>📅 Actualizado Feb 2026</span></div></div></div>
+<nav><div class="container"><a href="/es/">OpenClaw Guide</a><ul><li><a href="/es/">Inicio</a></li><li><a href="/best-vps-for-openclaw">Guía VPS</a></li><li><a href="/easysetup">EasySetup</a></li></ul></div></nav>
+<div class="hero-sm"><div class="container"><h1>Agente de IA para Ventas con OpenClaw</h1><p>Calificación automática de leads, integración CRM y seguimiento 24/7 — en tu propio servidor</p></div></div>
 <article><div class="container">
 
-<p>Los equipos de ventas pasan el 65% de su tiempo en actividades no relacionadas con ventas — entrada de datos, investigación de leads, emails de seguimiento, actualizaciones CRM. Un agente IA de ventas maneja todo eso automáticamente, para que tu equipo pueda enfocarse en cerrar tratos.</p>
+<div class="callout">
+<strong>Respuesta rápida:</strong> Un agente de IA para ventas con OpenClaw califica leads automáticamente, actualiza tu CRM y envía mensajes de seguimiento — 24 horas al día, 7 días a la semana. La configuración toma menos de 15 minutos. OpenClaw es de código abierto y gratuito. Solo pagas por hosting ($5-15/mes) y costos de API de IA.
+</div>
 
-<p>Esta guía te acompaña en la creación de un agente IA de ventas completamente funcional con <strong>OpenClaw</strong> — desde instalación hasta despliegue en producción. Al final, tendrás un agente que califica leads, responde preguntas de productos, programa seguimientos y sincroniza todo con tu CRM.</p>
+<h2>¿Por qué un agente de IA para ventas?</h2>
 
-<h2>Qué hará tu Agente IA de Ventas</h2>
+<p>Los vendedores pasan el 65% de su tiempo en tareas que no conducen directamente a cerrar ventas: escribir emails, mantener el CRM, investigar leads. Un agente de IA para ventas automatiza estas tareas.</p>
 
-<p>Antes de empezar, aquí está lo que el agente terminado puede manejar:</p>
-
-<ul>
-<li><strong>Calificación de leads</strong> — Puntuar y calificar automáticamente leads entrantes basado en tus criterios (presupuesto, cronograma, tamaño de empresa, caso de uso)</li>
-<li><strong>P&R de producto</strong> — Responder preguntas de prospectos instantáneamente usando tu base de conocimientos de producto, documentación de precios y estudios de caso</li>
-<li><strong>Automatización de seguimientos</strong> — Enviar mensajes de seguimiento personalizados en el momento correcto, a través de email, Slack o Telegram</li>
-<li><strong>Integración CRM</strong> — Registrar cada interacción, actualizar etapas de tratos y crear tareas en HubSpot, Salesforce o Pipedrive</li>
-<li><strong>Programación de reuniones</strong> — Coordinar calendarios y reservar reuniones sin intercambios de emails</li>
-<li><strong>Reportes de ventas</strong> — Generar resúmenes de pipeline diarios/semanales y reportes de actividad</li>
+<div class="takeaway">
+<h4>⚡ Lo que construirás</h4>
+<ul style="margin-bottom:0">
+<li>Calificación automática de leads basada en tus criterios</li>
+<li>Seguimiento 24/7 vía <a href="/integrations/openclaw-telegram">Telegram</a>, email o Slack</li>
+<li>Integración CRM con <a href="/integrations/openclaw-salesforce">Salesforce</a>, <a href="/integrations/openclaw-hubspot">HubSpot</a> o <a href="/integrations/openclaw-airtable">Airtable</a></li>
+<li>Actualizaciones de pipeline y reportes automáticos</li>
 </ul>
+</div>
 
-<h2>Prerrequisitos</h2>
+<h2>Paso 1: Instalar OpenClaw</h2>
 
-<p>Necesitarás:</p>
-<ul>
-<li>Un VPS o servidor (2GB+ RAM, Ubuntu 22.04+) — ve nuestra <a href="/es/best-vps-for-openclaw">guía comparativa VPS</a> para recomendaciones</li>
-<li>Una clave API de Anthropic (Claude), OpenAI u otro proveedor LLM</li>
-<li>30 minutos de tiempo de configuración</li>
-</ul>
-
-<p>No se requiere experiencia en codificación. OpenClaw usa archivos de configuración markdown en lugar de código.</p>
-
-<h2>Paso 1: Instalar OpenClaw (5 minutos)</h2>
-
-<p>Despliega OpenClaw en tu servidor con el instalador de un clic:</p>
+<p>Instala OpenClaw en un VPS con el <a href="/easysetup">instalador de un clic</a>. Un servidor desde $6/mes es suficiente — consulta nuestra <a href="/best-vps-for-openclaw">comparación de VPS</a>.</p>
 
 <pre>curl -fsSL https://openclawguide.org/install.sh | bash</pre>
 
-<p>Esto instala OpenClaw, configura el daemon y programa el inicio automático. Para opciones de instalación detalladas, ve la <a href="/easysetup">guía EasySetup</a>.</p>
+<h2>Paso 2: Definir personalidad de ventas</h2>
 
-<h2>Paso 2: Crear el SOUL.md de tu Agente de Ventas (10 minutos)</h2>
+<p>Crea un archivo SOUL.md que defina tu agente de ventas:</p>
 
-<p>El archivo <code>SOUL.md</code> es el cerebro de tu agente — define personalidad, experiencia y reglas de comportamiento. Aquí hay una plantilla de agente de ventas lista para producción:</p>
+<pre># SOUL.md — Agente de Ventas
 
-<pre># SOUL.md — Agente IA de Ventas
+Eres Max, un asistente de ventas profesional.
 
-Eres Alex, un representante de desarrollo de ventas senior para [Nombre de la Empresa].
+## Tareas
+- Califica leads entrantes (presupuesto, cronograma, tomador de decisiones)
+- Envía mensajes de seguimiento después de 24h, 72h y 7 días
+- Actualiza el CRM después de cada contacto
+- Crea reportes semanales de pipeline
 
-## Misión Principal
-Ayudar al equipo de ventas a cerrar más tratos calificando leads,
-respondiendo preguntas de productos y automatizando tareas repetitivas.
+## Reglas
+- Siempre cortés y profesional
+- Para consultas de precios: derivar al equipo de ventas
+- Nunca ofrecer descuentos sin solicitud</pre>
 
-## Personalidad
-- Profesional pero accesible — espeja el estilo de comunicación del prospecto
-- Confiado sobre el producto sin ser insistente
-- Siempre honesto — si no sabes algo, dilo y ofrece averiguarlo
-- Conciso en Slack/Telegram, detallado en email
+<h2>Paso 3: Conectar CRM</h2>
 
-## Criterios de Calificación de Leads (BANT)
-Puntúa cada lead en estas dimensiones:
-- **Presupuesto**: ¿Pueden permitirse la solución?
-- **Autoridad**: ¿Son tomadores de decisiones o influenciadores?
-- **Necesidad**: ¿Tienen un problema que resolvemos?
-- **Timing**: ¿Cuándo planean comprar?</pre>
+<p>Conecta tu agente con tu sistema CRM:</p>
 
-<h2>Casos de Uso del Mundo Real</h2>
+<table>
+<tr><th>CRM</th><th>Integración</th><th>Tiempo</th></tr>
+<tr><td>Salesforce</td><td><a href="/integrations/openclaw-salesforce">API directa</a></td><td>~10 min</td></tr>
+<tr><td>HubSpot</td><td><a href="/integrations/openclaw-hubspot">Integración API</a></td><td>~10 min</td></tr>
+<tr><td>Airtable</td><td><a href="/integrations/openclaw-airtable">Integración nativa</a></td><td>~5 min</td></tr>
+<tr><td>Notion</td><td><a href="/integrations/openclaw-notion">Sincronización de base de datos</a></td><td>~10 min</td></tr>
+</table>
 
-<h3>1. Calificación Automática de Leads</h3>
-<p>Configura tu agente para puntuar automáticamente leads entrantes basado en sus respuestas a preguntas de calificación. Los leads de alta calidad se pasan inmediatamente a tu equipo de ventas.</p>
+<h2>Paso 4: Configurar canales de comunicación</h2>
 
-<h3>2. Soporte Pre-Ventas 24/7</h3>
-<p>Tu agente responde preguntas de productos, comparte recursos y programa demos incluso cuando tu equipo está durmiendo. No más leads perdidos por retrasos en respuesta.</p>
-
-<h3>3. Seguimientos Personalizados</h3>
-<p>Seguimiento automático de prospectos según su etapa en el pipeline. Mensajes personalizados basados en sus intereses específicos e interacciones previas.</p>
-
-<h2>Próximos Pasos</h2>
-<p>Tu agente IA de ventas ahora está operativo. Para ir más allá:</p>
+<p>Tu agente puede comunicarse a través de múltiples canales simultáneamente:</p>
 <ul>
-<li><strong>Conecta tu CRM</strong> — Integra con HubSpot, Salesforce o Pipedrive</li>
-<li><strong>Agrega más canales</strong> — Slack, Telegram, WhatsApp para estar donde están tus prospectos</li>
-<li><strong>Personaliza respuestas</strong> — Ajusta basado en tus conversaciones reales</li>
-<li><strong>Configura reportes</strong> — Reportes automáticos de rendimiento de ventas</li>
+<li><a href="/integrations/openclaw-telegram">Telegram</a> — Comunicación rápida con clientes</li>
+<li><a href="/integrations/openclaw-slack">Slack</a> — Notificaciones internas del equipo</li>
+<li><a href="/integrations/openclaw-email">Email</a> — Seguimientos automáticos</li>
+<li><a href="/integrations/openclaw-whatsapp">WhatsApp</a> — Comunicación con clientes</li>
 </ul>
 
+<h2>Casos de uso</h2>
+
+<h3>1. Calificación automática de leads</h3>
+<p>Tu agente evalúa leads entrantes automáticamente según presupuesto, urgencia y autoridad de decisión. Los leads calientes se derivan inmediatamente a tu equipo.</p>
+
+<h3>2. Secuencias de seguimiento</h3>
+<p>Ningún lead se pierde. El agente envía seguimientos automáticos según tu cronograma y adapta el mensaje basándose en interacciones previas.</p>
+
+<h3>3. Reportes de pipeline</h3>
+<p>Recibe reportes diarios o semanales de pipeline directamente en Slack o Telegram. No más revisión manual del CRM.</p>
+
+<h2>Preguntas frecuentes</h2>
+
+<h3>¿Qué es un agente de IA para ventas?</h3>
+<p>Un agente de IA para ventas es una inteligencia artificial que automatiza tareas de ventas: calificación de leads, emails de seguimiento, actualizaciones de CRM y gestión de pipeline. Con OpenClaw, el agente funciona 24/7 en tu propio servidor.</p>
+
+<h3>¿Cuánto cuesta un agente de IA para ventas con OpenClaw?</h3>
+<p>OpenClaw es gratuito y de código abierto. Solo pagas por hosting VPS ($5-15/mes) y costos de API de IA. Sin suscripciones ni tarifas ocultas.</p>
+
+<h3>¿Puede el agente conectarse con mi CRM?</h3>
+<p>Sí. OpenClaw soporta integraciones con Salesforce, HubSpot, Airtable, Notion y muchos otros sistemas CRM.</p>
+
 <div class="cta-box">
-<h3>🔥 ¿Listo para Crear tu Agente IA?</h3>
-<p>Obtén 100 plantillas SOUL.md listas para usar para cualquier industria — <strong>solo €5</strong></p>
-<a href="https://aiagenttools.gumroad.com/l/jryauv?utm_source=website&utm_medium=article&utm_campaign=megapack&ref=site" class="btn btn-primary">Obtener Mega Pack SOUL.md →</a>
-<p style="margin-top:12px;font-size:14px">O empieza gratis: <a href="https://aiagenttools.gumroad.com/l/kqbdva?utm_source=website&utm_medium=article&utm_campaign=starterpack&ref=site">Descargar 5 Plantillas Gratis</a></p>
+<h3>🔥 100 plantillas de agentes listas para usar</h3>
+<p>Ventas, atención al cliente, marketing y más — <strong>solo $5</strong></p>
+<a href="https://aiagenttools.gumroad.com/l/jryauv?utm_source=website&utm_medium=article&utm_campaign=megapack&ref=site" class="btn btn-primary">Obtener SOUL.md Mega Pack →</a>
+<p style="margin-top:12px;font-size:14px">O empieza gratis: <a href="https://aiagenttools.gumroad.com/l/kqbdva?utm_source=website&utm_medium=article&utm_campaign=starterpack&ref=site">Descargar 5 plantillas gratuitas</a></p>
 </div>
 </div></article>
 <div class="related"><div class="container">
-<h3>Guías Relacionadas</h3>
+<h3>Guías relacionadas</h3>
 <ul>
-<li><a href="/es/guides/customer-service-ai-agent">Guía Agente IA Servicio Cliente</a></li>
-<li><a href="/es/integrations/openclaw-hubspot">Integración OpenClaw + HubSpot</a></li>
-<li><a href="/es/integrations/openclaw-slack">Integración OpenClaw + Slack</a></li>
-<li><a href="/es/compare/openclaw-vs-zapier">OpenClaw vs Zapier</a></li>
-<li><a href="/es/">← Volver al Inicio</a></li>
+<li><a href="/es/compare/openclaw-vs-langchain">OpenClaw vs LangChain (Español)</a></li>
+<li><a href="/guides/customer-service-ai-agent">Customer Service AI Agent</a></li>
+<li><a href="/integrations/openclaw-airtable">OpenClaw + Airtable</a></li>
+<li><a href="/es/">← Volver al inicio</a></li>
 </ul>
 </div></div>
-<footer><div class="container"><p>&copy; 2026 OpenClaw Guide. <a href="/privacy">Privacidad</a> | <a href="/terms">Términos</a> | <a href="/disclosure.html">Divulgación Afiliados</a></p></div></footer>
+<footer><div class="container"><p>&copy; 2026 OpenClaw Guide. <a href="/privacy">Privacidad</a> | <a href="/terms">Términos</a></p></div></footer>
 <script src="/conversion.js" defer></script>
 </body></html>
