@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenClaw + Microsoft Teams Integration: AI Bot for Team Chat, Meetings & Workflow Automation (2026 Guide)</title>
+<meta name="description" content="Connect OpenClaw to Microsoft Teams for AI-powered ai bot for team chat, meetings & workflow automation. Step-by-step setup guide with real examples. Self-hosted and free.">
+<meta name="keywords" content="OpenClaw Microsoft Teams, Microsoft Teams AI agent, Microsoft Teams automation, OpenClaw Microsoft Teams integration">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://openclawguide.org/integrations/openclaw-microsoft-teams">
+<meta property="og:title" content="OpenClaw + Microsoft Teams Integration Guide (2026)">
+<meta property="og:description" content="Connect OpenClaw to Microsoft Teams for AI-powered automation. Self-hosted, free, with real configuration examples.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://openclawguide.org/integrations/openclaw-microsoft-teams">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"OpenClaw + Microsoft Teams Integration: Complete Setup Guide (2026)","description":"How to connect OpenClaw AI agent to Microsoft Teams. Step-by-step guide with configuration examples and real use cases.","datePublished":"2026-03-03","dateModified":"2026-03-03","author":{"@type":"Organization","name":"OpenClaw Guide"},"publisher":{"@type":"Organization","name":"OpenClaw Guide","url":"https://openclawguide.org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I connect OpenClaw to Microsoft Teams?","acceptedAnswer":{"@type":"Answer","text":"Install OpenClaw on your VPS, configure the Microsoft Teams integration in your openclaw.json with your API credentials, and restart the gateway. Your AI agent can then read and write Microsoft Teams data through natural language commands."}},
+{"@type":"Question","name":"Is the OpenClaw Microsoft Teams integration free?","acceptedAnswer":{"@type":"Answer","text":"OpenClaw is open source and free. You need a Microsoft Teams account with API access and a VPS ($5-15/month) to run OpenClaw. There are no additional fees for the integration."}},
+{"@type":"Question","name":"Can OpenClaw automate Microsoft Teams workflows?","acceptedAnswer":{"@type":"Answer","text":"Yes. OpenClaw can automate Microsoft Teams workflows including team message responses and Q&A, meeting summary distribution, and task assignment and tracking. The agent runs 24/7 and can trigger actions based on schedules, events, or natural language commands."}}
+]}
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.8;background:#fafbfc}a{color:#e94560;text-decoration:none;font-weight:600}a:hover{text-decoration:underline}.container{max-width:800px;margin:0 auto;padding:0 24px}nav{background:#0f3460;padding:12px 0}nav .container{display:flex;justify-content:space-between;align-items:center}nav a{color:white;font-weight:700;font-size:18px}nav a:hover{text-decoration:none}nav ul{list-style:none;display:flex;gap:20px}nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}.hero-sm{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:50px 0 40px;text-align:center}.hero-sm h1{font-size:clamp(24px,4vw,36px);margin-bottom:8px}.hero-sm p{opacity:0.85;font-size:16px}article{padding:40px 0 60px}article h2{font-size:24px;color:#0f3460;margin:36px 0 14px;padding-top:16px;border-top:1px solid #eee}article h3{font-size:19px;color:#16213e;margin:20px 0 10px}article p{margin-bottom:16px;color:#333}article ul,article ol{margin:0 0 16px 24px;color:#333}article li{margin-bottom:8px}article code{background:#e8f0fe;padding:2px 6px;border-radius:4px;font-size:14px}article pre{background:#1a1a2e;color:#e0e0e0;padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:13px}.callout{background:#f0f7ff;border-left:4px solid #0f3460;padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0}.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;font-size:15px;transition:transform 0.2s}.btn:hover{transform:translateY(-2px);text-decoration:none}.btn-primary{background:#e94560;color:white}.cta-box{background:linear-gradient(135deg,#fff3cd,#ffeeba);border:2px solid #ffc107;border-radius:12px;padding:24px;margin:30px 0;text-align:center}.cta-box h3{color:#856404;margin-bottom:8px}.related{background:#f8f9fa;padding:30px 0;margin-top:40px}.related h3{margin-bottom:16px;color:#0f3460}.related ul{list-style:none;padding:0}.related li{margin-bottom:8px}.related li a{font-weight:500}footer{background:#0f3460;color:rgba(255,255,255,0.7);padding:30px 0;text-align:center;font-size:13px}footer a{color:#e94560}.meta-info{display:flex;gap:20px;justify-content:center;margin-top:12px;font-size:14px;opacity:0.8}table{width:100%;border-collapse:collapse;margin:16px 0}th,td{padding:10px 14px;text-align:left;border-bottom:1px solid #eee}th{background:#f8f9fa;font-weight:600;color:#0f3460}.takeaway{background:#fff8e1;border:1px solid #ffecb3;border-radius:8px;padding:16px 20px;margin:20px 0}.takeaway h4{color:#f57f17;margin-bottom:8px;font-size:16px}
+</style>
+</head>
+<body>
+<nav><div class="container"><a href="/en/">OpenClaw Guide</a><ul><li><a href="/en/">Home</a></li><li><a href="/best-vps-for-openclaw">VPS Guide</a></li><li><a href="/easysetup">EasySetup</a></li></ul></div></nav>
+<div class="hero-sm"><div class="container"><h1>OpenClaw + Microsoft Teams Integration</h1><p>AI Bot for Team Chat, Meetings & Workflow Automation — powered by AI agents on your own server</p><div class="meta-info"><span>⏱ 10 min read</span><span>📅 March 2026</span><span>📊 Step-by-step guide</span></div></div></div>
+<article><div class="container">
+
+<div class="callout" style="margin-bottom:20px">
+<strong>Quick Answer:</strong> The OpenClaw Microsoft Teams integration connects your AI agent to Microsoft Teams via API, enabling automated team message responses and Q&A, meeting summary distribution, and task assignment and tracking. Setup takes under 15 minutes. OpenClaw runs on your own server, so your Microsoft Teams data stays private. You need OpenClaw installed on a VPS ($5-15/month) and a Microsoft Teams account with API access.
+</div>
+
+<div class="takeaway">
+<h4>⚡ What You'll Build</h4>
+<ul style="margin-bottom:0">
+<li>An AI agent that reads and writes Microsoft Teams data through natural language</li>
+<li>Automated workflows for team message responses and Q&A, meeting summary distribution, and task assignment and tracking</li>
+<li>24/7 monitoring and alerts via Telegram, Slack, or Discord</li>
+<li>Self-hosted — your Microsoft Teams credentials never leave your server</li>
+</ul>
+</div>
+
+<h2>Why Connect OpenClaw to Microsoft Teams?</h2>
+
+<p>Microsoft Teams is a powerful platform, but many tasks are repetitive: team message responses and Q&A, meeting summary distribution, checking status updates, and generating reports. An AI agent connected to Microsoft Teams can handle these automatically, saving hours of manual work each week.</p>
+
+<p>What makes OpenClaw different from other automation tools:</p>
+<ul>
+<li><strong>Natural language interface</strong> — ask your agent "show me overdue items in Microsoft Teams" instead of building complex automations</li>
+<li><strong>Persistent memory</strong> — your agent remembers context from previous conversations</li>
+<li><strong>Multi-channel</strong> — interact with your Microsoft Teams data through <a href="/integrations/openclaw-telegram">Telegram</a>, <a href="/integrations/openclaw-slack">Slack</a>, <a href="/integrations/openclaw-discord">Discord</a>, or any supported channel</li>
+<li><strong>Scheduled tasks</strong> — set up cron jobs for daily reports, weekly summaries, or event-based triggers</li>
+<li><strong>Self-hosted</strong> — your API keys and data stay on your own server</li>
+</ul>
+
+<h2>Prerequisites</h2>
+<ul>
+<li>OpenClaw installed on a VPS (<a href="/easysetup">one-click installer</a>) or local machine</li>
+<li>A Microsoft Teams account with API access</li>
+<li>Microsoft Teams API key or OAuth credentials</li>
+</ul>
+<p>Don't have a server yet? Check our <a href="/best-vps-for-openclaw">VPS comparison guide</a> — a $6/month server handles OpenClaw + Microsoft Teams easily.</p>
+
+<h2>Step 1: Get Your Microsoft Teams API Credentials</h2>
+
+<p>First, you need API access to Microsoft Teams. Most Microsoft Teams plans include API access. Navigate to your Microsoft Teams settings, find the API or Integrations section, and generate an API key or OAuth token.</p>
+
+<div class="callout">
+<strong>💡 Tip:</strong> Create a dedicated API key for OpenClaw with the minimum required permissions. This follows the principle of least privilege and makes it easy to revoke access if needed.
+</div>
+
+<h2>Step 2: Configure OpenClaw</h2>
+
+<p>Create a skill or tool configuration that connects to the Microsoft Teams API. OpenClaw's extensible skill system makes this straightforward:</p>
+
+<pre># Example: Add Microsoft Teams tool to your agent
+# In your skill configuration:
+{
+  "name": "microsoft-teams-integration",
+  "description": "Read and write Microsoft Teams data",
+  "api_base": "https://api.microsoft-teams.com",
+  "auth": "bearer",
+  "token_env": "MICROSOFT-TEAMS_API_KEY"
+}</pre>
+
+<p>Set your API key as an environment variable:</p>
+<pre>export MICROSOFT-TEAMS_API_KEY="your-api-key-here"</pre>
+
+<h2>Step 3: Define Agent Behavior</h2>
+
+<p>Add Microsoft Teams-specific instructions to your SOUL.md:</p>
+
+<pre># In SOUL.md — Microsoft Teams Integration
+
+## Microsoft Teams Capabilities
+- Query and update Microsoft Teams data on request
+- Send daily summary reports at 9 AM
+- Alert on important changes via Telegram/Slack
+- team message responses and Q&A automatically
+- meeting summary distribution when triggered
+
+## Microsoft Teams Rules
+- Always confirm before making changes
+- Log all modifications for audit trail
+- Rate limit: max 100 API calls per minute</pre>
+
+<h2>Step 4: Test & Deploy</h2>
+
+<p>Restart OpenClaw and test the integration:</p>
+<pre>openclaw gateway restart</pre>
+
+<p>Try a simple query through your messaging channel:</p>
+<ul>
+<li>"Show me the latest items in Microsoft Teams"</li>
+<li>"Update the status of [item] to complete"</li>
+<li>"Generate a weekly Microsoft Teams report"</li>
+</ul>
+
+<h2>Use Cases</h2>
+
+<h3>1. Automated Team message responses and Q&A</h3>
+<p>Set up your agent to handle team message responses and Q&A automatically. It can run on a schedule (daily, hourly) or trigger in response to events in Microsoft Teams.</p>
+
+<h3>2. Meeting summary distribution</h3>
+<p>Your AI agent can manage meeting summary distribution through natural language commands or automated rules. This alone can save hours per week of manual work.</p>
+
+<h3>3. Task assignment and tracking</h3>
+<p>Connect Microsoft Teams to your communication channels for real-time task assignment and tracking. Get alerts in <a href="/integrations/openclaw-telegram">Telegram</a> or <a href="/integrations/openclaw-slack">Slack</a> when important changes happen.</p>
+
+<h3>4. Cross-Platform Workflows</h3>
+<p>Combine Microsoft Teams with other integrations. For example, sync Microsoft Teams data with <a href="/integrations/openclaw-airtable">Airtable</a>, trigger notifications in <a href="/integrations/openclaw-discord">Discord</a>, or create tasks in <a href="/integrations/openclaw-jira">Jira</a> based on Microsoft Teams events.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How do I connect OpenClaw to Microsoft Teams?</h3>
+<p>Install OpenClaw on your VPS, configure the Microsoft Teams integration with your API credentials, and restart the gateway. Your AI agent can then interact with Microsoft Teams through natural language commands in any connected messaging channel.</p>
+
+<h3>Is the OpenClaw Microsoft Teams integration free?</h3>
+<p>OpenClaw is open source and free. You need a Microsoft Teams account with API access and a VPS ($5-15/month) to run OpenClaw. There are no additional fees for the integration itself.</p>
+
+<h3>Can OpenClaw automate Microsoft Teams workflows?</h3>
+<p>Yes. OpenClaw can automate Microsoft Teams workflows including team message responses and Q&A, meeting summary distribution, and task assignment and tracking. The agent runs 24/7 and triggers actions based on schedules, events, or natural language commands.</p>
+
+<h3>Is my Microsoft Teams data secure?</h3>
+<p>Yes. OpenClaw is self-hosted — your Microsoft Teams API keys and data never leave your server. There's no third-party cloud service involved. You have full control over data access and retention.</p>
+
+<div class="cta-box">
+<h3>🔥 100 Ready-to-Use Agent Templates</h3>
+<p>Get SOUL.md templates for Microsoft Teams automation, customer support, sales, and more — <strong>only $5</strong></p>
+<a href="https://aiagenttools.gumroad.com/l/jryauv?utm_source=website&utm_medium=article&utm_campaign=megapack&ref=site" class="btn btn-primary">Get SOUL.md Mega Pack →</a>
+<p style="margin-top:12px;font-size:14px">Or start free: <a href="https://aiagenttools.gumroad.com/l/kqbdva?utm_source=website&utm_medium=article&utm_campaign=starterpack&ref=site">Download 5 Free Templates</a></p>
+</div>
+</div></article>
+<div class="related"><div class="container">
+<h3>Related Integrations</h3>
+<ul>
+<li><a href="/integrations/openclaw-airtable">OpenClaw + Airtable</a></li>
+<li><a href="/integrations/openclaw-slack">OpenClaw + Slack</a></li>
+<li><a href="/integrations/openclaw-telegram">OpenClaw + Telegram</a></li>
+<li><a href="/integrations/openclaw-jira">OpenClaw + Jira</a></li>
+<li><a href="/integrations/openclaw-notion">OpenClaw + Notion</a></li>
+<li><a href="/compare/openclaw-vs-zapier">OpenClaw vs Zapier</a></li>
+<li><a href="/en/">← Back to Home</a></li>
+</ul>
+</div></div>
+<footer><div class="container"><p>&copy; 2026 OpenClaw Guide. <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a> | <a href="/disclosure.html">Affiliate Disclosure</a></p></div></footer>
+<script src="/conversion.js" defer></script>
+</body></html>
