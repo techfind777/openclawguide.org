@@ -1,13 +1,13 @@
 # === SEO: pages.dev → custom domain 301 ===
 https://openclawguide.pages.dev/* https://openclawguide.org/:splat 301!
 
-# === SEO: Root → /en/ (301 instead of meta refresh 302) ===
-/ /en/ 301
+# === SEO: Root → /en/ (301, force overrides index.html) ===
+/ /en/ 301!
 
-# === SEO: /en/ duplicates → root canonical (301) ===
-/en/best-vps-for-openclaw /best-vps-for-openclaw 301
-/en/easysetup /easysetup 301
-/en/openclaw-cost-guide /openclaw-cost-guide 301
+# === SEO: /en/ duplicates → root canonical (301, force) ===
+/en/best-vps-for-openclaw /best-vps-for-openclaw 301!
+/en/easysetup /easysetup 301!
+/en/openclaw-cost-guide /openclaw-cost-guide 301!
 
 # === Short Links — Tracking + Clean URLs ===
 # Format: /go/{channel}/{product} → Gumroad URL
