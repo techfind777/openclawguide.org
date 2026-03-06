@@ -1,3 +1,6 @@
+# === SEO: pages.dev → custom domain 301 ===
+https://openclawguide.pages.dev/* https://openclawguide.org/:splat 301!
+
 # === Short Links — Tracking + Clean URLs ===
 # Format: /go/{channel}/{product} → Gumroad URL
 # Channels: r=Reddit, t=Twitter, d=Dev.to, h=Hashnode, m=Medium, g=GitHub, e=Email, j=Juejin, c=CSDN
