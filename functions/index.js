@@ -8,13 +8,19 @@ export async function onRequest(context) {
     return context.next();
   }
 
-  // Don't redirect bots — let them see the canonical page
+  // Search engine bots → always 301 to /en/ (canonical default)
   const ua = request.headers.get('user-agent') || '';
   if (/bot|crawl|spider|slurp|googlebot|bingbot|yandex|baidu/i.test(ua)) {
-    return context.next();
+    return new Response(null, {
+      status: 301,
+      headers: {
+        'Location': '/en/',
+        'Cache-Control': 'public, max-age=86400',
+      },
+    });
   }
 
-  // Get country from Cloudflare header
+  // Human users → 302 geo-redirect (temporary, varies by location)
   const country = request.headers.get('CF-IPCountry') || '';
 
   const countryToLang = {
