@@ -13,6 +13,14 @@ const template = (title, desc, keywords, slug, category, content) => `<!DOCTYPE 
 <meta name="keywords" content="${keywords}">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://openclawguide.org/${slug}">
+<link rel="alternate" hreflang="en" href="https://openclawguide.org/${slug}">
+<link rel="alternate" hreflang="zh" href="https://openclawguide.org/zh/">
+<link rel="alternate" hreflang="ja" href="https://openclawguide.org/ja/">
+<link rel="alternate" hreflang="ko" href="https://openclawguide.org/ko/">
+<link rel="alternate" hreflang="es" href="https://openclawguide.org/es/">
+<link rel="alternate" hreflang="de" href="https://openclawguide.org/de/">
+<link rel="alternate" hreflang="fr" href="https://openclawguide.org/fr/">
+<link rel="alternate" hreflang="x-default" href="https://openclawguide.org/${slug}">
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${desc}">
 <meta property="og:type" content="article">
@@ -291,19 +299,30 @@ comparisons.forEach(c => {
   fs.writeFileSync(path.join(dir, c.slug+'.html'), html);
 });
 
-// SITEMAP
+// SITEMAP — SEO-clean URLs (no .html suffix, no /en/ duplicates, no /xx/index)
 const allPages = [
-  'index.html','en/index.html','best-vps-for-openclaw.html','openclaw-cost-guide.html','easysetup.html',
-  'en/best-vps-for-openclaw.html','en/openclaw-cost-guide.html','en/easysetup.html',
-  'zh/index.html','zh/easysetup.html','zh/best-vps-for-openclaw.html',
-  'ja/index.html','ko/index.html','es/index.html','de/index.html',
-  ...guides.map(g=>'guides/'+g.slug+'.html'),
-  ...integrations.map(i=>'integrations/'+i.slug+'.html'),
-  ...comparisons.map(c=>'compare/'+c.slug+'.html'),
+  // Root English pages (canonical versions)
+  'en/',
+  'best-vps-for-openclaw',
+  'openclaw-cost-guide',
+  'easysetup',
+  // Language homepages
+  'zh/', 'ja/', 'ko/', 'es/', 'de/', 'fr/',
+  // Chinese translated pages
+  'zh/easysetup', 'zh/best-vps-for-openclaw',
+  // Generated pages (no .html suffix — CF Pages serves both)
+  ...guides.map(g=>'guides/'+g.slug),
+  ...integrations.map(i=>'integrations/'+i.slug),
+  ...comparisons.map(c=>'compare/'+c.slug),
+  // Chinese generated pages
+  ...guides.map(g=>'zh/guides/'+g.slug),
+  ...integrations.filter(i=>fs.existsSync(path.join(SITE_DIR,'zh/integrations',i.slug+'.html'))).map(i=>'zh/integrations/'+i.slug),
+  ...comparisons.filter(c=>fs.existsSync(path.join(SITE_DIR,'zh/compare',c.slug+'.html'))).map(c=>'zh/compare/'+c.slug),
 ];
+const today = new Date().toISOString().split('T')[0];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${allPages.map(p=>`<url><loc>https://openclawguide.org/${p}</loc><lastmod>2026-02-18</lastmod></url>`).join('\n')}
+${allPages.map(p=>`<url><loc>https://openclawguide.org/${p}</loc><lastmod>${today}</lastmod></url>`).join('\n')}
 </urlset>`;
 fs.writeFileSync(path.join(SITE_DIR, 'sitemap.xml'), sitemap);
 
