@@ -1,4 +1,4 @@
-// Cloudflare Pages Middleware: redirect pages.dev → custom domain + /en/ dedup
+// Cloudflare Pages Middleware: redirect pages.dev → custom domain + root → /en/ + /en/ dedup
 export async function onRequest(context) {
   const { request } = context;
   const url = new URL(request.url);
@@ -10,6 +10,18 @@ export async function onRequest(context) {
       status: 301,
       headers: {
         'Location': target,
+        'Cache-Control': 'public, max-age=86400',
+      },
+    });
+  }
+
+  // Redirect root / → /en/ with 301 (not 302)
+  // _redirects can't override this because CF Pages serves index.html first
+  if (url.pathname === '/' || url.pathname === '') {
+    return new Response(null, {
+      status: 301,
+      headers: {
+        'Location': '/en/' + url.search,
         'Cache-Control': 'public, max-age=86400',
       },
     });
