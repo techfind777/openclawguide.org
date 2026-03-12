@@ -3,7 +3,42 @@ const path = require('path');
 
 const SITE_DIR = __dirname;
 
-const template = (title, desc, keywords, slug, category, content) => `<!DOCTYPE html>
+const LANGS = ['zh', 'ja', 'ko', 'es', 'de', 'fr'];
+
+// Build hreflang links dynamically — point to translated page if it exists, otherwise language homepage
+// slug comes in WITH .html (e.g. "guides/healthcare-ai-agent.html") — strip it for URLs
+function buildHreflangLinks(slug) {
+  const cleanSlug = slug.replace(/\.html$/, ''); // no .html suffix in URLs (CF Pages 308s them)
+  let links = `<link rel="alternate" hreflang="en" href="https://openclawguide.org/${cleanSlug}">\n`;
+  // Get the directory prefix (e.g. "guides/") and base filename
+  const slugDir = slug.includes('/') ? slug.substring(0, slug.lastIndexOf('/') + 1) : '';
+  const baseName = slug.split('/').pop().replace(/\.html$/, '');
+  for (const lang of LANGS) {
+    // Check if translated version exists — both flat (zh/healthcare-ai-agent.html) and nested (zh/guides/healthcare-ai-agent.html)
+    const translatedFileFlat = path.join(SITE_DIR, lang, baseName + '.html');
+    const translatedFileNested = path.join(SITE_DIR, lang, slugDir, baseName + '.html');
+    const hasFlat = fs.existsSync(translatedFileFlat);
+    const hasNested = fs.existsSync(translatedFileNested);
+    let translatedSlug;
+    if (hasNested) {
+      // Prefer nested path: zh/guides/healthcare-ai-agent
+      translatedSlug = `${lang}/${slugDir}${baseName}`;
+    } else if (hasFlat) {
+      // Flat path: zh/healthcare-ai-agent
+      translatedSlug = `${lang}/${baseName}`;
+    } else {
+      // No translation — point to language homepage
+      translatedSlug = `${lang}/`;
+    }
+    links += `<link rel="alternate" hreflang="${lang}" href="https://openclawguide.org/${translatedSlug}">\n`;
+  }
+  links += `<link rel="alternate" hreflang="x-default" href="https://openclawguide.org/${cleanSlug}">`;
+  return links;
+}
+
+const template = (title, desc, keywords, slug, category, content) => {
+  const cleanSlug = slug.replace(/\.html$/, ''); // no .html in canonical/og URLs (CF Pages 308s them)
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -12,19 +47,12 @@ const template = (title, desc, keywords, slug, category, content) => `<!DOCTYPE 
 <meta name="description" content="${desc}">
 <meta name="keywords" content="${keywords}">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="canonical" href="https://openclawguide.org/${slug}">
-<link rel="alternate" hreflang="en" href="https://openclawguide.org/${slug}">
-<link rel="alternate" hreflang="zh" href="https://openclawguide.org/zh/">
-<link rel="alternate" hreflang="ja" href="https://openclawguide.org/ja/">
-<link rel="alternate" hreflang="ko" href="https://openclawguide.org/ko/">
-<link rel="alternate" hreflang="es" href="https://openclawguide.org/es/">
-<link rel="alternate" hreflang="de" href="https://openclawguide.org/de/">
-<link rel="alternate" hreflang="fr" href="https://openclawguide.org/fr/">
-<link rel="alternate" hreflang="x-default" href="https://openclawguide.org/${slug}">
+<link rel="canonical" href="https://openclawguide.org/${cleanSlug}">
+${buildHreflangLinks(slug)}
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${desc}">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://openclawguide.org/${slug}">
+<meta property="og:url" content="https://openclawguide.org/${cleanSlug}">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Article","headline":"${title}","description":"${desc}","datePublished":"2026-02-18","author":{"@type":"Organization","name":"OpenClaw Guide"},"publisher":{"@type":"Organization","name":"OpenClaw Guide","url":"https://openclawguide.org"}}
 <\/script>
@@ -33,7 +61,7 @@ const template = (title, desc, keywords, slug, category, content) => `<!DOCTYPE 
 </style>
 </head>
 <body>
-<nav><div class="container"><a href="/">OpenClaw Guide</a><ul><li><a href="/en/">Home</a></li><li><a href="/en/best-vps-for-openclaw.html">VPS Guide</a></li><li><a href="/easysetup.html">EasySetup</a></li></ul></div></nav>
+<nav><div class="container"><a href="/">OpenClaw Guide</a><ul><li><a href="/en/">Home</a></li><li><a href="/best-vps-for-openclaw">VPS Guide</a></li><li><a href="/easysetup">EasySetup</a></li></ul></div></nav>
 <div class="hero-sm"><div class="container"><h1>${title}</h1><p>${desc}</p></div></div>
 <article><div class="container">
 ${content}
@@ -48,12 +76,13 @@ ${content}
 <h3>Related Guides</h3>
 <ul>
 <li><a href="/en/">← Back to Home</a></li>
-<li><a href="/en/best-vps-for-openclaw.html">Best VPS for OpenClaw</a></li>
-<li><a href="/easysetup.html">EasySetup — Install in 5 Minutes</a></li>
+<li><a href="/best-vps-for-openclaw">Best VPS for OpenClaw</a></li>
+<li><a href="/easysetup">EasySetup — Install in 5 Minutes</a></li>
 </ul>
 </div></div>
-<footer><div class="container"><p>&copy; 2026 OpenClaw Guide. <a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p></div></footer>
+<footer><div class="container"><p>&copy; 2026 OpenClaw Guide. <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a></p></div></footer>
 </body></html>`;
+};
 
 // GUIDES
 const guides = [
@@ -98,7 +127,7 @@ guides.forEach(g => {
 
 <h2>Step-by-Step Setup Guide</h2>
 <h3>Step 1: Install OpenClaw</h3>
-<p>Deploy OpenClaw on any VPS with our <a href="/easysetup.html">one-click installer</a>. Recommended: <a href="https://www.vultr.com/?ref=9738617-8H">Vultr</a> ($6/month) or any Ubuntu 22.04+ server with 2GB RAM.</p>
+<p>Deploy OpenClaw on any VPS with our <a href="/easysetup">one-click installer</a>. Recommended: <a href="https://www.vultr.com/?ref=9738617-8H">Vultr</a> ($6/month) or any Ubuntu 22.04+ server with 2GB RAM.</p>
 <pre>curl -fsSL https://openclawguide.org/install.sh | bash</pre>
 
 <h3>Step 2: Configure the SOUL.md File</h3>
@@ -177,7 +206,7 @@ integrations.forEach(i => {
 <h2>Setup Guide</h2>
 <h3>Prerequisites</h3>
 <ul>
-<li>OpenClaw installed on your server (<a href="/easysetup.html">Quick install guide</a>)</li>
+<li>OpenClaw installed on your server (<a href="/easysetup">Quick install guide</a>)</li>
 <li>A ${i.name} account with API access or webhook permissions</li>
 <li>Basic familiarity with OpenClaw configuration</li>
 </ul>
@@ -288,7 +317,7 @@ comparisons.forEach(c => {
 </ul>
 
 <h2>Get Started with OpenClaw</h2>
-<p>Try OpenClaw in 5 minutes with our <a href="/easysetup.html">EasySetup installer</a>. Or grab the <a href="https://aiagenttools.gumroad.com/l/kqbdva">Free Starter Pack</a> with 5 SOUL.md templates to see what's possible.</p>`;
+<p>Try OpenClaw in 5 minutes with our <a href="/easysetup">EasySetup installer</a>. Or grab the <a href="https://aiagenttools.gumroad.com/l/kqbdva">Free Starter Pack</a> with 5 SOUL.md templates to see what's possible.</p>`;
 
   const html = template(
     `OpenClaw vs ${c.name}: Which AI Agent Platform is Better in 2026?`,
