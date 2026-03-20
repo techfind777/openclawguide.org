@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenClaw EasySetup — ワンコマンドAIエージェント���ンストール</title>
+<meta name="description" content="技術知識ゼロで10分でOpenClawをインストール。1つのコマンドですべて完了：インストール、設定、セキュリティ強化、起動。">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://openclawguide.org/ja/easysetup">
+<link rel="alternate" hreflang="en" href="https://openclawguide.org/easysetup">
+<link rel="alternate" hreflang="zh" href="https://openclawguide.org/zh/easysetup">
+<link rel="alternate" hreflang="ja" href="https://openclawguide.org/ja/easysetup">
+<link rel="alternate" hreflang="ko" href="https://openclawguide.org/ko/easysetup">
+<link rel="alternate" hreflang="es" href="https://openclawguide.org/es/easysetup">
+<link rel="alternate" hreflang="de" href="https://openclawguide.org/de/easysetup">
+<link rel="alternate" hreflang="fr" href="https://openclawguide.org/fr/easysetup">
+<link rel="alternate" hreflang="x-default" href="https://openclawguide.org/easysetup">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://openclawguide.org/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://openclawguide.org/og-image.png">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans','Hiragino Kaku Gothic ProN','Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.7;background:#fafbfc}
+a{color:#e94560;text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+.container{max-width:800px;margin:0 auto;padding:0 24px}
+nav{background:#0f3460;padding:12px 0;position:sticky;top:0;z-index:100}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+nav a{color:white;font-weight:700;font-size:18px}
+nav a:hover{text-decoration:none}
+nav ul{list-style:none;display:flex;gap:16px;align-items:center}
+nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}
+.nav-toggle{display:none;background:none;border:none;color:white;font-size:24px;cursor:pointer;padding:4px 8px}
+.hero{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:80px 0 60px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,44px);margin-bottom:12px}
+.hero p{font-size:18px;opacity:0.9;max-width:600px;margin:0 auto 30px}
+.hero code{background:rgba(255,255,255,0.15);padding:12px 24px;border-radius:8px;font-size:16px;display:inline-block;margin:10px 0;font-family:'SF Mono',Monaco,monospace;letter-spacing:0.5px;cursor:pointer;border:1px solid rgba(255,255,255,0.2)}
+.hero code:hover{background:rgba(255,255,255,0.25)}
+.hero .note{font-size:13px;opacity:0.7;margin-top:8px}
+section{padding:60px 0}
+section:nth-child(even){background:white}
+h2{font-size:28px;text-align:center;margin-bottom:30px;color:#0f3460}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:20px}
+.feature{background:white;border-radius:12px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.05);border:1px solid #eee}
+.feature .icon{font-size:32px;margin-bottom:12px}
+.feature h3{font-size:18px;margin-bottom:8px;color:#0f3460}
+.feature p{font-size:14px;color:#555}
+.steps{max-width:600px;margin:0 auto;counter-reset:s}
+.step-item{padding:20px 20px 20px 70px;position:relative;margin-bottom:16px;background:white;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.step-item::before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:20px;width:36px;height:36px;background:#0f3460;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px}
+.step-item h3{font-size:16px;margin-bottom:4px;color:#16213e}
+.step-item p{font-size:14px;color:#555}
+.pricing{text-align:center;max-width:500px;margin:0 auto}
+.price-card{background:white;border:3px solid #e94560;border-radius:16px;padding:40px;box-shadow:0 4px 20px rgba(233,69,96,0.15)}
+.price-card .price{font-size:48px;font-weight:800;color:#e94560}
+.price-card .price span{font-size:18px;color:#888;font-weight:400}
+.price-card .orig{font-size:18px;color:#999;text-decoration:line-through;margin-bottom:4px}
+.price-card h3{font-size:22px;margin:12px 0;color:#0f3460}
+.price-card ul{list-style:none;text-align:left;margin:20px 0;font-size:15px}
+.price-card li{padding:6px 0 6px 28px;position:relative;color:#333}
+.price-card li::before{content:"✓";position:absolute;left:0;color:#28a745;font-weight:700}
+.btn{display:inline-block;padding:16px 32px;border-radius:8px;font-weight:700;font-size:18px;background:#e94560;color:white;transition:transform 0.2s}
+.btn:hover{transform:translateY(-2px);text-decoration:none}
+.faq{max-width:700px;margin:0 auto}
+.faq-item{margin-bottom:16px;background:white;border-radius:8px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.faq-item h3{font-size:16px;color:#0f3460;margin-bottom:8px}
+.faq-item p{font-size:14px;color:#555}
+.footer{background:#16213e;color:rgba(255,255,255,0.7);padding:40px 0;text-align:center;font-size:14px}
+.footer a{color:#e94560}
+.guarantee{background:#d4edda;border-radius:12px;padding:24px;text-align:center;margin:30px auto;max-width:500px}
+.guarantee h3{color:#155724;margin-bottom:8px}
+.guarantee p{color:#155724;font-size:14px}
+@media(max-width:768px){.nav-toggle{display:block}nav ul{display:none;position:absolute;top:56px;left:0;right:0;background:#0f3460;flex-direction:column;padding:16px 24px;gap:12px;box-shadow:0 4px 12px rgba(0,0,0,0.3)}nav ul.open{display:flex}}
+</style>
+</head>
+<body>
+
+<nav><div class="container">
+<a href="/ja/">🦞 OpenClaw ガイド</a>
+<button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
+<ul>
+<li><a href="/ja/best-vps-for-openclaw">ベストVPS</a></li>
+<li><a href="/ja/#guides">ガイド</a></li>
+<li><a href="/ja/easysetup">EasySetup</a></li>
+<li class="lang-dropdown" style="position:relative"><a href="#" onclick="document.getElementById('langMenu').style.display=document.getElementById('langMenu').style.display==='block'?'none':'block';return false" style="background:rgba(255,255,255,0.15);padding:4px 10px;border-radius:6px;font-size:13px;cursor:pointer">🌐 言語</a><div id="langMenu" style="display:none;position:absolute;right:0;top:100%;background:#0f3460;border-radius:8px;padding:8px 0;min-width:140px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:200;margin-top:8px"><a href="/easysetup" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇺🇸 English</a><a href="/zh/easysetup" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇨🇳 中文</a><a href="/ja/easysetup" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇯🇵 日本語</a><a href="/ko/easysetup" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇰🇷 한국어</a><a href="/es/easysetup" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇪🇸 Español</a><a href="/de/easysetup" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇩🇪 Deutsch</a><a href="/fr/easysetup" style="display:block;padding:6px 16px;font-size:13px;color:rgba(255,255,255,0.9)">🇫🇷 Français</a></div></li>
+</ul>
+</div></nav>
+
+<div class="hero"><div class="container">
+<h1>🚀 OpenClaw EasySetup</h1>
+<p>10分で完全なAIエージェントをインストール。技術知識は一切不要。</p>
+<code onclick="navigator.clipboard.writeText(this.textContent)">curl -sL setup.openclaw.ai | bash</code>
+<p class="note">クリックしてコピー — Ubuntu 22.04+、Debian 12+で動作</p>
+</div></div>
+
+<section><div class="container">
+<h2>なぜEasySetupなのか？</h2>
+<div class="features">
+<div class="feature">
+<div class="icon">⚡</div>
+<h3>10分でセットアップ</h3>
+<p>手動インストールには2〜3時間かかります。EasySetupは10分で完了します。</p>
+</div>
+<div class="feature">
+<div class="icon">🔒</div>
+<h3>セキュリティ強化済み</h3>
+<p>ファイアウォール、fail2ban、自動更新、SSH強化がすべて設定済み。</p>
+</div>
+<div class="feature">
+<div class="icon">🎯</div>
+<h3>技術知識不要</h3>
+<p>コマンドをコピー＆ペーストできれば使えます。スクリプトが質問して、残りはすべて処理します。</p>
+</div>
+<div class="feature">
+<div class="icon">🔧</div>
+<h3>すべてのAIモデル</h3>
+<p>Claude、GPT-4o、Gemini、DeepSeek、Ollama、OpenRouterをサポート。</p>
+</div>
+<div class="feature">
+<div class="icon">💬</div>
+<h3>すべてのメッセージアプリ</h3>
+<p>Telegram、Discord、Slack、WhatsApp、Signalなど。</p>
+</div>
+<div class="feature">
+<div class="icon">📖</div>
+<h3>オープンソース</h3>
+<p>実行前にソースコードを読めます。透明性を信じています。</p>
+</div>
+</div>
+</div></section>
+
+<section><div class="container">
+<h2>仕組み</h2>
+<div class="steps">
+<div class="step-item">
+<h3>VPSを取得</h3>
+<p>Hostinger、DigitalOcean、Vultr、Hetznerなど、任意のVPSプロバイダー。月額$5から。</p>
+</div>
+<div class="step-item">
+<h3>コマンドを実行</h3>
+<p>SSHでサーバーに接続し、ワンライナーをペーストします。スクリプトがすべてを処理します。</p>
+</div>
+<div class="step-item">
+<h3>質問に答える</h3>
+<p>どのAIモデルを使用するか？どのメッセージアプリ？スクリプトがガイドします。</p>
+</div>
+<div class="step-item">
+<h3>完了</h3>
+<p>10分後、AIエージェントが稼働し、メッセージに応答します。</p>
+</div>
+</div>
+</div></section>
+
+<section><div class="container">
+<h2>価格</h2>
+<div class="pricing">
+<div class="price-card">
+<div class="orig">通常価格 $49</div>
+<div class="price">$19<span>/回</span></div>
+<h3>OpenClaw EasySetup</h3>
+<ul>
+<li>ワンコマンドインストールスクリプト</li>
+<li>すべてのAIモデル（Claude、GPT-4o、Gemini、DeepSeek）</li>
+<li>すべてのメッセージアプリ（Telegram、Discord、Slack）</li>
+<li>セキュリティ強化を含む</li>
+<li>VPS購入ガイド（どのプランを選ぶか）</li>
+<li>トラブルシューティングガイド</li>
+<li>生涯無料アップデート</li>
+</ul>
+<a href="https://aiagenttools.gumroad.com/l/oztac?utm_source=website&utm_medium=article&utm_campaign=easysetup&ref=site" class="btn" style="margin-top:20px;display:block">EasySetupを入手 — $19 →</a>
+</div>
+<div class="guarantee">
+<h3>💯 100%返金保証</h3>
+<p>EasySetupがサーバーで動作しない場合は、返金いたします。質問なし。</p>
+</div>
+</div>
+</div></section>
+
+<section><div class="container">
+<h2>FAQ</h2>
+<div class="faq">
+<div class="faq-item"><h3>技術知識は必要ですか？</h3><p>いいえ。コマンドをコピー＆ペーストできれば、EasySetupを使用できます。スクリプトが簡単な質問をして、残りはすべて処理します。</p></div>
+<div class="faq-item"><h3>どのサーバーで動作しますか？</h3><p>Ubuntu 22.04+、Debian 12+、または同様のLinuxを実行している任意のVPS。Hostinger、DigitalOcean、Vultr、Hetzner、Oracle Cloudでテスト済み。</p></div>
+<div class="faq-item"><h3>どのAIモデルがサポートされていますか？</h3><p>Claude（Anthropic）、GPT-4o（OpenAI）、Gemini（Google）、DeepSeek、Ollama経由のローカルモデル、OpenRouter（すべてのモデル）。</p></div>
+<div class="faq-item"><h3>どのメッセージアプリがサポートされていますか？</h3><p>Telegram、Discord、Slack、WhatsApp、Signalなど。セットアップ中に選択します。</p></div>
+<div class="faq-item"><h3>インストーラースクリプトはオープンソースですか？</h3><p>はい！実行前に完全なソースコードを読むことができます。透明性を信じています。</p></div>
+<div class="faq-item"><h3>すでにOpenClawがインストールされている場合は？</h3><p>スクリプトは既存のインストールを検出し、再インストールではなく更新/再設定を提案します。</p></div>
+</div>
+</div></section>
+
+<footer class="footer"><div class="container">
+<p>© 2026 <a href="/ja/">OpenClaw ガイド</a> · OpenClawとは無関係。独立したリソースサイト。</p>
+<p style="margin-top:8px">最終更新：2026年3月</p>
+</div></footer>
+
+<script src='/conversion.js' defer></script>
+</body>
+</html>

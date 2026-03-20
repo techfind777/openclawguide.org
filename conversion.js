@@ -27,6 +27,21 @@
   .oc-newsletter .oc-note{font-size:12px;color:#888;margin-top:8px}
   .oc-newsletter .oc-ok{color:#22c55e;font-weight:600}
 
+  /* VPS Comparison Table */
+  .oc-compare{background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:24px;margin:30px 0;overflow-x:auto}
+  .oc-compare h3{margin:0 0 16px;color:#0f3460;font-size:18px;text-align:center}
+  .oc-compare table{width:100%;border-collapse:collapse;min-width:500px}
+  .oc-compare th{background:#0f3460;color:white;padding:12px;text-align:left;font-size:14px;font-weight:600}
+  .oc-compare td{padding:12px;border-bottom:1px solid #e5e7eb;font-size:14px}
+  .oc-compare tr:last-child td{border-bottom:none}
+  .oc-compare .oc-best{background:#f0fdf4;font-weight:600}
+  .oc-compare a{color:#e94560;font-weight:600;text-decoration:none}
+  .oc-compare a:hover{text-decoration:underline}
+  @media(max-width:600px){
+    .oc-compare{padding:16px}
+    .oc-compare th,.oc-compare td{padding:8px;font-size:13px}
+  }
+
   /* Exit Intent Popup */
   .oc-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:9999;align-items:center;justify-content:center}
   .oc-overlay.active{display:flex}
@@ -88,6 +103,36 @@
       sections[sections.length - 1].parentNode.insertBefore(card, sections[sections.length - 1]);
     } else {
       article.appendChild(card);
+    }
+  }
+
+  /* ── VPS Comparison Table ── */
+  function injectComparisonTable(){
+    var article = document.querySelector('article');
+    if(!article) return;
+
+    var type = detectPageType();
+    // Only show on guide and integration pages (not VPS pages which have their own tables)
+    if(type !== 'guide' && type !== 'integration') return;
+
+    var table = document.createElement('div');
+    table.className = 'oc-compare';
+    table.innerHTML = '<h3>🔥 Best VPS for OpenClaw — Quick Compare</h3>'
+      + '<table>'
+      + '<thead><tr><th>Provider</th><th>Price</th><th>CPU</th><th>RAM</th><th></th></tr></thead>'
+      + '<tbody>'
+      + '<tr><td><strong>Vultr</strong></td><td>$6/mo</td><td>1 vCPU</td><td>2GB</td><td><a href="https://www.vultr.com/?ref=9738617-8H" target="_blank" rel="noopener sponsored">View →</a></td></tr>'
+      + '<tr class="oc-best"><td><strong>Hetzner</strong> ⭐</td><td>€4.15/mo</td><td>2 vCPU</td><td>4GB</td><td><a href="https://www.hetzner.com/cloud/" target="_blank" rel="noopener">View →</a></td></tr>'
+      + '<tr><td><strong>DigitalOcean</strong></td><td>$4/mo</td><td>1 vCPU</td><td>512MB</td><td><a href="https://m.do.co/c/abc123" target="_blank" rel="noopener sponsored">View →</a></td></tr>'
+      + '</tbody>'
+      + '</table>';
+
+    // Insert before the newsletter box
+    var newsletter = article.querySelector('.oc-newsletter');
+    if(newsletter){
+      article.insertBefore(table, newsletter);
+    } else {
+      article.appendChild(table);
     }
   }
 
@@ -195,6 +240,7 @@
     // Don't inject on homepage, privacy, terms
     if(path === '/' || path === '/index.html' || path.includes('privacy') || path.includes('terms') || path.includes('disclosure')) return;
     injectTopPick();
+    injectComparisonTable();
     injectNewsletter();
     injectExitPopup();
   }

@@ -81,6 +81,7 @@ ${content}
 </ul>
 </div></div>
 <footer><div class="container"><p>&copy; 2026 OpenClaw Guide. <a href="/privacy">Privacy</a> | <a href="/terms">Terms</a></p></div></footer>
+<script src="/conversion.js" defer></script>
 </body></html>`;
 };
 
