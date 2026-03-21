@@ -163,71 +163,7 @@
     });
   }
 
-  /* ── Exit Intent Popup ── */
-  function injectExitPopup(){
-    if(sessionStorage.getItem('oc_popup_shown')) return;
-    if(localStorage.getItem('oc_popup_dismissed')) return;
-
-    var overlay = document.createElement('div');
-    overlay.className = 'oc-overlay';
-    overlay.innerHTML = '<div class="oc-popup">'
-      + '<button class="oc-close" aria-label="Close">&times;</button>'
-      + '<h2>Wait — Free PDF Guide! 📖</h2>'
-      + '<p>Get our <strong>"OpenClaw Setup Checklist"</strong> — a step-by-step PDF covering VPS setup, agent configuration, and deployment best practices.</p>'
-      + '<form id="oc-exit-form"><input type="email" placeholder="Your email" required><button type="submit">Send Me the Guide</button></form>'
-      + '<span class="oc-skip" id="oc-exit-skip">No thanks, I\'ll figure it out</span>'
-      + '</div>';
-
-    document.body.appendChild(overlay);
-
-    function closePopup(){
-      overlay.classList.remove('active');
-      sessionStorage.setItem('oc_popup_shown', '1');
-    }
-
-    overlay.querySelector('.oc-close').addEventListener('click', function(){
-      closePopup();
-      localStorage.setItem('oc_popup_dismissed', '1');
-    });
-
-    document.getElementById('oc-exit-skip').addEventListener('click', function(){
-      closePopup();
-      localStorage.setItem('oc_popup_dismissed', '1');
-    });
-
-    overlay.addEventListener('click', function(e){
-      if(e.target === overlay) closePopup();
-    });
-
-    var exitForm = document.getElementById('oc-exit-form');
-    if(exitForm) exitForm.addEventListener('submit', function(e){
-      e.preventDefault();
-      var email = exitForm.querySelector('input').value;
-      var subs = JSON.parse(localStorage.getItem('oc_subs') || '[]');
-      subs.push({email: email, ts: Date.now(), page: path, source: 'exit_popup'});
-      localStorage.setItem('oc_subs', JSON.stringify(subs));
-      exitForm.innerHTML = '<div class="oc-ok">✅ Check your inbox!</div>';
-      setTimeout(closePopup, 2000);
-    });
-
-    // Trigger on mouse leave (desktop) or after 45s (mobile)
-    var triggered = false;
-    document.addEventListener('mouseout', function(e){
-      if(triggered) return;
-      if(e.clientY < 5 && e.relatedTarget == null){
-        triggered = true;
-        overlay.classList.add('active');
-      }
-    });
-
-    // Mobile fallback: show after 45 seconds
-    setTimeout(function(){
-      if(!triggered && !sessionStorage.getItem('oc_popup_shown')){
-        triggered = true;
-        overlay.classList.add('active');
-      }
-    }, 45000);
-  }
+  /* ── Exit Intent Popup ── removed from JS; each page has its own translated HTML popup */
 
   /* ── Init ── */
   if(document.readyState === 'loading'){
@@ -242,6 +178,6 @@
     injectTopPick();
     injectComparisonTable();
     injectNewsletter();
-    injectExitPopup();
+    // exit popup handled by per-page translated HTML
   }
 })();
