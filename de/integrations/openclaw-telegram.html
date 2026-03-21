@@ -36,7 +36,7 @@ gtag('config', 'G-5TV5N7EZMJ');
 </style>
 </head>
 <body>
-<nav><div class="container"><a href="/de/">OpenClaw Anleitung</a><ul><li><a href="/de/">Startseite</a></li><li><a href="/de/best-vps-for-openclaw">VPS-Guide</a></li><li><a href="/easysetup">EasySetup</a></li></ul></div></nav>
+<nav><div class="container"><a href="/de/">OpenClaw Anleitung</a><ul><li><a href="/de/">Startseite</a></li><li><a href="/de/best-vps-for-openclaw">VPS-Guide</a></li><li><a href="/de/easysetup">EasySetup</a></li></ul></div></nav>
 <div class="hero-sm"><div class="container"><h1>Kostenloser Telegram KI-Bot in 5 Schritten</h1><p>Erstellen Sie einen leistungsstarken KI-Bot auf Telegram in 15 Minuten — mit echten Konfigurationsbeispielen</p><div class="meta-info"><span>⏱ 15 Minuten</span><span>📊 Anfänger</span><span>📅 Aktualisiert Feb 2026</span></div></div></div>
 <article><div class="container">
 
@@ -54,7 +54,7 @@ gtag('config', 'G-5TV5N7EZMJ');
 
 <h2>Voraussetzungen</h2>
 <ul>
-<li>OpenClaw auf einem VPS (<a href="/easysetup">Ein-Klick-Installer</a>) oder lokaler Maschine installiert</li>
+<li>OpenClaw auf einem VPS (<a href="/de/easysetup">Ein-Klick-Installer</a>) oder lokaler Maschine installiert</li>
 <li>Ein Telegram-Account</li>
 <li>5 Minuten freie Zeit</li>
 </ul>
@@ -222,5 +222,26 @@ openclaw config.patch channels.telegram.groupTrigger "mention"</pre>
 <a href="https://aiagenttools.gumroad.com/l/riwdzt?utm_source=website&utm_medium=sticky_banner&utm_campaign=bundle&ref=site" style="background:linear-gradient(135deg,#f97316,#ef4444);color:white;padding:10px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;white-space:nowrap">Bundle holen →</a>
 <button onclick="document.getElementById('bundle-sticky-banner').style.display='none'" style="background:none;border:none;color:rgba(255,255,255,0.6);font-size:20px;cursor:pointer;padding:0 4px;position:absolute;right:12px;top:50%;transform:translateY(-50%)">×</button>
 </div>
+
+
+<!-- Exit Intent Popup -->
+<div id="exit-popup" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:99999;align-items:center;justify-content:center">
+<div style="background:white;border-radius:16px;padding:40px;max-width:480px;width:90%;text-align:center;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.3)">
+<button onclick="document.getElementById('exit-popup').style.display='none'" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:24px;color:#999;cursor:pointer">×</button>
+<div style="font-size:48px;margin-bottom:12px">🎁</div>
+<h2 style="font-size:24px;color:#0f3460;margin-bottom:8px">Wait! Grab These Free Templates</h2>
+<p style="font-size:15px;color:#666;margin-bottom:20px">5 production-ready SOUL.md templates — yours free. No signup, instant download.</p>
+<a href="https://aiagenttools.gumroad.com/l/kqbdva?utm_source=website&utm_medium=exit_popup&utm_campaign=free&ref=site" onclick="document.getElementById('exit-popup').style.display='none'" style="display:inline-block;padding:14px 32px;background:#e94560;color:white;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none">Download Free Templates →</a>
+<p style="margin-top:16px;font-size:13px;color:#999">Or get <a href="https://aiagenttools.gumroad.com/l/riwdzt?utm_source=website&utm_medium=exit_popup&utm_campaign=bundle&ref=site" style="color:#f97316;font-weight:700">everything for $29 (70% off) →</a></p>
+</div>
+</div>
+<script>
+(function(){
+var shown=false;
+document.addEventListener('mouseleave',function(e){
+if(e.clientY<0&&!shown){shown=true;document.getElementById('exit-popup').style.display='flex';}
+});
+})();
+</script>
 
 </body></html>
