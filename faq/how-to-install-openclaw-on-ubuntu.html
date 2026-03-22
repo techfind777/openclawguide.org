@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TV5N7EZMJ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-5TV5N7EZMJ');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Install OpenClaw on Ubuntu/Debian — Complete Guide</title>
+<meta name="description" content="Step-by-step guide to install OpenClaw on Ubuntu 22.04, 24.04, and Debian 12. Exact commands, prerequisites, troubleshooting, and performance tuning.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://openclawguide.org/faq/how-to-install-openclaw-on-ubuntu">
+<meta property="og:title" content="How to Install OpenClaw on Ubuntu/Debian — Complete Guide">
+<meta property="og:description" content="Step-by-step guide to install OpenClaw on Ubuntu 22.04, 24.04, and Debian 12. Exact commands, prerequisites, troubleshooting, and performance tuning.">
+<meta property="og:image" content="https://openclawguide.org/og-image.png">
+<meta property="og:url" content="https://openclawguide.org/faq/how-to-install-openclaw-on-ubuntu">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Install OpenClaw on Ubuntu/Debian — Complete Guide">
+<meta name="twitter:description" content="Step-by-step guide to install OpenClaw on Ubuntu 22.04, 24.04, and Debian 12. Exact commands, prerequisites, troubleshooting, and performance tuning.">
+<meta name="twitter:image" content="https://openclawguide.org/og-image.png">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.8;background:#fafbfc}
+a{color:#e94560;text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+.container{max-width:800px;margin:0 auto;padding:0 24px}
+nav{background:#0f3460;padding:12px 0}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+nav a{color:white;font-weight:700;font-size:18px}
+nav a:hover{text-decoration:none}
+nav ul{list-style:none;display:flex;gap:20px}
+nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}
+.hero-sm{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:50px 0 40px;text-align:center}
+.hero-sm h1{font-size:clamp(24px,4vw,38px);margin-bottom:8px}
+.hero-sm p{opacity:0.85;font-size:16px}
+article{padding:40px 0 60px}
+article h2{font-size:26px;color:#0f3460;margin:40px 0 16px;padding-top:20px;border-top:1px solid #eee}
+article h3{font-size:20px;color:#16213e;margin:24px 0 12px}
+article p{margin-bottom:16px;color:#333}
+article ul,article ol{margin:0 0 16px 24px;color:#333}
+article li{margin-bottom:8px}
+code{background:#e8f0fe;padding:2px 6px;border-radius:4px;font-size:14px}
+pre{background:#1a1a2e;color:#e0e0e0;padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:13px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+th{background:#0f3460;color:white;padding:12px;text-align:left}
+td{padding:10px 12px;border-bottom:1px solid #eee}
+tr:hover{background:#f8f9fa}
+.callout{background:#f0f7ff;border-left:4px solid #0f3460;padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0}
+.callout.tip{background:#d4edda;border-color:#28a745}
+.callout.warning{background:#fff3cd;border-color:#ffc107}
+.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;font-size:15px;background:#e94560;color:white;transition:transform 0.2s}
+.btn:hover{transform:translateY(-2px);text-decoration:none}
+.footer{background:#16213e;color:rgba(255,255,255,0.7);padding:40px 0;text-align:center;font-size:14px}
+.footer a{color:#e94560}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "HowTo",
+      "name": "How to Install OpenClaw on Ubuntu/Debian",
+      "description": "Step-by-step guide to install OpenClaw on Ubuntu 22.04, 24.04, and Debian 12.",
+      "totalTime": "PT15M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "0"
+      },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Update system packages",
+          "text": "Run apt update and apt upgrade to ensure your system is current.",
+          "position": 1
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Install Node.js v22+",
+          "text": "Install Node.js version 22 or later using the NodeSource repository.",
+          "position": 2
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Install OpenClaw",
+          "text": "Run npx openclaw to download and install the OpenClaw AI agent framework.",
+          "position": 3
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Configure SOUL.md",
+          "text": "Edit the SOUL.md file to define your AI agent personality and behavior.",
+          "position": 4
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Set up messaging channel",
+          "text": "Connect OpenClaw to your preferred messaging platform such as Telegram, Discord, or WhatsApp.",
+          "position": 5
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Enable auto-start with systemd",
+          "text": "Create a systemd service to ensure OpenClaw starts automatically on boot.",
+          "position": 6
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Verify installation",
+          "text": "Send a test message to confirm OpenClaw is running and responding correctly.",
+          "position": 7
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What version of Ubuntu does OpenClaw support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OpenClaw officially supports Ubuntu 22.04 LTS, Ubuntu 24.04 LTS, and Debian 12. Older versions like Ubuntu 20.04 may work but are not officially tested."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much RAM does OpenClaw need on Ubuntu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OpenClaw requires a minimum of 1 GB RAM, but 2 GB is recommended for stable performance. With a swap file configured, 1 GB servers can run reliably."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I install OpenClaw without root access?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, OpenClaw itself runs as a regular user. However, you need sudo access to install Node.js, configure systemd services, and set up firewall rules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does OpenClaw work on ARM-based Ubuntu servers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, OpenClaw runs on ARM64 (aarch64) Ubuntu servers including Oracle Cloud free-tier ARM instances and Raspberry Pi 4/5 running Ubuntu Server."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I update OpenClaw on Ubuntu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Run npx openclaw@latest in your OpenClaw directory. The update process preserves your SOUL.md configuration and conversation history."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav><div class="container"><a href="/">&#x1F99E; OpenClaw Guide</a><ul><li><a href="/best-vps-for-openclaw">Best VPS</a></li><li><a href="/#guides">Guides</a></li><li><a href="/easysetup">EasySetup</a></li></ul></div></nav>
+
+<header class="hero-sm">
+<div class="container">
+<h1>How to Install OpenClaw on Ubuntu/Debian</h1>
+<p>Complete step-by-step guide for Ubuntu 22.04, 24.04, and Debian 12 with troubleshooting and performance tuning</p>
+</div>
+</header>
+
+<article>
+<div class="container">
+
+<h2>Introduction — Supported Operating Systems</h2>
+
+<p>OpenClaw is the open-source AI agent framework that lets you run a fully self-hosted personal AI assistant. It supports multiple messaging channels including Telegram, Discord, WhatsApp, and Slack, all from a single installation on your own server. Ubuntu and Debian are the most popular choices for hosting OpenClaw, and for good reason: they offer long-term support, excellent package management, and a massive community of users who can help if you run into trouble.</p>
+
+<p>This guide covers installation on three specific distributions that are officially supported and thoroughly tested by the OpenClaw community:</p>
+
+<ul>
+<li><strong>Ubuntu 22.04 LTS (Jammy Jellyfish)</strong> — The current long-term support release, supported until April 2027. This is the most widely deployed version on cloud servers and the safest choice for production deployments.</li>
+<li><strong>Ubuntu 24.04 LTS (Noble Numbat)</strong> — The newest LTS release with updated packages and kernel improvements. Recommended for new installations where you want the latest security patches and performance optimizations.</li>
+<li><strong>Debian 12 (Bookworm)</strong> — The stable Debian release known for its rock-solid reliability. Ideal if you prefer a minimal system with fewer pre-installed packages and longer release cycles.</li>
+</ul>
+
+<p>While OpenClaw may work on other Debian-based distributions like Linux Mint or Pop!_OS, this guide focuses exclusively on the three distributions listed above. If you are using a different operating system, check the <a href="/easysetup">EasySetup guide</a> which handles cross-platform installation automatically.</p>
+
+<div class="callout tip">
+<strong>Fastest option:</strong> If you want to skip the manual steps entirely, <a href="/easysetup">OpenClaw EasySetup</a> automates this entire process with a single command. It handles Node.js installation, firewall configuration, systemd setup, and more.
+</div>
+
+<h2>Prerequisites — What You Need Before Starting</h2>
+
+<p>Before installing OpenClaw, make sure your server meets the minimum requirements. The following table breaks down what you need for each supported operating system. Note that the requirements are nearly identical across all three distributions, with only minor differences in default package availability.</p>
+
+<table>
+<tr><th>Requirement</th><th>Ubuntu 22.04</th><th>Ubuntu 24.04</th><th>Debian 12</th></tr>
+<tr><td>Node.js</td><td>v22+ (install via NodeSource)</td><td>v22+ (install via NodeSource)</td><td>v22+ (install via NodeSource)</td></tr>
+<tr><td>RAM (minimum)</td><td>1 GB</td><td>1 GB</td><td>1 GB</td></tr>
+<tr><td>RAM (recommended)</td><td>2 GB</td><td>2 GB</td><td>2 GB</td></tr>
+<tr><td>Storage</td><td>10 GB free</td><td>10 GB free</td><td>10 GB free</td></tr>
+<tr><td>CPU</td><td>1 vCPU</td><td>1 vCPU</td><td>1 vCPU</td></tr>
+<tr><td>curl</td><td>Pre-installed</td><td>Pre-installed</td><td>Install via apt</td></tr>
+<tr><td>git</td><td>Pre-installed</td><td>Pre-installed</td><td>Install via apt</td></tr>
+<tr><td>sudo access</td><td>Required</td><td>Required</td><td>Required</td></tr>
+<tr><td>Internet access</td><td>Required</td><td>Required</td><td>Required</td></tr>
+</table>
+
+<p>You will also need an API key from your preferred LLM provider. OpenClaw supports OpenAI, Anthropic, Google Gemini, and several other providers. Have your API key ready before starting the installation. If you are unsure which provider to choose, check our <a href="/openclaw-cost-guide">OpenClaw Cost Guide</a> for a detailed price comparison.</p>
+
+<p>For hosting, you need a VPS or dedicated server. The most affordable options start at around $4-6 per month. See our <a href="/best-vps-for-openclaw">Best VPS for OpenClaw</a> ranking for recommended providers that have been tested with OpenClaw installations.</p>
+
+<h2>Step 1 — Update System Packages</h2>
+
+<p>Always start by updating your system packages. This ensures you have the latest security patches and that your package manager index is current. Stale package lists can cause dependency resolution failures during installation.</p>
+
+<pre>sudo apt update && sudo apt upgrade -y</pre>
+
+<p>On a fresh server, this may take a few minutes depending on how many packages need updating. If prompted about kernel updates or GRUB configuration, accept the defaults. After the upgrade completes, it is a good practice to reboot if a kernel update was applied:</p>
+
+<pre>sudo reboot</pre>
+
+<p>After reconnecting to your server via SSH, verify your system is up to date:</p>
+
+<pre>lsb_release -a</pre>
+
+<h3>Debian 12 — Install Additional Prerequisites</h3>
+
+<p>Debian 12 minimal installations may not include curl and git by default. Install them now:</p>
+
+<pre>sudo apt install -y curl git wget gnupg2</pre>
+
+<h2>Step 2 — Install Node.js v22+</h2>
+
+<p>OpenClaw requires Node.js version 22 or later. The default Node.js packages in Ubuntu and Debian repositories are typically outdated, so you need to use the NodeSource repository to get a current version. This is the officially recommended method by both the Node.js project and the OpenClaw team.</p>
+
+<pre>curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt install -y nodejs</pre>
+
+<p>After installation, verify the Node.js version:</p>
+
+<pre>node --version
+# Expected output: v22.x.x or higher
+
+npm --version
+# Expected output: 10.x.x or higher</pre>
+
+<div class="callout warning">
+<strong>Warning:</strong> Do not use <code>sudo apt install nodejs</code> without adding the NodeSource repository first. The default Ubuntu/Debian repositories ship Node.js v12-v18, which is too old for OpenClaw and will cause immediate startup failures.
+</div>
+
+<h2>Step 3 — Install OpenClaw</h2>
+
+<p>With Node.js installed, you can now install OpenClaw using the npx command. This downloads the latest version and runs the interactive setup wizard that guides you through the initial configuration.</p>
+
+<pre>npx openclaw</pre>
+
+<p>The setup wizard will prompt you for several pieces of information:</p>
+
+<ol>
+<li><strong>Installation directory</strong> — Where to store OpenClaw files (default: <code>~/openclaw</code>)</li>
+<li><strong>LLM provider</strong> — Choose between OpenAI, Anthropic, Google, or others</li>
+<li><strong>API key</strong> — Your LLM provider API key</li>
+<li><strong>Agent name</strong> — The display name for your AI agent</li>
+<li><strong>Messaging channel</strong> — Which platform to connect (Telegram, Discord, etc.)</li>
+</ol>
+
+<p>The installation typically takes 2-3 minutes depending on your internet connection speed. OpenClaw downloads approximately 150 MB of dependencies during the first install.</p>
+
+<h2>Step 4 — Configure SOUL.md</h2>
+
+<p>SOUL.md is the heart of your OpenClaw agent. This Markdown file defines your agent's personality, knowledge base, communication style, and behavioral rules. After installation, you will find it in your OpenClaw directory.</p>
+
+<pre>cd ~/openclaw
+nano SOUL.md</pre>
+
+<p>A basic SOUL.md configuration looks like this:</p>
+
+<pre># Agent Identity
+You are Luna, a helpful AI assistant.
+
+## Personality
+- Friendly and professional
+- Concise but thorough
+- Uses plain language, avoids jargon
+
+## Knowledge
+- Expert in customer support
+- Familiar with our product catalog
+- Can process returns and exchanges
+
+## Rules
+- Never share internal pricing
+- Always escalate billing disputes to a human
+- Respond in the language the user writes in</pre>
+
+<p>The SOUL.md file supports full Markdown syntax and can be as simple or as detailed as you need. Many users start with a basic configuration and refine it over time as they observe how their agent responds. For more advanced configurations, see the official OpenClaw documentation on personality tuning.</p>
+
+<h2>Step 5 — Set Up Messaging Channel</h2>
+
+<p>OpenClaw supports multiple messaging platforms. The most common setup is Telegram because it offers a free, easy-to-create bot API. Here is how to connect Telegram:</p>
+
+<ol>
+<li>Open Telegram and search for <strong>@BotFather</strong></li>
+<li>Send <code>/newbot</code> and follow the prompts to create a bot</li>
+<li>Copy the bot token provided by BotFather</li>
+<li>Add the token to your OpenClaw configuration:</li>
+</ol>
+
+<pre>cd ~/openclaw
+nano .env
+
+# Add this line:
+TELEGRAM_BOT_TOKEN=your_bot_token_here</pre>
+
+<p>For Discord, you need to create a bot application at the Discord Developer Portal, enable the Message Content intent, and add the bot token to your <code>.env</code> file as <code>DISCORD_BOT_TOKEN</code>. WhatsApp integration requires a WhatsApp Business API account or a third-party bridge service.</p>
+
+<h2>Step 6 — Enable Auto-Start with systemd</h2>
+
+<p>To ensure OpenClaw starts automatically when your server boots (and restarts if it crashes), create a systemd service file. This is essential for production deployments where uptime matters.</p>
+
+<pre>sudo nano /etc/systemd/system/openclaw.service</pre>
+
+<p>Paste the following configuration, replacing <code>your_username</code> with your actual Linux username:</p>
+
+<pre>[Unit]
+Description=OpenClaw AI Agent
+After=network.target
+
+[Service]
+Type=simple
+User=your_username
+WorkingDirectory=/home/your_username/openclaw
+ExecStart=/usr/bin/node /home/your_username/openclaw/index.js
+Restart=always
+RestartSec=10
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target</pre>
+
+<p>Enable and start the service:</p>
+
+<pre>sudo systemctl daemon-reload
+sudo systemctl enable openclaw
+sudo systemctl start openclaw</pre>
+
+<p>Check that the service is running:</p>
+
+<pre>sudo systemctl status openclaw</pre>
+
+<p>You should see <code>active (running)</code> in the output. If the service fails to start, check the logs with <code>journalctl -u openclaw -f</code> for detailed error messages.</p>
+
+<h2>Step 7 — Verify Installation</h2>
+
+<p>The final step is to verify that everything is working. Send a test message to your bot on the messaging platform you configured. You should receive a response within a few seconds. If you connected Telegram, open the bot in your Telegram app and send "Hello" to confirm the agent responds.</p>
+
+<p>You can also verify the process is running and check resource usage:</p>
+
+<pre># Check if the process is running
+ps aux | grep openclaw
+
+# View real-time logs
+journalctl -u openclaw -f
+
+# Check memory and CPU usage
+htop</pre>
+
+<div class="callout tip">
+<strong>Success!</strong> If you see responses from your bot, congratulations — OpenClaw is installed and running on your Ubuntu/Debian server. Continue reading for performance tuning and security hardening tips.
+</div>
+
+<h2>Troubleshooting — Common Installation Issues</h2>
+
+<p>Even with careful setup, you may encounter issues during installation. The table below covers the most common errors reported by users installing OpenClaw on Ubuntu and Debian, along with their causes and solutions.</p>
+
+<table>
+<tr><th>Error</th><th>Cause</th><th>Solution</th></tr>
+<tr><td><code>npm ERR! engine</code></td><td>Node.js version too old</td><td>Install Node.js v22+ from NodeSource. Run <code>node --version</code> to verify.</td></tr>
+<tr><td><code>EACCES permission denied</code></td><td>npm global install as root</td><td>Never run <code>npx openclaw</code> with sudo. Run as regular user.</td></tr>
+<tr><td><code>ENOMEM</code> or <code>JavaScript heap out of memory</code></td><td>Not enough RAM</td><td>Add a 2 GB swap file (see Performance Tuning section below).</td></tr>
+<tr><td><code>ECONNREFUSED</code> on startup</td><td>API key invalid or expired</td><td>Check your <code>.env</code> file and verify the API key with your provider.</td></tr>
+<tr><td><code>409 Conflict</code> (Telegram)</td><td>Another bot instance running</td><td>Stop all other OpenClaw processes: <code>pkill -f openclaw</code>, then restart.</td></tr>
+<tr><td><code>Error: Cannot find module</code></td><td>Incomplete npm install</td><td>Delete <code>node_modules</code> and run <code>npm install</code> again.</td></tr>
+<tr><td>Bot not responding</td><td>Firewall blocking outbound</td><td>Allow outbound HTTPS: <code>sudo ufw allow out 443</code></td></tr>
+<tr><td><code>SIGKILL</code> in logs</td><td>OOM killer terminated process</td><td>Add swap, reduce memory usage, or upgrade VPS RAM.</td></tr>
+</table>
+
+<p>If your issue is not listed above, check the OpenClaw GitHub issues page or join the community Discord for help. When reporting issues, always include your Node.js version, operating system version, and the complete error message from the logs.</p>
+
+<h2>Performance Tuning</h2>
+
+<p>Out of the box, OpenClaw runs well on modest hardware. However, a few optimizations can significantly improve reliability and response times, especially on servers with limited RAM. These tuning steps are particularly important if you are running OpenClaw on a $4-6 per month VPS with only 1 GB of RAM.</p>
+
+<h3>Swap File Configuration</h3>
+
+<p>A swap file acts as overflow memory, preventing the Linux OOM killer from terminating OpenClaw when RAM is fully utilized. Even on servers with 2 GB of RAM, a swap file provides an important safety net during traffic spikes.</p>
+
+<pre>sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab</pre>
+
+<p>Verify the swap is active:</p>
+
+<pre>free -h
+# You should see 2.0G under Swap</pre>
+
+<h3>Process Manager — PM2</h3>
+
+<p>While systemd works well for basic setups, PM2 offers advanced features like cluster mode, log management, and automatic restart on memory limits. If you plan to run OpenClaw alongside other Node.js applications, PM2 is the better choice.</p>
+
+<pre>sudo npm install -g pm2
+cd ~/openclaw
+pm2 start index.js --name openclaw --max-memory-restart 300M
+pm2 save
+pm2 startup</pre>
+
+<p>The <code>--max-memory-restart 300M</code> flag automatically restarts the process if it exceeds 300 MB of memory, preventing gradual memory leaks from causing problems. PM2 also provides a built-in monitoring dashboard you can access with <code>pm2 monit</code>.</p>
+
+<h3>Memory Optimization</h3>
+
+<p>Reduce OpenClaw's memory footprint by adjusting the Node.js heap size and garbage collection settings:</p>
+
+<pre># Add to your systemd service or PM2 config:
+NODE_OPTIONS="--max-old-space-size=256 --optimize-for-size"</pre>
+
+<p>You can also limit the conversation history buffer in your OpenClaw configuration to prevent memory from growing unbounded over time. Keeping the last 50 messages per conversation is usually sufficient for context continuity.</p>
+
+<h3>Log Rotation</h3>
+
+<p>Without log rotation, OpenClaw's output logs can consume significant disk space over weeks and months. Configure logrotate to manage log files automatically:</p>
+
+<pre>sudo nano /etc/logrotate.d/openclaw</pre>
+
+<p>Add the following configuration:</p>
+
+<pre>/home/your_username/openclaw/logs/*.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 0640 your_username your_username
+}</pre>
+
+<p>If you are using PM2, it has built-in log rotation that you can enable with <code>pm2 install pm2-logrotate</code>.</p>
+
+<h2>Security Hardening</h2>
+
+<p>Running any internet-connected service requires attention to security. OpenClaw itself communicates outbound to messaging APIs and LLM providers, but your server is still exposed to the internet. Follow these steps to reduce your attack surface.</p>
+
+<h3>Firewall Configuration with UFW</h3>
+
+<p>UFW (Uncomplicated Firewall) is the simplest way to manage firewall rules on Ubuntu and Debian. Configure it to allow only SSH and block everything else inbound:</p>
+
+<pre>sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw enable</pre>
+
+<p>OpenClaw does not need any inbound ports open because it initiates outbound connections to messaging APIs. The only inbound port you need is SSH (port 22) for server management.</p>
+
+<h3>SSH Key Authentication</h3>
+
+<p>Disable password authentication and use SSH keys exclusively. This eliminates the most common attack vector against Linux servers:</p>
+
+<pre>sudo nano /etc/ssh/sshd_config
+
+# Change these settings:
+PasswordAuthentication no
+PubkeyAuthentication yes
+PermitRootLogin no
+
+# Restart SSH:
+sudo systemctl restart sshd</pre>
+
+<div class="callout warning">
+<strong>Warning:</strong> Before disabling password authentication, make sure you have already added your SSH public key to <code>~/.ssh/authorized_keys</code> and tested key-based login in a separate terminal. Locking yourself out of a remote server is difficult to recover from.
+</div>
+
+<h3>Automatic Security Updates</h3>
+
+<p>Enable unattended upgrades to automatically install critical security patches. This is especially important for servers that run continuously without regular manual maintenance:</p>
+
+<pre>sudo apt install -y unattended-upgrades
+sudo dpkg-reconfigure -plow unattended-upgrades</pre>
+
+<p>Select "Yes" when prompted. This configures your server to automatically download and install security updates daily without requiring manual intervention. Kernel updates that require a reboot will be downloaded but not applied until you manually reboot.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>What version of Ubuntu does OpenClaw support?</h3>
+<p>OpenClaw officially supports Ubuntu 22.04 LTS and Ubuntu 24.04 LTS, along with Debian 12. These are the distributions that the development team tests against regularly. Older versions like Ubuntu 20.04 may work if you manually install Node.js v22+, but they are not officially supported and you may encounter compatibility issues with older system libraries.</p>
+
+<h3>How much RAM does OpenClaw need on Ubuntu?</h3>
+<p>The minimum requirement is 1 GB of RAM, but 2 GB is strongly recommended for stable performance. With a 2 GB swap file configured, a 1 GB server can run OpenClaw reliably under normal load. If you expect heavy usage with many concurrent conversations, consider a VPS with 4 GB of RAM. See our <a href="/best-vps-for-openclaw">Best VPS for OpenClaw</a> guide for affordable hosting options.</p>
+
+<h3>Can I install OpenClaw without root access?</h3>
+<p>OpenClaw itself runs as a regular (non-root) user and does not require root privileges for its core functionality. However, you need sudo access during the installation process to install Node.js from NodeSource, configure the UFW firewall, create the systemd service file, and set up log rotation. On a managed hosting platform where you have Node.js v22+ pre-installed, you could potentially run OpenClaw without any root access at all.</p>
+
+<h3>Does OpenClaw work on ARM-based Ubuntu servers?</h3>
+<p>Yes, OpenClaw is fully compatible with ARM64 (aarch64) architecture. This includes Oracle Cloud free-tier ARM instances (which offer up to 4 ARM cores and 24 GB RAM for free), AWS Graviton instances, and even Raspberry Pi 4 or 5 running Ubuntu Server. Node.js provides native ARM64 builds, so performance is excellent on ARM hardware.</p>
+
+<h3>How do I update OpenClaw on Ubuntu?</h3>
+<p>Updating is straightforward. Navigate to your OpenClaw directory and run the update command. Your SOUL.md configuration, conversation history, and environment variables are preserved during updates:</p>
+<pre>cd ~/openclaw
+npx openclaw@latest</pre>
+<p>After updating, restart the service with <code>sudo systemctl restart openclaw</code> or <code>pm2 restart openclaw</code> depending on your process manager. Always check the release notes before updating in case there are breaking changes that require configuration adjustments.</p>
+
+<h3>Can I run multiple OpenClaw instances on one server?</h3>
+<p>Yes, you can run multiple instances on the same server, each with its own SOUL.md and messaging channel configuration. Create separate directories for each instance and use different systemd service names or PM2 process names. Each instance needs approximately 200-300 MB of RAM, so plan your server capacity accordingly.</p>
+
+<h3>What should I do if OpenClaw crashes repeatedly?</h3>
+<p>First, check the logs using <code>journalctl -u openclaw --since "1 hour ago"</code> to identify the error. The most common causes of crashes are insufficient memory (add a swap file), invalid API keys (check your .env file), and network connectivity issues. If the process is being killed by the OOM killer, you will see SIGKILL in the logs — upgrade your server RAM or optimize memory usage as described in the Performance Tuning section above.</p>
+
+<h2>Next Steps</h2>
+
+<p>Now that OpenClaw is installed and running on your Ubuntu or Debian server, here are some resources to help you get the most out of your AI agent:</p>
+
+<ul>
+<li><a href="/easysetup">OpenClaw EasySetup</a> — Automate future installations and updates with a single command</li>
+<li><a href="/best-vps-for-openclaw">Best VPS for OpenClaw</a> — Find affordable hosting optimized for AI agent workloads</li>
+<li><a href="/openclaw-cost-guide">OpenClaw Cost Guide</a> — Understand and optimize your monthly running costs including API fees</li>
+<li><a href="/faq/openclaw-vs-autogpt-vs-crewai">OpenClaw vs AutoGPT vs CrewAI</a> — See how OpenClaw compares to other AI agent frameworks</li>
+</ul>
+
+<div class="callout">
+<strong>Need help?</strong> If you get stuck at any point during the installation process, the OpenClaw community Discord is the fastest way to get help from experienced users. You can also open an issue on the OpenClaw GitHub repository for bugs or feature requests.
+</div>
+
+</div>
+</article>
+
+<footer class="footer"><div class="container"><p>&copy; 2026 <a href="/">OpenClaw Guide</a> &middot; Not affiliated with the OpenClaw project</p><p style="margin-top:8px"><a href="/">Home</a> &middot; <a href="/best-vps-for-openclaw">Best VPS</a> &middot; <a href="/openclaw-cost-guide">Cost Guide</a></p></div></footer>
+
+</body>
+</html>

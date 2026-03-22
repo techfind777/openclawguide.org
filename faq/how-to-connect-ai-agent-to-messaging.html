@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5TV5N7EZMJ"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-5TV5N7EZMJ');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Connect Your AI Agent to WhatsApp, Telegram & Discord — OpenClaw Guide</title>
+<meta name="description" content="Step-by-step guide to connecting your OpenClaw AI agent to WhatsApp, Telegram, Discord, and Slack. Bot setup, token configuration, and platform comparison.">
+<meta name="keywords" content="OpenClaw Telegram, OpenClaw Discord, OpenClaw WhatsApp, OpenClaw Slack, AI agent messaging, connect AI bot, OpenClaw integrations">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://openclawguide.org/faq/how-to-connect-ai-agent-to-messaging">
+<link rel="alternate" hreflang="en" href="https://openclawguide.org/faq/how-to-connect-ai-agent-to-messaging">
+<link rel="alternate" hreflang="x-default" href="https://openclawguide.org/faq/how-to-connect-ai-agent-to-messaging">
+<meta property="og:title" content="How to Connect Your AI Agent to WhatsApp, Telegram & Discord">
+<meta property="og:description" content="Step-by-step guide to connecting your OpenClaw AI agent to WhatsApp, Telegram, Discord, and Slack.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://openclawguide.org/faq/how-to-connect-ai-agent-to-messaging">
+<meta property="og:image" content="https://openclawguide.org/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Connect Your AI Agent to WhatsApp, Telegram & Discord">
+<meta name="twitter:description" content="Step-by-step guide to connecting your OpenClaw AI agent to WhatsApp, Telegram, Discord, and Slack.">
+<meta name="twitter:image" content="https://openclawguide.org/og-image.png">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Connect Your AI Agent to Messaging Platforms",
+    "description": "Step-by-step guide to connecting your OpenClaw AI agent to WhatsApp, Telegram, Discord, and Slack.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Choose a messaging platform",
+        "text": "Decide which messaging platform to connect your AI agent to based on your audience and requirements. Telegram is fastest to set up, while WhatsApp is best for business use."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Create a bot on your chosen platform",
+        "text": "For Telegram, message @BotFather. For Discord, visit the Developer Portal. For WhatsApp, set up the Business API. For Slack, create a Slack App."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Obtain your bot token or API credentials",
+        "text": "Each platform provides a unique token or set of credentials after bot creation. Copy and securely store these credentials."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Configure OpenClaw with your credentials",
+        "text": "Use the openclaw config command to set your platform token, for example: openclaw config set telegram.token YOUR_TOKEN"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Test and verify the connection",
+        "text": "Send a test message to your bot and verify that your OpenClaw AI agent responds correctly."
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I connect my OpenClaw AI agent to multiple platforms at once?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. OpenClaw supports simultaneous connections to Telegram, Discord, WhatsApp, Slack, and other platforms. Each platform runs as a separate adapter, so you can have your agent active on all channels at the same time without conflicts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which messaging platform is easiest to connect to OpenClaw?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Telegram is the easiest and fastest platform to connect. You can create a bot with @BotFather in under 5 minutes and configure it in OpenClaw with a single command."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a phone number for WhatsApp Business API?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The official WhatsApp Business API requires a dedicated phone number that is not already registered with a personal WhatsApp account. However, you can also use the Baileys library for a lighter integration using QR code authentication."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are there any API costs for connecting to messaging platforms?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Telegram, Discord, and Slack bot APIs are free to use. WhatsApp Business API is free for the first 1,000 conversations per month, then charges per conversation. The AI model API costs (for generating responses) are separate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if my VPS goes offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If your VPS goes offline, your bot will stop responding on all connected platforms. Messages sent while offline will be queued by most platforms (Telegram, Slack) and delivered when the bot reconnects. Discord may drop messages. Use a process manager like PM2 to auto-restart your agent."
+        }
+      }
+    ]
+  }
+]
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1a1a2e;line-height:1.8;background:#fafbfc}
+a{color:#e94560;text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+.container{max-width:800px;margin:0 auto;padding:0 24px}
+nav{background:#0f3460;padding:12px 0}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+nav a{color:white;font-weight:700;font-size:18px}
+nav a:hover{text-decoration:none}
+nav ul{list-style:none;display:flex;gap:20px}
+nav ul a{color:rgba(255,255,255,0.85);font-size:14px;font-weight:500}
+.hero-sm{background:linear-gradient(135deg,#0f3460,#16213e);color:white;padding:50px 0 40px;text-align:center}
+.hero-sm h1{font-size:clamp(24px,4vw,38px);margin-bottom:8px}
+.hero-sm p{opacity:0.85;font-size:16px}
+article{padding:40px 0 60px}
+article h2{font-size:26px;color:#0f3460;margin:40px 0 16px;padding-top:20px;border-top:1px solid #eee}
+article h3{font-size:20px;color:#16213e;margin:24px 0 12px}
+article p{margin-bottom:16px;color:#333}
+article ul,article ol{margin:0 0 16px 24px;color:#333}
+article li{margin-bottom:8px}
+code{background:#e8f0fe;padding:2px 6px;border-radius:4px;font-size:14px}
+pre{background:#1a1a2e;color:#e0e0e0;padding:16px;border-radius:8px;overflow-x:auto;margin:16px 0;font-size:13px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+th{background:#0f3460;color:white;padding:12px;text-align:left}
+td{padding:10px 12px;border-bottom:1px solid #eee}
+tr:hover{background:#f8f9fa}
+.callout{background:#f0f7ff;border-left:4px solid #0f3460;padding:16px 20px;border-radius:0 8px 8px 0;margin:20px 0}
+.callout.tip{background:#d4edda;border-color:#28a745}
+.callout.warning{background:#fff3cd;border-color:#ffc107}
+.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;font-size:15px;background:#e94560;color:white;transition:transform 0.2s}
+.btn:hover{transform:translateY(-2px);text-decoration:none}
+.footer{background:#16213e;color:rgba(255,255,255,0.7);padding:40px 0;text-align:center;font-size:14px}
+.footer a{color:#e94560}
+</style>
+</head>
+<body>
+
+<nav><div class="container"><a href="/">&#x1F99E; OpenClaw Guide</a><ul><li><a href="/best-vps-for-openclaw">Best VPS</a></li><li><a href="/#guides">Guides</a></li><li><a href="/easysetup">EasySetup</a></li></ul></div></nav>
+
+<div class="hero-sm">
+<div class="container">
+<h1>How to Connect Your AI Agent to WhatsApp, Telegram & Discord</h1>
+<p>Step-by-step setup for every major messaging platform in 2026</p>
+</div>
+</div>
+
+<article>
+<div class="container">
+
+<h2>Why Multi-Channel Messaging Matters for AI Agents</h2>
+
+<p>Your AI agent is only as useful as the channels it can reach. Building a powerful agent with <a href="/easysetup">OpenClaw</a> is just the first step. The real value comes when your users can interact with that agent on the platforms they already use every day, whether that is Telegram, Discord, WhatsApp, Slack, or even Signal.</p>
+
+<p>Multi-channel deployment offers several key advantages. First, you meet your users where they are instead of forcing them to visit a separate interface. Second, you increase engagement because people are far more likely to message a bot in their favorite chat app than to open a web dashboard. Third, you can serve different audiences on different platforms. A developer community thrives on Discord, a business client prefers WhatsApp, and an internal team works in Slack.</p>
+
+<p>OpenClaw makes multi-channel deployment straightforward. Each messaging platform is handled by a dedicated adapter that runs independently, so you can connect to all five major platforms simultaneously without any conflicts. In this guide, we will walk through the setup for each platform in detail, compare their capabilities, and help you choose the right channels for your use case.</p>
+
+<div class="callout tip">
+<strong>Tip:</strong> If you have not set up OpenClaw yet, start with the <a href="/easysetup">EasySetup guide</a> first. You will need a running OpenClaw instance before connecting any messaging platform.
+</div>
+
+<h2>Platform Comparison: Which Messaging App Should You Choose?</h2>
+
+<p>Before diving into setup instructions, it helps to understand what each platform offers. The table below compares all five supported messaging platforms across the dimensions that matter most for AI agent deployment.</p>
+
+<table>
+<thead>
+<tr><th>Platform</th><th>Setup Time</th><th>Bot Limit</th><th>File Sharing</th><th>Group Support</th><th>API Cost</th><th>Best For</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Telegram</strong></td><td>5 min</td><td>Unlimited</td><td>Yes</td><td>Yes</td><td>Free</td><td>Power users</td></tr>
+<tr><td><strong>Discord</strong></td><td>10 min</td><td>1 per app</td><td>Yes</td><td>Yes</td><td>Free</td><td>Communities</td></tr>
+<tr><td><strong>WhatsApp</strong></td><td>15 min</td><td>1 number</td><td>Limited</td><td>Yes</td><td>Free*</td><td>Business</td></tr>
+<tr><td><strong>Slack</strong></td><td>10 min</td><td>Unlimited</td><td>Yes</td><td>Yes</td><td>Free</td><td>Workspace</td></tr>
+<tr><td><strong>Signal</strong></td><td>20 min</td><td>1 number</td><td>Limited</td><td>No</td><td>Free</td><td>Privacy</td></tr>
+</tbody>
+</table>
+
+<p><em>* WhatsApp Business API is free for the first 1,000 conversations per month. Beyond that, Meta charges per conversation depending on your region.</em></p>
+
+<p>For most people starting out, <strong>Telegram is the best first choice</strong> because it has the fastest setup, no bot limits, and a rich API. If you are building for a gaming or developer community, Discord is ideal. For customer-facing business use cases, WhatsApp has the broadest reach. And for internal teams, Slack is the natural fit.</p>
+
+<h2>Telegram Setup: The Fastest Path to a Live AI Bot</h2>
+
+<p>Telegram is the most popular platform for AI agent deployment, and for good reason. The Bot API is completely free, setup takes under five minutes, and you can create as many bots as you want. Here is the complete walkthrough.</p>
+
+<h3>Step 1: Create Your Bot with BotFather</h3>
+
+<p>Open Telegram and search for <code>@BotFather</code>. This is Telegram's official bot for creating and managing bots. Send it the <code>/newbot</code> command to start.</p>
+
+<pre>You: /newbot
+BotFather: Alright, a new bot. How are we going to call it?
+You: My OpenClaw Agent
+BotFather: Good. Now let's choose a username for your bot.
+You: myopenclawagent_bot
+BotFather: Done! Your new bot is created. Use this token to access the HTTP API:
+7123456789:AAH1kj2h3kj4h5kj6h7kj8h9kj0h1kj2h3</pre>
+
+<p>The username must end in <code>_bot</code> or <code>Bot</code>. Choose something memorable because users will search for this name to find your agent.</p>
+
+<h3>Step 2: Get and Secure Your Bot Token</h3>
+
+<p>BotFather will give you a token that looks like <code>7123456789:AAH1kj2h3...</code>. This token is essentially the password for your bot. Anyone who has it can control your bot, so treat it like a secret. Never commit it to a public repository or share it in a chat.</p>
+
+<div class="callout warning">
+<strong>Warning:</strong> If your token is ever exposed, immediately go back to @BotFather and use <code>/revoke</code> to generate a new one. The old token will stop working instantly.
+</div>
+
+<h3>Step 3: Configure OpenClaw</h3>
+
+<p>With your token in hand, configure OpenClaw to use it. Run the following command on your <a href="/best-vps-for-openclaw">VPS</a>:</p>
+
+<pre>openclaw config set telegram.token YOUR_TOKEN_HERE</pre>
+
+<p>You can also configure optional settings like the welcome message, allowed user IDs (for private bots), and group behavior:</p>
+
+<pre># Set a custom welcome message
+openclaw config set telegram.welcomeMessage "Hello! I'm your AI assistant. How can I help?"
+
+# Restrict to specific users (optional)
+openclaw config set telegram.allowedUsers "user_id_1,user_id_2"
+
+# Enable group mode
+openclaw config set telegram.groupMode true</pre>
+
+<h3>Step 4: Start and Test the Connection</h3>
+
+<p>Restart OpenClaw to apply the new configuration:</p>
+
+<pre>openclaw restart</pre>
+
+<p>Now open Telegram and send a message to your bot. You should see a response within a few seconds. If you do not, check the OpenClaw logs with <code>openclaw logs</code> to diagnose the issue.</p>
+
+<h2>Discord Setup: Building a Bot for Your Community</h2>
+
+<p>Discord is the go-to platform for community-driven AI agents. Whether you are running a support server, a developer community, or a gaming guild, a Discord bot powered by OpenClaw can handle questions, moderate conversations, and provide real-time assistance.</p>
+
+<h3>Step 1: Create a Discord Application</h3>
+
+<p>Go to the <a href="https://discord.com/developers/applications" rel="nofollow">Discord Developer Portal</a> and click "New Application." Give it a name like "OpenClaw Agent" and accept the terms of service.</p>
+
+<h3>Step 2: Create the Bot and Get Your Token</h3>
+
+<p>In your new application, navigate to the "Bot" section in the left sidebar. Click "Add Bot" and confirm. You will see a "Token" section. Click "Reset Token" to generate a new one, and copy it immediately. Discord only shows the full token once.</p>
+
+<p>While you are in the bot settings, configure these important options:</p>
+
+<ul>
+<li><strong>Public Bot:</strong> Turn this off if you only want the bot in your own servers.</li>
+<li><strong>Message Content Intent:</strong> Turn this on. Your bot needs to read message content to respond to users.</li>
+<li><strong>Server Members Intent:</strong> Turn this on if your bot needs to track who is in the server.</li>
+</ul>
+
+<h3>Step 3: Set Permissions and Invite the Bot</h3>
+
+<p>Go to the "OAuth2" section and select "URL Generator." Under scopes, check <code>bot</code> and <code>applications.commands</code>. Under bot permissions, select:</p>
+
+<ul>
+<li>Send Messages</li>
+<li>Read Message History</li>
+<li>Embed Links</li>
+<li>Attach Files</li>
+<li>Use Slash Commands</li>
+<li>Add Reactions</li>
+</ul>
+
+<p>Copy the generated URL and open it in your browser. Select the server where you want to add the bot and authorize it.</p>
+
+<h3>Step 4: Configure in OpenClaw</h3>
+
+<pre># Set the Discord bot token
+openclaw config set discord.token YOUR_DISCORD_TOKEN
+
+# Set the bot to respond in specific channels only (optional)
+openclaw config set discord.channels "general,support,ai-help"
+
+# Enable slash commands
+openclaw config set discord.slashCommands true</pre>
+
+<p>Restart OpenClaw with <code>openclaw restart</code> and test by sending a message in one of the configured channels. The bot should respond within seconds.</p>
+
+<h2>WhatsApp Setup: Reaching Business Customers</h2>
+
+<p>WhatsApp is the world's most popular messaging app with over 2 billion users. Connecting your OpenClaw agent to WhatsApp is ideal for customer support, sales inquiries, and appointment booking. There are two approaches: the official WhatsApp Business API and the lighter Baileys library.</p>
+
+<h3>Option A: WhatsApp Business API (Recommended for Production)</h3>
+
+<p>The official API is the reliable, scalable choice. You will need a Meta Business account and a dedicated phone number.</p>
+
+<ol>
+<li><strong>Create a Meta Business account</strong> at business.facebook.com if you do not have one.</li>
+<li><strong>Set up a WhatsApp Business Platform app</strong> in the Meta Developer Dashboard.</li>
+<li><strong>Register a phone number</strong> that is not already linked to any WhatsApp account.</li>
+<li><strong>Get your API credentials:</strong> You will receive a Phone Number ID, WhatsApp Business Account ID, and a permanent access token.</li>
+</ol>
+
+<pre># Configure WhatsApp Business API in OpenClaw
+openclaw config set whatsapp.provider "business-api"
+openclaw config set whatsapp.phoneNumberId "YOUR_PHONE_NUMBER_ID"
+openclaw config set whatsapp.businessAccountId "YOUR_BUSINESS_ACCOUNT_ID"
+openclaw config set whatsapp.accessToken "YOUR_ACCESS_TOKEN"</pre>
+
+<h3>Option B: Baileys Library (Quick and Free)</h3>
+
+<p>Baileys is an open-source library that connects to WhatsApp Web via QR code scanning. It is easier to set up but less stable for high-volume use.</p>
+
+<pre># Enable Baileys mode
+openclaw config set whatsapp.provider "baileys"
+
+# Start and scan the QR code
+openclaw restart</pre>
+
+<p>After restarting, OpenClaw will display a QR code in the terminal. Scan it with your phone's WhatsApp app (Settings > Linked Devices > Link a Device). Once linked, your AI agent will respond to incoming messages on that WhatsApp number.</p>
+
+<div class="callout warning">
+<strong>Warning:</strong> Baileys uses an unofficial API. WhatsApp may temporarily block your number if you send too many messages too quickly. Use the Business API for production deployments.
+</div>
+
+<h2>Slack Setup: AI for Your Workspace</h2>
+
+<p>Slack is where teams communicate, making it an ideal platform for an internal AI assistant. Your OpenClaw agent can answer questions, summarize documents, pull data from integrations, and automate workflows, all within your Slack workspace.</p>
+
+<h3>Step 1: Create a Slack App</h3>
+
+<p>Go to <a href="https://api.slack.com/apps" rel="nofollow">api.slack.com/apps</a> and click "Create New App." Choose "From scratch," give it a name like "OpenClaw Agent," and select your workspace.</p>
+
+<h3>Step 2: Configure OAuth Permissions</h3>
+
+<p>Navigate to "OAuth & Permissions" in the sidebar. Under "Bot Token Scopes," add the following permissions:</p>
+
+<ul>
+<li><code>app_mentions:read</code> - to respond when mentioned</li>
+<li><code>chat:write</code> - to send messages</li>
+<li><code>channels:history</code> - to read channel messages</li>
+<li><code>groups:history</code> - to read private channel messages</li>
+<li><code>im:history</code> - to read direct messages</li>
+<li><code>files:read</code> - to access shared files</li>
+<li><code>users:read</code> - to identify who is messaging</li>
+</ul>
+
+<h3>Step 3: Enable Event Subscriptions</h3>
+
+<p>Go to "Event Subscriptions" and turn it on. Set the Request URL to your OpenClaw instance's webhook endpoint, typically <code>https://your-domain.com/webhook/slack</code>. Subscribe to these bot events: <code>app_mention</code>, <code>message.channels</code>, <code>message.groups</code>, and <code>message.im</code>.</p>
+
+<h3>Step 4: Install to Workspace and Configure OpenClaw</h3>
+
+<p>Click "Install to Workspace" and authorize the app. Copy the Bot User OAuth Token (starts with <code>xoxb-</code>) and the Signing Secret from the app's Basic Information page.</p>
+
+<pre># Configure Slack in OpenClaw
+openclaw config set slack.botToken "xoxb-YOUR-BOT-TOKEN"
+openclaw config set slack.signingSecret "YOUR_SIGNING_SECRET"
+openclaw config set slack.appToken "xapp-YOUR-APP-TOKEN"
+
+# Restart to apply
+openclaw restart</pre>
+
+<p>Test by mentioning your bot in any channel: <code>@OpenClaw Agent what is the weather today?</code></p>
+
+<h2>Message Limits and Platform Capabilities Compared</h2>
+
+<p>Each platform has different constraints on message length, file uploads, rate limits, and rich media support. Understanding these limits is crucial for designing your agent's responses appropriately.</p>
+
+<table>
+<thead>
+<tr><th>Platform</th><th>Max Message Length</th><th>File Size Limit</th><th>Rate Limit</th><th>Rich Media</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Telegram</strong></td><td>4,096 chars</td><td>50 MB (bot) / 2 GB (user)</td><td>30 msgs/sec</td><td>Buttons, images, documents, audio, video</td></tr>
+<tr><td><strong>Discord</strong></td><td>2,000 chars</td><td>25 MB (free) / 500 MB (Nitro)</td><td>5 msgs/5 sec</td><td>Embeds, images, reactions, threads</td></tr>
+<tr><td><strong>WhatsApp</strong></td><td>65,536 chars</td><td>16 MB (media) / 100 MB (docs)</td><td>80 msgs/sec (API)</td><td>Buttons, lists, images, documents</td></tr>
+<tr><td><strong>Slack</strong></td><td>40,000 chars</td><td>1 GB (paid plans)</td><td>1 msg/sec per channel</td><td>Blocks, attachments, threads, reactions</td></tr>
+<tr><td><strong>Signal</strong></td><td>65,536 chars</td><td>100 MB</td><td>Unspecified</td><td>Images, documents, reactions</td></tr>
+</tbody>
+</table>
+
+<p>Notice that Discord has the shortest message limit at 2,000 characters. If your AI agent generates long responses, you will need to either truncate them or split them into multiple messages. Telegram's 4,096-character limit is usually sufficient for most responses, and WhatsApp's generous 65,536-character limit means you rarely need to worry about length.</p>
+
+<div class="callout">
+<strong>Pro tip:</strong> Configure your AI model's <code>maxTokens</code> parameter to stay within your platform's message limit. For Discord, set it to around 400 tokens. For Telegram, 800 tokens is a safe maximum. This prevents responses from being cut off mid-sentence.
+</div>
+
+<h2>Troubleshooting Common Connection Issues</h2>
+
+<p>Even with careful setup, things can go wrong. Here are the most common issues and how to fix them.</p>
+
+<h3>Bot Does Not Respond to Messages</h3>
+
+<p>This is the number one issue new users encounter. Check these items in order:</p>
+
+<ol>
+<li><strong>Verify your token is correct:</strong> Run <code>openclaw config get telegram.token</code> (or the relevant platform) and confirm it matches what you were given.</li>
+<li><strong>Check that OpenClaw is running:</strong> Run <code>openclaw status</code> to see if the service is active.</li>
+<li><strong>Review the logs:</strong> Run <code>openclaw logs --tail 50</code> and look for error messages related to authentication or connection failures.</li>
+<li><strong>Check your firewall:</strong> Ensure your VPS allows outbound HTTPS connections on port 443. Some platforms also require specific inbound webhook ports.</li>
+<li><strong>Verify your AI model is configured:</strong> The messaging adapter connects the platform to OpenClaw, but you also need a working AI model. Check with <code>openclaw config get model</code>.</li>
+</ol>
+
+<h3>Messages Are Delayed by Several Seconds</h3>
+
+<p>Some delay is normal because the AI model needs time to generate a response. However, if delays exceed 10 seconds, the issue is likely your <a href="/best-vps-for-openclaw">VPS performance</a> or the AI model's response time. Try switching to a faster model like <code>deepseek-chat</code> or upgrading your VPS. See the <a href="/openclaw-cost-guide">cost guide</a> for a detailed breakdown of model speeds and prices.</p>
+
+<h3>Bot Works in DMs but Not in Groups</h3>
+
+<p>For Telegram, ensure that "Group Privacy" is disabled in BotFather settings (<code>/mybots</code> > your bot > Bot Settings > Group Privacy > Turn off). For Discord, check that the bot has the correct channel permissions. For Slack, make sure you subscribed to <code>message.channels</code> events, not just <code>app_mention</code>.</p>
+
+<h3>WhatsApp QR Code Keeps Expiring</h3>
+
+<p>If you are using the Baileys method and the QR code expires before you scan it, restart OpenClaw and scan quickly. QR codes are only valid for about 20 seconds. If it keeps failing, your phone might have an outdated WhatsApp version. Update WhatsApp and try again.</p>
+
+<h3>Rate Limiting and Temporary Bans</h3>
+
+<p>If your bot sends too many messages too quickly, platforms will throttle or temporarily block it. This is especially common on WhatsApp when using Baileys. Implement rate limiting in your OpenClaw configuration:</p>
+
+<pre># Set global rate limiting
+openclaw config set rateLimit.messagesPerMinute 20
+openclaw config set rateLimit.messagesPerHour 200</pre>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Can I connect my OpenClaw AI agent to multiple platforms at once?</h3>
+
+<p>Yes. OpenClaw supports simultaneous connections to Telegram, Discord, WhatsApp, Slack, and other platforms. Each platform runs as a separate adapter, so you can have your agent active on all channels at the same time without conflicts. Simply configure the tokens for each platform and restart OpenClaw. Your agent will begin listening on all configured channels automatically.</p>
+
+<h3>Which messaging platform is easiest to connect to OpenClaw?</h3>
+
+<p>Telegram is the easiest and fastest platform to connect. You can create a bot with @BotFather in under five minutes and configure it in OpenClaw with a single command. Discord is a close second, though it requires a few more steps in the Developer Portal. WhatsApp takes the longest due to Business API verification requirements.</p>
+
+<h3>Do I need a phone number for WhatsApp Business API?</h3>
+
+<p>Yes. The official WhatsApp Business API requires a dedicated phone number that is not already registered with a personal WhatsApp account. You can use a virtual phone number from providers like Twilio or MessageBird. If you prefer a simpler approach, the Baileys method lets you link your existing personal WhatsApp number via QR code, though this is not recommended for production use.</p>
+
+<h3>Are there any API costs for connecting to messaging platforms?</h3>
+
+<p>Telegram, Discord, and Slack bot APIs are completely free to use with no message limits that would affect most users. WhatsApp Business API is free for the first 1,000 conversations per month, then charges between $0.005 and $0.08 per conversation depending on your region and conversation type. Note that the AI model API costs for generating responses are separate from platform fees. See our <a href="/openclaw-cost-guide">cost guide</a> for full AI model pricing details.</p>
+
+<h3>What happens if my VPS goes offline?</h3>
+
+<p>If your <a href="/best-vps-for-openclaw">VPS</a> goes offline, your bot will stop responding on all connected platforms. Most platforms handle this gracefully: Telegram queues messages and delivers them when the bot reconnects, Slack does the same, and WhatsApp holds messages for up to 30 days. Discord may drop messages that arrive while the bot is offline. To minimize downtime, use a process manager like PM2 (<code>pm2 start openclaw</code>) to auto-restart your agent if it crashes, and consider a VPS provider with strong uptime guarantees.</p>
+
+<h3>Can I restrict my bot to respond only to certain users?</h3>
+
+<p>Yes. OpenClaw supports allowlists for all platforms. You can configure specific user IDs, group IDs, or channel IDs that the bot should respond to. All other messages will be ignored. This is useful for private assistants or internal company bots.</p>
+
+<h3>How do I update my bot's personality across all platforms?</h3>
+
+<p>Your bot's personality is defined by the system prompt in OpenClaw's configuration, not by the platform adapter. Change it once with <code>openclaw config set systemPrompt "Your new prompt here"</code> and restart. The updated personality will apply to all connected platforms simultaneously.</p>
+
+<h2>Next Steps and Related Guides</h2>
+
+<p>Now that you know how to connect your AI agent to messaging platforms, here are some resources to take your setup further:</p>
+
+<ul>
+<li><a href="/easysetup">EasySetup Guide</a> - Get OpenClaw running in under 5 minutes</li>
+<li><a href="/integrations/openclaw-telegram">OpenClaw Telegram Integration</a> - Deep dive into Telegram-specific features</li>
+<li><a href="/integrations/openclaw-discord">OpenClaw Discord Integration</a> - Advanced Discord bot configuration</li>
+<li><a href="/integrations/openclaw-whatsapp">OpenClaw WhatsApp Integration</a> - WhatsApp Business API details</li>
+<li><a href="/integrations/openclaw-slack">OpenClaw Slack Integration</a> - Slack app best practices</li>
+<li><a href="/best-vps-for-openclaw">Best VPS for OpenClaw</a> - Choose the right server for your agent</li>
+<li><a href="/openclaw-cost-guide">OpenClaw Cost Guide</a> - Understand the full cost of running your agent</li>
+</ul>
+
+<p style="text-align:center;margin-top:30px"><a href="/easysetup" class="btn">Set Up OpenClaw Now</a></p>
+
+</div>
+</article>
+
+<footer class="footer"><div class="container"><p>&copy; 2026 <a href="/">OpenClaw Guide</a> &middot; Not affiliated with the OpenClaw project</p><p style="margin-top:8px"><a href="/">Home</a> &middot; <a href="/best-vps-for-openclaw">Best VPS</a> &middot; <a href="/openclaw-cost-guide">Cost Guide</a></p></div></footer>
+
+</body>
+</html>
